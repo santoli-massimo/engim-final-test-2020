@@ -14,3 +14,38 @@ body{
 .page:first-child{
     display: block;
 }
+
+
+#santoli15{
+    margin: 30 ;
+    border: solid blue 1px;
+    background: antiquewhite;
+    width: 404px;
+    height: 404px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    
+}
+
+
+#santoli15 .square {
+    margin: 1px;
+    border-radius:3px;
+    background: white;
+    width: 97px;
+    height: 97px;
+    text-align: center;
+    font: 32px bold;
+}
+
+#santoli15 .square img{
+    width: 100%;
+    height: 100%;
+    border-radius:3px;
+
+}
+
+#santoli15 .void {
+    background: antiquewhite;
+}
