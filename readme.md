@@ -10,7 +10,6 @@ Al cambio del valore dell input il font dell intera applicazione cambia.
 +10p se clicco su un elemento cambia il font solo all elemento cliccato. Limtare questo effetto ad una sola pagina.
 
 
-
 ### Carousel (60p-70p) natascia
 Creare un div con dentro un immagine. 
 L'immagine cambia ogni 3 secondi
@@ -59,8 +58,6 @@ L'utente non vede i numeri che l'avversario artificiale inserisce ma solo quanti
 
 +10 l'avversario artificiale ad ogni turno sa se il numero da indovinare e piu grande o piu piccolo di quello che ha inserito.
 Di conseguenza restringe il campo ogni volta.
-
-
 
 
 ### Cronometro (70-75p)
@@ -122,7 +119,6 @@ Ogni card deve contenere almeno un immagine ed un testo.
 +5p Campo di testo che filtra la lista
  
  
- 
 ### Tabella da lista di oggetti Advanced(80p-90p) Noemi Ena
 BASE DA CUI PARTIRE: 'Tabella da lista di oggetti' + bonus 'Campo di testo che filtra la tabella'.
 Rendere gli elementi selezionabili: cliccando su una riga la riga cambia stile.
@@ -143,12 +139,8 @@ Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-<<<<<<< HEAD
 ### Validazione form(80-95p) Sefora
-=======
 
-### Validazione form(80p) Sefora
->>>>>>> d5cd2316e1e052f7211d98e4ccd2b36da4ccf097
 Creare un form con almeno 2 campi di testo, un input di tipo select, un input di tipo checkbox ed un input di tipo radio.
 Al click del bottone eseguire la validazione del form controllando unicamente che i campi sano stati inseriti tutti.
 Nel caso i campi siano stati tutti inseriti mostrare un mesaggio di successo altrimenti mostrare un messaggio di errore sotto ad ogni campo non corretto.
@@ -224,20 +216,14 @@ Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei botton
 +5p Inserire delle miniature di tutte le immagini sotto al carousel, Cliccando su una miniatura il carousel va a all'immmagine corrispondente e continua da quell'immagine.
 
 
-
 ### Prendi il div!(100p) Alessio
 Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
 Il div si muove casualmente e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
-<<<<<<< HEAD
 
-
-### Scappa dal div! (100p) - Francesco
-=======
 ### Scappa dal div! (100p) - Francesco Ponzin
->>>>>>> d5cd2316e1e052f7211d98e4ccd2b36da4ccf097
 Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
 Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a non toccare il div col puntatore.
