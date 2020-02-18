@@ -17,7 +17,7 @@ L'immagine cambia ogni 3 secondi
 +5p Creare un bottone che inverte in qualsiasi momento la direzione.
 
 
-### Calcolatrice (60p-70p)
+### Calcolatrice (60p-70p) Stefania
 Creare una interfaccia con bottoni simile a quelli di una calcolatrice:
 - Cifre da 1 a 9
 - Operazioni + - * /
