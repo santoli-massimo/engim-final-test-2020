@@ -153,6 +153,8 @@ Il div si muove casualmente e velocemente all interno dell'area di gioco.
 L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
+### Scappa dal div! (100p) - Francesco
+
 
 ### Memory (100p)
 Creare il gioco del memory con almeno 16 carte.
