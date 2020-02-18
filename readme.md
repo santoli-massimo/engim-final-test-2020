@@ -126,7 +126,7 @@ Alla pressione del bottone si crea un nuovo campo di input testuale in cui l'ute
 Ogni pressione successiva del bottone aggiungera un ulteriore input (solo se l'input indirizzo precendete non risulta vuoto).
 
 
-### Aggiungi record a tabella(90p)
+### Aggiungi record a tabella(90p) - LUCA
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Crare un form che al submit aggiunga un record alla lista di oggetti e aggiorni la tabella.
 
