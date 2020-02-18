@@ -28,7 +28,7 @@ La calcolatrice esegue le operazioni su 2 numeri
 +5p La calcolatrice continua a prendere valori e da il risultato solo quando si schiaccia il taso '='
 
 
-### Zoom immagine (70p-80p)
+### Zoom immagine (70p-80p) Cristina
 Creare un div con dentro un immagine. Creare i tasti: giu, su, destra, sinistra, zoom+, zoom-
 il tasto zoom ingrandisce l'immagine i tasti direzionali la spostano.
 +5p l'immagine si sposta trascinando e zoom+,zoom- con la rotella del mouse
@@ -151,7 +151,7 @@ Aggiugere un tasto avanti ed uno indietro e uno pausa. Il tasto avanti e indietr
 Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei bottoni avanti e indietro.
 
 
-### Prendi il div!(100p)
+### Prendi il div!(100p) Alessio
 Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
 Il div si muove casualmente e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a cliccarlo.
