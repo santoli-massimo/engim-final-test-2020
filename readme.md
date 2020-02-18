@@ -10,7 +10,7 @@ Creare una input di tipo select le opzioni saranno nomi di diversi tipi di font.
 Al cambio del valore dell input il font dell intera applicazione cambia.
 
 
-### Carousel (60p-70p)
+### Carousel (60p-70p) natascia
 Creare un div con dentro un immagine. 
 L'immagine cambia ogni 3 secondi
 +5p ricomincia da capo quando arriva all'ultima immagine
