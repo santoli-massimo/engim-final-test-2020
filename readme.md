@@ -114,7 +114,7 @@ Create un paragrafo con un testo di almeno 100 caratteri, un input di tipo testo
 Ogni volta che viene inserito o cancellato un carattere nell input colorare(o mettere in grassetto) tutte le occorrenze nel testo se presenti.
 
 
-### Validazione form con E-Mail(85p)
+### Validazione form con E-Mail(85p) Mooo
 BASE DA CUI PARTIRE: esercizio 'Validazione form'
 Aggiungere un campo email e eseguire oltre al controllo base controllare anche che il valore inserito abbia la struttura di un indirizzo email
 
