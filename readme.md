@@ -141,7 +141,7 @@ BASE DA CUI PARTIRE: Lista di card da lista di oggetti.
 Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
 
 
-### Carousel con tasti(80p)
+### Carousel con tasti(80p) Alberto
 BASE DA CUI PARTIRE: Carousel.
 Aggiugere un tasto avanti ed uno indietro e uno pausa. Il tasto avanti e indietro portano all'immagine succesiva/precedente indipendetemente dall avanzamento automatico.
 Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei bottoni avanti e indietro.
