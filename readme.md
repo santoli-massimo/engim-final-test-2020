@@ -66,7 +66,7 @@ Quando l'utente riesce a cliccare l'immagine corretta il carousel ritorna allo s
 +10p tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
 
-### 8-bit (70p-80p)
+### 8-bit (70p-80p) Christian
 Creare una griglia di almeno 8*8, ed un input di tipo colore, un tasto reset.
 quando clicco su un quadrato della griglia prende il colore selezionato in quel momento dall input di tipo colore
 il tasto reset riporta tutto allo stato iniziale
