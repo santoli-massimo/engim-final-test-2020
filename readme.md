@@ -143,7 +143,12 @@ Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
+<<<<<<< HEAD
 ### Validazione form(80-95p) Sefora
+=======
+
+### Validazione form(80p) Sefora
+>>>>>>> d5cd2316e1e052f7211d98e4ccd2b36da4ccf097
 Creare un form con almeno 2 campi di testo, un input di tipo select, un input di tipo checkbox ed un input di tipo radio.
 Al click del bottone eseguire la validazione del form controllando unicamente che i campi sano stati inseriti tutti.
 Nel caso i campi siano stati tutti inseriti mostrare un mesaggio di successo altrimenti mostrare un messaggio di errore sotto ad ogni campo non corretto.
@@ -172,7 +177,7 @@ Aggiungere un campo email e eseguire oltre al controllo base controllare anche c
 +10p Aggiungere campo password, fare un controllo che dia un errore se la password non contiene almeno un carattere minuscolo uno maiuscolo ed un numero
 
 
-### Validazione form Con aggiunta indirizzi(90p)
+### Validazione form Con aggiunta indirizzi(90p) MATHEUS
 BASE DA CUI PARTIRE: esercizio 'Validazione form'
 Creare lla interno del form una sezione indirizzi che all'inizio contenga solo un bottone 'aggiungi indirizzo'. 
 Alla pressione del bottone si crea un nuovo campo di input testuale in cui l'utente dovra inserire il proprio indirizzo.
@@ -226,9 +231,13 @@ Il div si muove casualmente e velocemente all interno dell'area di gioco.
 L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
+<<<<<<< HEAD
 
 
 ### Scappa dal div! (100p) - Francesco
+=======
+### Scappa dal div! (100p) - Francesco Ponzin
+>>>>>>> d5cd2316e1e052f7211d98e4ccd2b36da4ccf097
 Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
 Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a non toccare il div col puntatore.
