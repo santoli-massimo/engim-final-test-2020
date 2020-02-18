@@ -95,7 +95,7 @@ Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtr
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Lista card da lista di oggetti Advanced(80p-90p)
+### Lista card da lista di oggetti Advanced(80p-90p) CONSU
 BASE DA CUI PARTIRE: 'Lista card da lista di oggetti' + bonus 'Campo di testo che filtra la lista'.
 Rendere gli elementi selezionabili: cliccando su una card la card cambia stile.
 Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
