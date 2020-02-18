@@ -87,7 +87,7 @@ Ogni card deve contenere almeno un immagine ed un testo.
  
  
  
-### Tabella da lista di oggetti Advanced(80p-90p) Noemi
+### Tabella da lista di oggetti Advanced(80p-90p) Noemi Ena
 BASE DA CUI PARTIRE: 'Tabella da lista di oggetti' + bonus 'Campo di testo che filtra la tabella'.
 Rendere gli elementi selezionabili: cliccando su una riga la riga cambia stile.
 Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtro
@@ -95,7 +95,7 @@ Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtr
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Lista card da lista di oggetti Advanced(80p-90p) CONSU
+### Lista card da lista di oggetti Advanced(80p-90p) Consuelo Fadda
 BASE DA CUI PARTIRE: 'Lista card da lista di oggetti' + bonus 'Campo di testo che filtra la lista'.
 Rendere gli elementi selezionabili: cliccando su una card la card cambia stile.
 Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
