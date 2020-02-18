@@ -103,7 +103,7 @@ Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Validazione form(80p)
+### Validazione form(80p) Sefora
 Creare un form con almeno 2 campi di testo, un input di tipo select, un input di tipo checkbox ed un input di tipo radio.
 Al click del bottone eseguire la validazione del form controllando unicamente che i campi sano stati inseriti tutti.
 Nel caso i campi siano stati tutti inseriti mostrare un mesaggio di successo altrimenti mostrare un messaggio di errore sotto ad ogni campo non corretto.
