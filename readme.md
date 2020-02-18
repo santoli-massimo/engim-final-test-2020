@@ -10,14 +10,14 @@ Creare una input di tipo select le opzioni saranno nomi di diversi tipi di font.
 Al cambio del valore dell input il font dell intera applicazione cambia.
 
 
-### Carousel (60p-70p)
+### Carousel (60p-70p) natascia
 Creare un div con dentro un immagine. 
 L'immagine cambia ogni 3 secondi
 +5p ricomincia da capo quando arriva all'ultima immagine
 +5p Creare un bottone che inverte in qualsiasi momento la direzione.
 
 
-### Calcolatrice (60p-70p)
+### Calcolatrice (60p-70p) Stefania
 Creare una interfaccia con bottoni simile a quelli di una calcolatrice:
 - Cifre da 1 a 9
 - Operazioni + - * /
@@ -129,16 +129,20 @@ Ogni pressione successiva del bottone aggiungera un ulteriore input (solo se l'i
 ### Aggiungi record a tabella(90p) - LUCA
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Crare un form che al submit aggiunga un record alla lista di oggetti e aggiorni la tabella.
-
++5p prendere i dati tramite request da una API pubblica a tua scelta
++5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 ### Rimuovi record da tabella(90p)
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Aggiungere una colonna con un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
-
++5p prendere i dati tramite request da una API pubblica a tua scelta
++5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 ### Rimuovi record da Lista di card(90p)
 BASE DA CUI PARTIRE: Lista di card da lista di oggetti.
 Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
++5p prendere i dati tramite request da una API pubblica a tua scelta
++5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
 ### Carousel con tasti(80p) Alberto
@@ -154,6 +158,11 @@ L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
 ### Scappa dal div! (100p) - Francesco
+Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
+Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco. 
+L'utente deve riuscire a non toccare il div col puntatore.
+Tenere traccia del punteggio
+
 
 
 ### Memory (100p)
