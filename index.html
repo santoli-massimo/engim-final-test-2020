@@ -2,37 +2,36 @@
 <html lang="en">
 
 <head>
-
-
     <meta charset="UTF-8">
     <title>Engim 2020 final exam</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<canvas id="container" style="width: 3000px; height: 3000px;"></canvas>
 
-<body id='body' onload="setInterval('sposta()', 275)" style="background-image: url(legno.jpg);">
-    <div id='div' style="position: absolute;left: 150px; top:10px;">
-        <img id='img' style="width: 225px; height: 250px;" src="santoli.jpg" alt="">
+<body id='body'>
+    <ul class="nav">
+        <li class="nav-item" data-page="home">
+            <a class="nav-link">home</a>
+        </li>
+        <li class="nav-item" data-page="page2">
+            <a class="nav-link" >Page 2</a>
+        </li>
+        <li class="nav-item" data-page="page3">
+            <a class="nav-link" >Page 3</a>
+        </li>
+    </ul>
+
+    <div class="pages">
+        <div class="page" id="home">
+            <h1>Pagina Home</h1>
+        </div>
+        <div class="page" id="page2">
+            <h1>Pagina Page 2</h1>
+        </div>
+        <div class="page" id="page3">
+            <h1>Pagina Page 3</h1>
+        </div>
     </div>
-
-
-    <p id="p" style="position: absolute;top:10px; left: 10px;"></p>
-    <p id="p2" style="position: absolute;top:50px;left: 10px;"></p>
-    <p id="p3" style="position: absolute;top:50px;left: 10px;"></p>
-
-    <!-- Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
-    Il div si muove casualmente e velocemente all interno dell'area di gioco. 
-    L'utente deve riuscire a cliccarlo.
-    Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo. -->
-
-
-
-
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -43,11 +42,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="functions.js"></script>
     <script src="main.js"></script>
-
-
-
-
 
 </body>
 

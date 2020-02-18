@@ -1,3 +1,16 @@
 body{
     background: #a6f0db;
+    min-height: 100vh;
+}
+
+.pages {
+    min-height: 100%;
+}
+
+.page{
+    height: 100%; width:100%;
+    display: none;
+}
+.page:first-child{
+    display: block;
 }
