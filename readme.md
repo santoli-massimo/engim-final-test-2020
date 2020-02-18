@@ -129,16 +129,20 @@ Ogni pressione successiva del bottone aggiungera un ulteriore input (solo se l'i
 ### Aggiungi record a tabella(90p) - LUCA
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Crare un form che al submit aggiunga un record alla lista di oggetti e aggiorni la tabella.
-
++5p prendere i dati tramite request da una API pubblica a tua scelta
++5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 ### Rimuovi record da tabella(90p)
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Aggiungere una colonna con un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
-
++5p prendere i dati tramite request da una API pubblica a tua scelta
++5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 ### Rimuovi record da Lista di card(90p)
 BASE DA CUI PARTIRE: Lista di card da lista di oggetti.
 Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
++5p prendere i dati tramite request da una API pubblica a tua scelta
++5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
 ### Carousel con tasti(80p)
