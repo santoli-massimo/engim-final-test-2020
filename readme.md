@@ -87,7 +87,7 @@ Ogni card deve contenere almeno un immagine ed un testo.
  
  
  
-### Tabella da lista di oggetti Advanced(80p-90p)
+### Tabella da lista di oggetti Advanced(80p-90p) Noemi
 BASE DA CUI PARTIRE: 'Tabella da lista di oggetti' + bonus 'Campo di testo che filtra la tabella'.
 Rendere gli elementi selezionabili: cliccando su una riga la riga cambia stile.
 Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtro
@@ -95,7 +95,7 @@ Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtr
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Lista card da lista di oggetti Advanced(80p-90p)
+### Lista card da lista di oggetti Advanced(80p-90p) CONSU
 BASE DA CUI PARTIRE: 'Lista card da lista di oggetti' + bonus 'Campo di testo che filtra la lista'.
 Rendere gli elementi selezionabili: cliccando su una card la card cambia stile.
 Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
@@ -152,6 +152,8 @@ Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno
 Il div si muove casualmente e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
+
+### Scappa dal div! (100p) - Francesco
 
 
 ### Memory (100p)
