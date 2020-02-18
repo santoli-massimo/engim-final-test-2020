@@ -154,6 +154,11 @@ L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
 ### Scappa dal div! (100p) - Francesco
+Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
+Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco. 
+L'utente deve riuscire a non toccare il div col puntatore.
+Tenere traccia del punteggio
+
 
 
 ### Memory (100p)
