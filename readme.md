@@ -10,7 +10,7 @@ Creare una input di tipo select le opzioni saranno nomi di diversi tipi di font.
 Al cambio del valore dell input il font dell intera applicazione cambia.
 
 
-### Carousel (60p-70p)
+### Carousel (60p-70p) natascia
 Creare un div con dentro un immagine. 
 L'immagine cambia ogni 3 secondi
 +5p ricomincia da capo quando arriva all'ultima immagine
@@ -103,7 +103,7 @@ Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Validazione form(80p)
+### Validazione form(80p) Sefora
 Creare un form con almeno 2 campi di testo, un input di tipo select, un input di tipo checkbox ed un input di tipo radio.
 Al click del bottone eseguire la validazione del form controllando unicamente che i campi sano stati inseriti tutti.
 Nel caso i campi siano stati tutti inseriti mostrare un mesaggio di successo altrimenti mostrare un messaggio di errore sotto ad ogni campo non corretto.
@@ -145,7 +145,7 @@ Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Carousel con tasti(80p)
+### Carousel con tasti(80p) Alberto
 BASE DA CUI PARTIRE: Carousel.
 Aggiugere un tasto avanti ed uno indietro e uno pausa. Il tasto avanti e indietro portano all'immagine succesiva/precedente indipendetemente dall avanzamento automatico.
 Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei bottoni avanti e indietro.
