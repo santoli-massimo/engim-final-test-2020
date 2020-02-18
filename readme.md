@@ -10,7 +10,7 @@ Creare una input di tipo select le opzioni saranno nomi di diversi tipi di font.
 Al cambio del valore dell input il font dell intera applicazione cambia.
 
 
-### Carousel (60p-70p)
+### Carousel (60p-70p) natascia
 Creare un div con dentro un immagine. 
 L'immagine cambia ogni 3 secondi
 
@@ -18,7 +18,7 @@ L'immagine cambia ogni 3 secondi
 +5p Creare un bottone che inverte in qualsiasi momento la direzione.
 
 
-### Calcolatrice (60p-70p) Stefania
+### Calcolatrice (60p-70p) Stefania Cappellino
 Creare una interfaccia con bottoni simile a quelli di una calcolatrice:
 - Cifre da 1 a 9
 - Operazioni + - * /
@@ -29,7 +29,7 @@ La calcolatrice esegue le operazioni su 2 numeri
 +5p La calcolatrice continua a prendere valori e da il risultato solo quando si schiaccia il taso '='
 
 
-### Zoom immagine (70p-80p)
+### Zoom immagine (70p-80p) Cristina
 Creare un div con dentro un immagine. Creare i tasti: giu, su, destra, sinistra, zoom+, zoom-
 il tasto zoom ingrandisce l'immagine i tasti direzionali la spostano.
 
@@ -69,7 +69,7 @@ Quando l'utente riesce a cliccare l'immagine corretta il carousel ritorna allo s
 +10p tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
 
-### 8-bit (70p-80p)
+### 8-bit (70p-80p) Christian
 Creare una griglia di almeno 8*8, ed un input di tipo colore, un tasto reset.
 quando clicco su un quadrato della griglia prende il colore selezionato in quel momento dall input di tipo colore
 il tasto reset riporta tutto allo stato iniziale
@@ -93,7 +93,7 @@ Ogni card deve contenere almeno un immagine ed un testo.
  
  
  
-### Tabella da lista di oggetti Advanced(80p-90p) Noemi
+### Tabella da lista di oggetti Advanced(80p-90p) Noemi Ena
 BASE DA CUI PARTIRE: 'Tabella da lista di oggetti' + bonus 'Campo di testo che filtra la tabella'.
 Rendere gli elementi selezionabili: cliccando su una riga la riga cambia stile.
 Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtro
@@ -102,7 +102,7 @@ Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtr
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Lista card da lista di oggetti Advanced(80p-90p) CONSU
+### Lista card da lista di oggetti Advanced(80p-90p) Consuelo Fadda
 BASE DA CUI PARTIRE: 'Lista card da lista di oggetti' + bonus 'Campo di testo che filtra la lista'.
 Rendere gli elementi selezionabili: cliccando su una card la card cambia stile.
 Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
@@ -111,7 +111,7 @@ Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Validazione form(80p)
+### Validazione form(80p) Sefora
 Creare un form con almeno 2 campi di testo, un input di tipo select, un input di tipo checkbox ed un input di tipo radio.
 Al click del bottone eseguire la validazione del form controllando unicamente che i campi sano stati inseriti tutti.
 Nel caso i campi siano stati tutti inseriti mostrare un mesaggio di successo altrimenti mostrare un messaggio di errore sotto ad ogni campo non corretto.
@@ -164,13 +164,13 @@ Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Carousel con tasti(80p)
+### Carousel con tasti(80p) Alberto
 BASE DA CUI PARTIRE: Carousel.
 Aggiugere un tasto avanti ed uno indietro e uno pausa. Il tasto avanti e indietro portano all'immagine succesiva/precedente indipendetemente dall avanzamento automatico.
 Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei bottoni avanti e indietro.
 
 
-### Prendi il div!(100p)
+### Prendi il div!(100p) Alessio
 Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
 Il div si muove casualmente e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a cliccarlo.
