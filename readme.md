@@ -1,3 +1,60 @@
+# Final Exam for the Javascript course at Engim Torino
+## Teacher: Santoli Massimo
+## Start: 18TH February 2020 | End: 18TH March
+
+
+## Regole
+Scgliete uno degli esami: Fate un push con aggiunto il vostro nome e cognome di fianco al titolo dell'esame scelto.
+Non è consentito svolgere lo stesso esame svolto da un altro allievo. Il primo che scrive il nome avrà la priorità.
+
+Fare push del codice entro il 18 marzo. il 19 marzo verrano revocati i permessi di scrittura di tutti gli studenti
+e quindi non sarà piu possbile eseguire nuovi push.
+
+É possibile cambiare esercizo in qualsiasi momento. Se è stato pubblicato troppo codice dallo studente l'esame verra rimosso
+e non sarà piu dispnibile per gli altri.
+É possibile eseguire piu di un esame.
+
+É possibile proporre esami addizionali che verrano valutati dal docente ed eventualmente approvati.
+Lo studente che propone un nuovo esame può decidere di prenotarlo per se stesso in anticipo o lasciarlo disponibile per gli altri
+
+Se per motivi di riservatezza/privacy non volete scrievere il cognome, Scivete almeno l'iniziale (ES: Massimo S.)
+
+
+## Penalità
+Saranno penalizzati (ad insindacabile discrezione del docente):
+
+- Gli esami che risultano troppo simili nel codice o nell'aspetto a quelli di un altro allievo. 
+Non verra penalizzato per questo motivo il primo che ha pubblicato il codice.
+- Gli esami che risultino copiati anche in minima parte dal web.
+- Comportamenti scorretti come sabotare volutamente il lavoro di un altro studente o prenotare troppi esercizi.
+- Uso improprio di GIT/GITHUB come pubblicare ripetutamente codice difettoso o senza rimuovere i tag di conflitto.
+- Impersonare/Aiutare in qualsiasi modo altri studente come 
+prenotare esami a nome di altri, pubblicare esami per conto di altri, correggere/migliorare l'esame di altri allievi.
+- Uso di librerie/codice di terzi ad eccezione di: Bootstrap(solo CSS!), jQuery e Fontawesome(Tutto).
+- Utilizzo/Upload/Push di immagini o altri tipi di contentuto con licenza di utilizzo non appropriata ad un progetto opensource/didattico.
+- Qualsiasi comportamento che a giudizio insindacabile del docente sia un tentantivo di aggirare le regole dell esame. 
+
+
+## Bonus
+Potranno essere premiati (ad insindacabile discrezione del docente):
+- Buon uso di GIT.
+- Pulizia del codice, indentazione corretta e costante, scelta appropriata di nomi variabili e funzioni.
+- Codice commentato in maniera esplicativa (Ma non pedante).
+- Esecuzione di attività extra inventante dallo studente (anche a miglioramento del proprio esame).
+- Collaborazione tra studenti nello svolgimento di attvità extra non correlate con l'esame dei singoli studenti.
+- Cura dell'aspetto visivo.
+- Creatività ed ironia non moleste.
+
+
+## Penalita lievi
+- Uso degli eventi inline nell'html (es: onclick="function()" )
+- Uso delle ancore per effettuare scroll (es: href="#miodiv")
+- Uso di alert/prompt
+- Lasciare qualsiasi log in console al termine dell esame
+
+
+# ESAMI
+
 ### Cambia colore (60p)
 Creare un input tipo color ed un paragrafo. 
 Al cambio del valore dell input il paragrafo cambia colore
@@ -232,3 +289,14 @@ Tenere traccia del punteggio
 
 ### Memory (100p)
 Creare il gioco del memory con almeno 16 carte.
+
+
+### Gico del 15(100p) - Francesco Ponzin
+Creare il gioco del 15 
+
+
+
+# ESAMI PROPOSTI DAGLI STUDENTI
+Scrivete qui sotto gli esami che volte proporre con un titole e delle istruzioni per lo svolgimento 
+se saranno approvati verranno spostati dal docente nella sezione sovrastante.
+Se siete gli autori dell'esame proposto potete prenotarlo in anticipo scriveno di vostro nome di fianco al titolo.
