@@ -179,7 +179,7 @@ Ogni pressione successiva del bottone aggiungera un ulteriore input (solo se l'i
 +5p impedire l'inserimento di duplicati
 
 
-### Aggiungi record a tabella(90-100p) - LUCA
+### Aggiungi record a tabella(90-100p) - LUCA MORO
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Crare un form che al submit aggiunga un record alla lista di oggetti e aggiorni la tabella.
 
