@@ -42,6 +42,7 @@ let santoli15 = {
 
         if (win) {
             alert("hai vinto!")
+            santoli15.start15();
         }
     }
 }
