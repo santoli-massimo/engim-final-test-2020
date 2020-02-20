@@ -47,3 +47,51 @@ let santoli15 = {
     }
 }
 
+
+let francescoLeaving = document.getElementById("francescoContainer").addEventListener("mouseleave", function () {
+    console.log("sei uscito!")
+
+})
+
+let francescoMousePos = document.getElementById("francescoContainer").addEventListener("mousemove", function (event) {
+
+    francescoMousePosition.top = event.clientY - document.getElementById("francescoContainer").offsetTop
+    francescoMousePosition.left = event.clientX - document.getElementById("francescoContainer").offsetLeft
+
+})
+
+
+let francescoCaught = document.getElementById("francescoEvil").addEventListener("mouseover", function () {
+    console.log("Preso!")
+
+})
+
+let francescoEvilPosition = { 
+    top: 10,
+    left: 10
+}
+
+let francescoMousePosition = {
+    top: 250,
+    left: 250
+}
+
+
+
+function francescoMuovi(top = francescoMousePosition.top, left = francescoMousePosition.left) {
+
+
+
+    top = Math.max(Math.min(top - francescoEvilPosition.top - 20, 20), -20)
+
+
+    left = Math.max(Math.min(left - francescoEvilPosition.left - 20, 20), -20)
+
+    francescoEvilPosition.top += top + 460;
+    francescoEvilPosition.top %= 460;
+    document.getElementById("francescoEvil").style.top = francescoEvilPosition.top + "px";
+    francescoEvilPosition.left += left + 460;
+    francescoEvilPosition.left %= 460;
+    document.getElementById("francescoEvil").style.left = francescoEvilPosition.left + "px";
+}
+
