@@ -68,3 +68,51 @@ body{
     left: 0px;
     transition:  200ms linear ;
 }
+
+/*inizio foglio stile Luca Moro*/
+
+#lucatabella {
+    width: 100%;
+    border: 4px solid black;
+    border-collapse: collapse;
+}
+
+#lucath {
+    font-size: x-large;
+}
+
+#lucatd {
+    border: 2px dotted black;
+    text-align: center;
+}
+
+#lucah1 {
+    text-align: center;
+}
+
+#lucanome,#lucacognome,#lucaetà,#lucailmioinput {
+    margin: 20px 50px 20px 5px;
+}#lucatabella {
+    width: 100%;
+    border: 4px solid black;
+    border-collapse: collapse;
+}
+
+#lucath {
+    font-size: x-large;
+}
+
+#lucatd {
+    border: 2px dotted black;
+    text-align: center;
+}
+
+#lucah1 {
+    text-align: center;
+}
+
+#lucanome,#lucacognome,#lucaetà,#lucailmioinput {
+    margin: 20px 50px 20px 5px;
+}
+
+/*fine foglio stile Luca Moro*/

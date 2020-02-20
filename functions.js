@@ -95,3 +95,107 @@ function francescoMuovi(top = francescoMousePosition.top, left = francescoMouseP
     document.getElementById("francescoEvil").style.left = francescoEvilPosition.left + "px";
 }
 
+
+//funzioni Luca Moro
+lucalista = [
+    { nome: 'Tizio', cognome: 'Caio', eta: 20 },
+    { nome: 'Antonio', cognome: 'Cavallo', eta: 10 },
+    { nome: 'Cristiano', cognome: 'Ronaldo', eta: 35 },
+    { nome: 'Luca', cognome: 'Moro', eta: 25 }
+]
+
+//assegno alla variabile lucarecord il pulsante prensente in index
+var lucarecord = document.getElementById('lucaaggiungi');
+
+//assegno alla variabile lucailmioinput l'elemento input presente nel index
+var lucailmioinput = document.getElementById('lucailmioinput')
+
+//richiamo la funzione per creare la lista
+lucacreateTableFromList('lucacontenitore1', lucalista)
+
+//funzione per creare la tabella
+function lucacreateTableFromList(contenitoreid, lista) {
+
+    var contenitore = document.getElementById(contenitoreid)
+
+    var nuovatabella = document.createElement('table')
+    nuovatabella.setAttribute('id','lucatabella')
+    contenitore.append(nuovatabella)
+
+
+    var thead = document.createElement('thead')
+    thead.setAttribute('id','lucathead')
+    nuovatabella.append(thead)
+
+
+
+    for (var key in lista[0]) {
+        var th = document.createElement('th')
+        th.setAttribute('id','lucath')
+        th.innerHTML = key
+        thead.append(th)
+    }
+
+
+    var tbody = document.createElement('tbody')
+    tbody.setAttribute('id','lucatbody')
+    nuovatabella.append(tbody)
+
+    for (var key of lista) {
+        var tr = document.createElement('tr')
+        tr.setAttribute('id','lucatr')
+        tbody.append(tr)
+
+
+        for (var persone in key) {
+            var td = document.createElement('td')
+            td.setAttribute('id','lucatd')
+            td.innerHTML = key[persone]
+            tr.append(td)
+        }
+    }
+}
+
+//creo l'evento click
+lucarecord.addEventListener('click', function lucaaggiungi() {
+    //creo un oggetto con i valori inseriti nel form
+    var oggetto = {
+        'nome': document.getElementById('lucanome').value,
+        'cognome': document.getElementById('lucacognome').value,
+        'age': document.getElementById('lucaetà').value,
+    }
+    //aggiungo gli elementi inserite nel form, nella lista iniziale
+    lucalista.push(oggetto);
+    document.getElementById('lucacontenitore1').innerHTML = ""
+    lucacreateTableFromList('lucacontenitore1', lucalista)
+
+})
+
+//funzione per filtrare la lista
+function lucafiltra_lista(lista, filtro) {
+    var risultato = []
+    for (var i = 0; i < lista.length; i++) {
+        var oggetto = lista[i]
+
+        for (var key in oggetto) {
+            if (oggetto[key].toString().indexOf(filtro) !== -1) {
+                risultato[risultato.length] = oggetto
+                break
+            }
+        }
+    }
+    return risultato
+}
+
+//creo l'evento input per il filtro lista
+lucailmioinput.addEventListener('input', function () {
+
+    document.getElementById('lucacontenitore2').innerHTML = ""
+
+    var lista_filtrata = lucafiltra_lista(lucalista, lucailmioinput.value)
+    if (lucailmioinput.value == "") {
+        document.getElementById('lucacontenitore2').innerHTML = ""
+    } else {
+        lucacreateTableFromList('lucacontenitore2', lista_filtrata)
+    }
+})
