@@ -48,6 +48,10 @@ let santoli15 = {
 }
 
 
+
+// INIZIO FUNZIONI FRANCESCO
+
+
 let francescoLeaving = document.getElementById("francescoContainer").addEventListener("mouseleave", function () {
     console.log("sei uscito!")
 
@@ -94,6 +98,9 @@ function francescoMuovi(top = francescoMousePosition.top, left = francescoMouseP
     francescoEvilPosition.left %= 460;
     document.getElementById("francescoEvil").style.left = francescoEvilPosition.left + "px";
 }
+
+
+// FINE FUNZIONI FRANCESCO
 
 
 //funzioni Luca Moro

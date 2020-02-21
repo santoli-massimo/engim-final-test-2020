@@ -14,4 +14,4 @@ for(var I =0; I<menuLinks.length; I++){
 
 santoli15.start15();
 
-let francescoInterval = setInterval(francescoMuovi,200)
+let francescoInterval = setInterval(francescoMuovi,200) // Avvio animazione Francesco
