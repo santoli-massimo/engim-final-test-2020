@@ -50,6 +50,15 @@ body{
     background: antiquewhite;
 }
 
+#santoli15 .win{
+    position: absolute;
+    margin: auto;
+    z-index: -5;
+    width: 398px;
+    height: 398px;
+    background-image: url("immagini/15/Santoli.jpeg");
+}
+
 
 #francescoContainer{
     margin: 50px auto;
