@@ -17,12 +17,12 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
                 });
             }
         }
-        document.querySelector("#santoli15 .win").addEventListener("click", santoli15.start15); // imposta l'evento al click sull'immagine completa che fa ripartire il gioco
+        document.querySelector("#santoli15.win").addEventListener("click", santoli15.start15); // imposta l'evento al click sull'immagine completa che fa ripartire il gioco
         santoli15.start15();
     },
 
     start15:  function () { // avvio del gioco: sposta sotto la faccia completa ed esegue 10000 mosse casuali (la maggior parte saranno ignorate perché non lecite)
-        document.querySelector("#santoli15 .win").style.zIndex = -5;
+        document.querySelector("#santoli15.win").style.zIndex = -5;
         for (let i = 0; i < 10000; i++) {
             santoli15.invert(document.getElementsByClassName("square")[Math.floor(Math.random() * 15)])
         }
@@ -56,7 +56,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
         if (win) {
 
-            document.querySelector("#santoli15 .win").style.zIndex = 5;
+            document.querySelector("#santoli15.win").style.zIndex = 5;
 
         }
     }
