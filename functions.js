@@ -5,7 +5,21 @@ function nascondiPagine(list){
 }
 
 
-let santoli15 = {
+let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
+
+    init: function(){
+        for (let square of document.querySelectorAll("#santoli15 .square")){
+            console.log();
+            
+            if (!square.classList.contains("void")){
+                square.addEventListener("click", function(){
+                    santoli15.invert(this);
+                    santoli15.checkWin()
+                });
+            }
+        }
+        santoli15.start15();
+    },
 
     start15:  function () {
         for (let i = 0; i < 10000; i++) {

@@ -12,6 +12,6 @@ for(var I =0; I<menuLinks.length; I++){
     })
 }
 
-santoli15.start15();
+santoli15.init(); // inizializza il giochino/dedica in home
 
 let francescoInterval = setInterval(francescoMuovi,200) // Avvio animazione Francesco
