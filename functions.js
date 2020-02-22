@@ -8,9 +8,8 @@ function nascondiPagine(list){
 let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
     init: function(){
-        for (let square of document.querySelectorAll("#santoli15 .square")){
-            console.log();
-            
+        for (let square of document.querySelectorAll("#santoli15 .square")){ // imposta l'evento al click sui riquadri non vuoti: invert e checkwin e avvia il gioco una prima volta
+          
             if (!square.classList.contains("void")){
                 square.addEventListener("click", function(){
                     santoli15.invert(this);
@@ -18,10 +17,12 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
                 });
             }
         }
+        document.querySelector("#santoli15 .win").addEventListener("click", santoli15.start15); // imposta l'evento al click sull'immagine completa che fa ripartire il gioco
         santoli15.start15();
     },
 
-    start15:  function () {
+    start15:  function () { // avvio del gioco: sposta sotto la faccia completa ed esegue 10000 mosse casuali (la maggior parte saranno ignorate perché non lecite)
+        document.querySelector("#santoli15 .win").style.zIndex = -5;
         for (let i = 0; i < 10000; i++) {
             santoli15.invert(document.getElementsByClassName("square")[Math.floor(Math.random() * 15)])
         }
@@ -29,7 +30,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
 
 
-    invert: function (toInvert) {
+    invert: function (toInvert) { //dato un riquadro lo scambia con il riquadro void se ha verificato che è una mossa lecita, altrimenti non fa nulla
         let voidSquare = document.getElementsByClassName("void")[0];
 
         let distance = toInvert.style.order - voidSquare.style.order
@@ -43,20 +44,20 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
     },
 
 
-    checkWin: function () {
+    checkWin: function () { //verifica la vittoria: se l'ordine dei riquadri corrisponde all'ordine delle foto sposta in alto l'immagine completa
         let squares = document.getElementsByClassName("square")
 
         let win = true
         for (let place = 0; place < squares.length; place++) {
-          //  console.log(squares[place].style.order, place + 1)
             if (place + 1 != squares[place].style.order) {
                 win = false
             }
         }
 
         if (win) {
-            alert("hai vinto!")
-            santoli15.start15();
+
+            document.querySelector("#santoli15 .win").style.zIndex = 5;
+
         }
     }
 }
