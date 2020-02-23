@@ -1,5 +1,5 @@
-function nascondiPagine(list){
-    for(var K=0; K<list.length; K++){
+function nascondiPagine(list) {
+    for (var K = 0; K < list.length; K++) {
         list[K].style.display = 'none';
     }
 }
@@ -7,22 +7,22 @@ function nascondiPagine(list){
 
 let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
-    init: function(){
-        for (let square of document.querySelectorAll("#santoli15 .square")){ // imposta l'evento al click sui riquadri non vuoti: invert e checkwin e avvia il gioco una prima volta
-          
-            if (!square.classList.contains("void")){
-                square.addEventListener("click", function(){
+    init: function () {
+        for (let square of document.querySelectorAll("#santoli15 .square")) { // imposta l'evento al click sui riquadri non vuoti: invert e checkwin e avvia il gioco una prima volta
+
+            if (!square.classList.contains("void")) {
+                square.addEventListener("click", function () {
                     santoli15.invert(this);
                     santoli15.checkWin()
                 });
             }
         }
-        document.querySelector("#santoli15.win").addEventListener("click", santoli15.start15); // imposta l'evento al click sull'immagine completa che fa ripartire il gioco
+        document.querySelector("#santoli15 .win").addEventListener("click", santoli15.start15); // imposta l'evento al click sull'immagine completa che fa ripartire il gioco
         santoli15.start15();
     },
 
-    start15:  function () { // avvio del gioco: sposta sotto la faccia completa ed esegue 10000 mosse casuali (la maggior parte saranno ignorate perché non lecite)
-        document.querySelector("#santoli15.win").style.zIndex = -5;
+    start15: function () { // avvio del gioco: sposta sotto la faccia completa ed esegue 10000 mosse casuali (la maggior parte saranno ignorate perché non lecite)
+        document.querySelector("#santoli15 .win").style.zIndex = -5;
         for (let i = 0; i < 10000; i++) {
             santoli15.invert(document.getElementsByClassName("square")[Math.floor(Math.random() * 15)])
         }
@@ -56,7 +56,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
         if (win) {
 
-            document.querySelector("#santoli15.win").style.zIndex = 5;
+            document.querySelector("#santoli15 .win").style.zIndex = 5;
 
         }
     }
@@ -85,7 +85,7 @@ let francescoCaught = document.getElementById("francescoEvil").addEventListener(
 
 })
 
-let francescoEvilPosition = { 
+let francescoEvilPosition = {
     top: 10,
     left: 10
 }
@@ -118,76 +118,86 @@ function francescoMuovi(top = francescoMousePosition.top, left = francescoMouseP
 // FINE FUNZIONI FRANCESCO
 
 
-//funzioni Luca Moro
+//INIZIO FUNZIONI LUCA MORO
 lucalista = [
-    { nome: 'Tizio', cognome: 'Caio', eta: 20 },
-    { nome: 'Antonio', cognome: 'Cavallo', eta: 10 },
-    { nome: 'Cristiano', cognome: 'Ronaldo', eta: 35 },
-    { nome: 'Luca', cognome: 'Moro', eta: 25 }
+    {
+        Nome: 'Tizio',
+        Cognome: 'Caio',
+        Eta: 20
+    },
+    {
+        Nome: 'Antonio',
+        Cognome: 'Cavallo',
+        Eta: 10
+    },
+    {
+        Nome: 'Cristiano',
+        Cognome: 'Ronaldo',
+        Eta: 35
+    },
+    {
+        Nome: 'Luca',
+        Cognome: 'Moro',
+        Eta: 25
+    }
 ]
 
-//assegno alla variabile lucarecord il pulsante prensente in index
-var lucarecord = document.getElementById('lucaaggiungi');
-
-//assegno alla variabile lucailmioinput l'elemento input presente nel index
-var lucailmioinput = document.getElementById('lucailmioinput')
-
-//richiamo la funzione per creare la lista
-lucacreateTableFromList('lucacontenitore1', lucalista)
-
-//funzione per creare la tabella
+//funziona crea lista
 function lucacreateTableFromList(contenitoreid, lista) {
 
     var contenitore = document.getElementById(contenitoreid)
 
     var nuovatabella = document.createElement('table')
-    nuovatabella.setAttribute('id','lucatabella')
+    nuovatabella.setAttribute('id', 'lucatabella')
     contenitore.append(nuovatabella)
 
-
     var thead = document.createElement('thead')
-    thead.setAttribute('id','lucathead')
+    thead.setAttribute('id', 'lucathead')
     nuovatabella.append(thead)
-
-
 
     for (var key in lista[0]) {
         var th = document.createElement('th')
-        th.setAttribute('id','lucath')
+        th.setAttribute('id', 'lucath')
         th.innerHTML = key
         thead.append(th)
     }
 
-
     var tbody = document.createElement('tbody')
-    tbody.setAttribute('id','lucatbody')
+    tbody.setAttribute('id', 'lucatbody')
     nuovatabella.append(tbody)
 
     for (var key of lista) {
         var tr = document.createElement('tr')
-        tr.setAttribute('id','lucatr')
+        tr.setAttribute('id', 'lucatr')
         tbody.append(tr)
 
 
         for (var persone in key) {
             var td = document.createElement('td')
-            td.setAttribute('id','lucatd')
+            td.setAttribute('id', 'lucatd')
             td.innerHTML = key[persone]
             tr.append(td)
         }
     }
 }
 
+//richiamo la funzione per creare la lista
+lucacreateTableFromList('lucacontenitore1', lucalista)
+
+//assegno alla variabile lucarecord il pulsante prensente nel file index
+var lucarecord = document.getElementById('lucaaggiungi');
+
 //creo l'evento click
 lucarecord.addEventListener('click', function lucaaggiungi() {
     //creo un oggetto con i valori inseriti nel form
     var oggetto = {
-        'nome': document.getElementById('lucanome').value,
-        'cognome': document.getElementById('lucacognome').value,
-        'age': document.getElementById('lucaetà').value,
+        'Nome': document.getElementById('lucanome').value,
+        'Cognome': document.getElementById('lucacognome').value,
+        'Eta': document.getElementById('lucaetà').value,
     }
-    //aggiungo gli elementi inserite nel form, nella lista iniziale
+    //aggiungo gli elementi inseriti nel form, nella lista iniziale
     lucalista.push(oggetto);
+
     document.getElementById('lucacontenitore1').innerHTML = ""
     lucacreateTableFromList('lucacontenitore1', lucalista)
 
@@ -209,18 +219,38 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
+//assegno alla variabile lucailmioinput l'elemento input presente nel file index
+var lucailmioinput = document.getElementById('lucailmioinput')
+
 //creo l'evento input per il filtro lista
 lucailmioinput.addEventListener('input', function () {
 
     document.getElementById('lucacontenitore2').innerHTML = ""
 
-    var lista_filtrata = lucafiltra_lista(lucalista, lucailmioinput.value)
+    //assegno ad 'x' il mio input trasformandolo in caratteri minuscoli
+    var x = lucailmioinput.value.toLowerCase()
+
+    var lista_filtrata = lucafiltra_lista(lucalista, x)
+
     if (lucailmioinput.value == "") {
         document.getElementById('lucacontenitore2').innerHTML = ""
     } else {
         lucacreateTableFromList('lucacontenitore2', lista_filtrata)
+        lucalista = lucalista.map(lucaToLowerCase)
     }
 })
+
+//funzione che risolse il case sensitive
+function lucaToLowerCase(item) {
+    var Nome = item.Nome.toLowerCase();
+    var Cognome = item.Cognome.toLowerCase()
+    var Eta = item.Eta
+    var fullname = { Nome, Cognome, Eta };
+    return fullname;
+}
+
+//fine funzioni Luca Moro
+
 
 
 
