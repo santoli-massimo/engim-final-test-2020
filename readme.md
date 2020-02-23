@@ -132,7 +132,7 @@ con il valore corrente del cronometro.
 Simile al cronometro ma parte da un numero inserito in input e si ferma a 0
 
 
-### Attacco epilettico (75p-85p)
+### Attacco epilettico (75p-85p) Alessandro Laregina
 BASE DA CUI PARTIRE: 'Carousel' + 'bonus ricomincia da capo quando arriva all'ultima immagine'. 
 Modificarlo di modo che le immagini scorrano molto velocemente. 
 E che inizalmente sia fermo.

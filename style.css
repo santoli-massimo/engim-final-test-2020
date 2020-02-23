@@ -48,6 +48,7 @@ body{
 
 #santoli15 .void {
     background: antiquewhite;
+    border: solid 1px antiquewhite;
 }
 
 #santoli15 .win{
@@ -65,6 +66,7 @@ body{
     background-color: antiquewhite;
     height: 500px;
     width: 500px;
+    cursor: move;
 }
 
 #francescoEvil{
@@ -73,8 +75,8 @@ body{
     border-radius: 20px;
     background-color: red;
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 230px;
+    left: 230px;
     transition:  200ms linear ;
 }
 
@@ -88,6 +90,7 @@ body{
 
 #lucath {
     font-size: x-large;
+    text-align: center;
 }
 
 #lucatd {
