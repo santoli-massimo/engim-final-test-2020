@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Bungee|Chicle|New+Rocker|Rock+Salt|Sarabun|Trade+Winds&display=swap" rel="stylesheet">
 </head>
 
 <body id='body'>
@@ -27,7 +28,7 @@
             <a class="nav-link">Luca</a>
         </li>
         <li class="nav-item" data-page="Sefora">
-            <a class="nav-link">Sefora</a>
+            <a class="nav-link"><button type="button" class="btn btn-dark">Sefora</button></a>
         </li>
     </ul>
 
@@ -143,53 +144,53 @@
                 <form name="formS" id="form_sef">
                     <div class="form-row">
                         <div class="col-md-auto">
-                            <label for="name">Write your First name!</label>
-                            <input id="name" type="text" class="form-control" placeholder="First name">
-                            <div hidden id="alertName" class="alert alert-danger" role="alert">
-                                You should write your name, biiitch!
-                            </div>
+                            <label for="name"><h4>Write your First name</h4></label><i class="fas fa-pencil-alt"></i>
+                            <input id="name" type="text" class="form-control radius" placeholder="First name">
+                            <div hidden id="alertName" class="alert alert-danger radius" role="alert">
+                                You should write your name, biiitch!<i class="fas fa-poo"></i>
+                            </div> <br>
                             <!--Primo campo di testo-->
                         </div>
                         <div class="col-md-auto">
-                            <label for="lastName">Write your Second name!</label>
-                            <input id="lastName" type="text" class="form-control" placeholder="Last name">
-                            <div hidden id="alertLastName" class="alert alert-danger" role="alert">
-                                You should write your last name, biiitch!
+                            <label for="lastName"><h4>Write your Second name</h4></label><i class="fas fa-pencil-alt"></i>
+                            <input id="lastName" type="text" class="form-control radius" placeholder="Last name">
+                            <div hidden id="alertLastName" class="alert alert-danger radius" role="alert">
+                                You should write your last name, biiitch!<i class="fas fa-poo"></i>
                             </div>
                             <!--Secondo campo di testo-->
                         </div>
                     </div>
                     <br>
-                    <h6>Select your gender</h6>
+                    <h4>Select your gender<i class="fas fa-heart"></i></h4>
                     <!--checkbox-->
                     <div class="form-row">
                         <div class="col-md-auto">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="female">
+                                <input type="checkbox" class="custom-control-input radius" id="female">
                                 <label class="custom-control-label" for="female">Female</label>
                             </div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="male">
-                                <label class="custom-control-label" for="male">Male</label>
+                                <input type="checkbox" class="custom-control-input radius" id="male">
+                                <label class="custom-control-label radius" for="male">Male</label>
                             </div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="freetobe">
-                                <label class="custom-control-label" for="freetobe">Free to be!</label>
+                                <input type="checkbox" class="custom-control-input radius" id="freetobe">
+                                <label class="custom-control-label radius" for="freetobe">Free to be!</label>
                             </div>
                         </div>
-                        <div hidden id="alertGender" class="alert alert-danger" role="alert">
-                            You should select one of this fields, biiitch!
+                        <div hidden id="alertGender" class="alert alert-danger radius" role="alert">
+                            You should select one of this fields, biiitch!<i class="fas fa-poo"></i>
                         </div>
-                        <div hidden id="alertGender2" class="alert alert-danger" role="alert">
-                            You should select   ONLY one of this fields, biiitch!
+                        <div hidden id="alertGender2" class="alert alert-danger radius" role="alert">
+                            You should select   ONLY one of this fields, biiitch!<i class="fas fa-poo"></i>
                         </div>
                     </div>
                     <br>
                     <!--Select-->
                     <div class="form-row">
                         <div class="col-md-auto">
-                            <label for="select_sef">Select the band you'd like to meet</label>
-                            <select id="select_sef" class="custom-select">
+                            <label for="select_sef"><h4>Select the band you'd like to meet</h4></label>
+                            <select id="select_sef" class="custom-select radius">
                                 <option selected>Open this selection menu</option>
                                 <option value="1">Mumford & Sons</option>
                                 <option value="2">Death</option>
@@ -197,17 +198,18 @@
                                 <option value="3">Queens of the Stone Age</option>
                                 <option value="3">Bon Iver (Justin Vernon)</option>
                             </select>
-                            <div hidden id="alertSelect1" class="alert alert-danger" role="alert">
-                                You should select one of this bands, biiitch!
+                            <div hidden id="alertSelect1" class="alert alert-danger radius" role="alert">
+                                You should select one of this bands, biiitch!<i class="fas fa-poo"></i>
                             </div>
                         </div>
                     </div>
                     <br>
                     <!--Radio-->
+                    <h4>Select place<i class="fas fa-map-marker-alt"></i></h4>
                     <div class="form-row">
                         <div class="col-md-auto">
                             <div class="form-check">
-                                <input  class="form-check-input position-static" type="radio" name="blankRadio"
+                                <input  class="form-check-input position-static radius" type="radio" name="blankRadio"
                                     id="parterre" value="option1" aria-label="...">
                                 <label class="form-check-label" for="parterre">Parterre</label>
                             </div>
@@ -222,23 +224,23 @@
                                 <label class="form-check-label" for="vip">Vip</label>
                             </div>
                         </div>
-                            <div hidden id="alertRadio" class="alert alert-danger" role="alert">
-                                You should select one of this button, biiitch!
+                            <div hidden id="alertRadio" class="alert alert-danger radius" role="alert">
+                                You should select one of this button, biiitch!<i class="fas fa-poo"></i>
                             </div>
                     </div>
                     <!--SelectPagamento-->
                     <div class="form-row">
                         <div class="col-md-auto">
-                            <label for="validationTooltip04">Choose payment method</label>
-                            <select class="custom-select" id="select_pagamento">
+                            <label for="validationTooltip04"><h4>Choose payment method<i class="fas fa-money-bill-wave"></i></h4></label>
+                            <select class="custom-select radius" id="select_pagamento">
                                 <option selected disabled value="">Choose...and choose well</option>
                                 <option>Credit Card</option>
                                 <option>Im poor</option>
                                 <option>Ask mom</option>
                                 <option>For me, it's onion!</option>
                             </select>
-                             <div hidden id="alertSelect2" class="alert alert-danger" role="alert">
-                                You should select one of this fields, biiitch!
+                             <div hidden id="alertSelect2" class="alert alert-danger radius" role="alert">
+                                You should select one of this fields, biiitch!<i class="fas fa-poo"></i>
                             </div>
                         </div>
                     </div>
@@ -246,7 +248,7 @@
                     <!--submit-->
                     <div class="form-row">
                         <div class="col-md-auto">
-                        <button id="submit_sef"type="button" class="btn btn-primary">Send</button>
+                        <button id="submit_sef"type="button" class="btn btn-primary radius">Send</button>
                         </div>
                     </div>
 
@@ -270,6 +272,7 @@
         crossorigin="anonymous"></script>
     <script src="functions.js"></script>
     <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/61bd823312.js" crossorigin="anonymous"></script>
 
 </body>
 
