@@ -186,7 +186,7 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
         'cognome': document.getElementById('lucacognome').value,
         'age': document.getElementById('lucaetà').value,
     }
-    //aggiungo gli elementi inserite nel form, nella lista iniziale
+    //aggiungo gli elementi inseriti nel form, nella lista iniziale
     lucalista.push(oggetto);
     document.getElementById('lucacontenitore1').innerHTML = ""
     lucacreateTableFromList('lucacontenitore1', lucalista)
@@ -221,3 +221,4 @@ lucailmioinput.addEventListener('input', function () {
         lucacreateTableFromList('lucacontenitore2', lista_filtrata)
     }
 })
+//fine funzioni Luca Moro
