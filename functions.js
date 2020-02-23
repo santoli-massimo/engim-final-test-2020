@@ -143,6 +143,30 @@ lucalista = [
 ]
 
 //funziona crea lista
+lucalista = [
+    {
+        Nome: 'Tizio',
+        Cognome: 'Caio',
+        Eta: 20
+    },
+    {
+        Nome: 'Antonio',
+        Cognome: 'Cavallo',
+        Eta: 10
+    },
+    {
+        Nome: 'Cristiano',
+        Cognome: 'Ronaldo',
+        Eta: 35
+    },
+    {
+        Nome: 'Luca',
+        Cognome: 'Moro',
+        Eta: 25
+    }
+]
+
+//funziona crea lista
 function lucacreateTableFromList(contenitoreid, lista) {
 
     var contenitore = document.getElementById(contenitoreid)
@@ -171,7 +195,6 @@ function lucacreateTableFromList(contenitoreid, lista) {
         tr.setAttribute('id', 'lucatr')
         tbody.append(tr)
 
-
         for (var persone in key) {
             var td = document.createElement('td')
             td.setAttribute('id', 'lucatd')
@@ -186,22 +209,6 @@ lucacreateTableFromList('lucacontenitore1', lucalista)
 
 //assegno alla variabile lucarecord il pulsante prensente nel file index
 var lucarecord = document.getElementById('lucaaggiungi');
-
-//creo l'evento click
-lucarecord.addEventListener('click', function lucaaggiungi() {
-    //creo un oggetto con i valori inseriti nel form
-    var oggetto = {
-        'Nome': document.getElementById('lucanome').value,
-        'Cognome': document.getElementById('lucacognome').value,
-        'Eta': document.getElementById('lucaetà').value,
-    }
-    //aggiungo gli elementi inseriti nel form, nella lista iniziale
-    lucalista.push(oggetto);
-
-    document.getElementById('lucacontenitore1').innerHTML = ""
-    lucacreateTableFromList('lucacontenitore1', lucalista)
-
-})
 
 //funzione per filtrare la lista
 function lucafiltra_lista(lista, filtro) {
@@ -219,6 +226,17 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
+//funzione che risolse il case sensitive
+function lucaToLowerCase(item) {
+    var Nome = item.Nome.toLowerCase();
+    var Cognome = item.Cognome.toLowerCase()
+    var Eta = item.Eta
+    var oggetto = { Nome, Cognome, Eta };
+    return oggetto;
+}
+
+lucalista2 = lucalista.map(lucaToLowerCase)
+
 //assegno alla variabile lucailmioinput l'elemento input presente nel file index
 var lucailmioinput = document.getElementById('lucailmioinput')
 
@@ -230,24 +248,34 @@ lucailmioinput.addEventListener('input', function () {
     //assegno ad 'x' il mio input trasformandolo in caratteri minuscoli
     var x = lucailmioinput.value.toLowerCase()
 
-    var lista_filtrata = lucafiltra_lista(lucalista, x)
+    var lista_filtrata = lucafiltra_lista(lucalista2, x)
 
     if (lucailmioinput.value == "") {
         document.getElementById('lucacontenitore2').innerHTML = ""
     } else {
         lucacreateTableFromList('lucacontenitore2', lista_filtrata)
-        lucalista = lucalista.map(lucaToLowerCase)
+
     }
 })
 
-//funzione che risolse il case sensitive
-function lucaToLowerCase(item) {
-    var Nome = item.Nome.toLowerCase();
-    var Cognome = item.Cognome.toLowerCase()
-    var Eta = item.Eta
-    var fullname = { Nome, Cognome, Eta };
-    return fullname;
-}
+//creo l'evento click
+lucarecord.addEventListener('click', function lucaaggiungi() {
+
+    //creo un oggetto con i valori inseriti nel form
+    var oggetto = {
+        'Nome': document.getElementById('lucanome').value,
+        'Cognome': document.getElementById('lucacognome').value,
+        'Eta': document.getElementById('lucaetà').value,
+    }
+
+    //aggiungo gli elementi inseriti nel form, nella lista iniziale
+    lucalista.push(oggetto);
+    lucalista2.push(oggetto)
+    lucalista2 = lucalista.map(lucaToLowerCase)
+
+    document.getElementById('lucacontenitore1').innerHTML = ""
+    lucacreateTableFromList('lucacontenitore1', lucalista)
+})
 
 //fine funzioni Luca Moro
 
@@ -262,9 +290,9 @@ function lucaToLowerCase(item) {
 
 
 //funzioni Sefora
-document.getElementById('submit_sef').addEventListener('click',validazioneSef);
+document.getElementById('submit_sef').addEventListener('click', validazioneSef);
 
-function validazioneSef(){
+function validazioneSef() {
     var name = document.getElementById('name').value;
     var lastName = document.getElementById('lastName').value;
     var female = document.getElementById('female').checked;
@@ -276,46 +304,46 @@ function validazioneSef(){
     var vip = document.getElementById('vip').value;
     var select_pagamento = document.getElementById('select_pagamento').value;
     var send = document.getElementById('submit_sef').value;
-    if(name==""){
+    if (name == "") {
         document.getElementById('alertName').removeAttribute("hidden");
-    }else{
-        document.getElementById('alertName').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertName').setAttribute("hidden", true);
     }
-    if(lastName==""){
+    if (lastName == "") {
         document.getElementById('alertLastName').removeAttribute("hidden");
-    }else{
-        document.getElementById('alertLastName').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertLastName').setAttribute("hidden", true);
     }
-    if(female==false && male==false && freetobe==false){
+    if (female == false && male == false && freetobe == false) {
         document.getElementById('alertGender').removeAttribute("hidden");
-    }else{
-       document.getElementById('alertGender').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertGender').setAttribute("hidden", true);
     }
-    var qta= 0;
-    var gender = [female,male, freetobe]
-    for(i = 0; i <gender.length; i++){
-        if(gender[i] == true){
-            qta+=1;
+    var qta = 0;
+    var gender = [female, male, freetobe]
+    for (i = 0; i < gender.length; i++) {
+        if (gender[i] == true) {
+            qta += 1;
         }
-    }if(qta>=2){
+    } if (qta >= 2) {
         document.getElementById('alertGender2').removeAttribute("hidden");
-    }else{
-        document.getElementById('alertGender2').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertGender2').setAttribute("hidden", true);
     }
-    if(select=="Open this selection menu"){
+    if (select == "Open this selection menu") {
         document.getElementById('alertSelect1').removeAttribute("hidden");
-    }else{
-        document.getElementById('alertSelect1').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertSelect1').setAttribute("hidden", true);
     }
-    if(parterre==false && tribuna == false && vip==false){
+    if (parterre == false && tribuna == false && vip == false) {
         document.getElementById('alertRadio').removeAttribute("hidden");
-    }else{
-        document.getElementById('alertRadio').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertRadio').setAttribute("hidden", true);
     }
-    if(select_pagamento==""){
+    if (select_pagamento == "") {
         document.getElementById('alertSelect2').removeAttribute("hidden");
-    }else{
-        document.getElementById('alertSelect2').setAttribute("hidden",true);
+    } else {
+        document.getElementById('alertSelect2').setAttribute("hidden", true);
     }
     event.preventDefault();
 }
