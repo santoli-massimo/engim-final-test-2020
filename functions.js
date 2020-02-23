@@ -221,3 +221,72 @@ lucailmioinput.addEventListener('input', function () {
         lucacreateTableFromList('lucacontenitore2', lista_filtrata)
     }
 })
+
+
+
+
+
+
+
+
+
+
+//funzioni Sefora
+document.getElementById('submit_sef').addEventListener('click',validazioneSef);
+
+function validazioneSef(){
+    var name = document.getElementById('name').value;
+    var lastName = document.getElementById('lastName').value;
+    var female = document.getElementById('female').checked;
+    var male = document.getElementById('male').checked;
+    var freetobe = document.getElementById('freetobe').checked;
+    var select = document.getElementById('select_sef').value;
+    var parterre = document.getElementById('parterre').value;
+    var tribuna = document.getElementById('tribuna').value;
+    var vip = document.getElementById('vip').value;
+    var select_pagamento = document.getElementById('select_pagamento').value;
+    var send = document.getElementById('submit_sef').value;
+    if(name==""){
+        document.getElementById('alertName').removeAttribute("hidden");
+    }else{
+        document.getElementById('alertName').setAttribute("hidden",true);
+    }
+    if(lastName==""){
+        document.getElementById('alertLastName').removeAttribute("hidden");
+    }else{
+        document.getElementById('alertLastName').setAttribute("hidden",true);
+    }
+    if(female==false && male==false && freetobe==false){
+        document.getElementById('alertGender').removeAttribute("hidden");
+    }else{
+       document.getElementById('alertGender').setAttribute("hidden",true);
+    }
+    var qta= 0;
+    var gender = [female,male, freetobe]
+    for(i = 0; i <gender.length; i++){
+        if(gender[i] == true){
+            qta+=1;
+        }
+    }if(qta>=2){
+        document.getElementById('alertGender2').removeAttribute("hidden");
+    }else{
+        document.getElementById('alertGender2').setAttribute("hidden",true);
+    }
+    if(select=="Open this selection menu"){
+        document.getElementById('alertSelect1').removeAttribute("hidden");
+    }else{
+        document.getElementById('alertSelect1').setAttribute("hidden",true);
+    }
+    if(parterre==false && tribuna == false && vip==false){
+        document.getElementById('alertRadio').removeAttribute("hidden");
+    }else{
+        document.getElementById('alertRadio').setAttribute("hidden",true);
+    }
+    if(select_pagamento==""){
+        document.getElementById('alertSelect2').removeAttribute("hidden");
+    }else{
+        document.getElementById('alertSelect2').setAttribute("hidden",true);
+    }
+    event.preventDefault();
+}
+

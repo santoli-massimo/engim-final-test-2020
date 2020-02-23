@@ -140,16 +140,22 @@
             <h1 class ="title_sef">Sefora ॐ     [work in progress]</h1> 
             <p class="title_sef">Validazione form(80-95p)</p>
             <div class="container">
-                <form>
+                <form name="formS" id="form_sef">
                     <div class="form-row">
                         <div class="col-md-auto">
-                            <label for="text">Write your First name!</label>
-                            <input type="text" class="form-control" placeholder="First name">
+                            <label for="name">Write your First name!</label>
+                            <input id="name" type="text" class="form-control" placeholder="First name">
+                            <div hidden id="alertName" class="alert alert-danger" role="alert">
+                                You should write your name, biiitch!
+                            </div>
                             <!--Primo campo di testo-->
                         </div>
                         <div class="col-md-auto">
-                            <label for="text">Write your Second name!</label>
-                            <input type="text" class="form-control" placeholder="Last name">
+                            <label for="lastName">Write your Second name!</label>
+                            <input id="lastName" type="text" class="form-control" placeholder="Last name">
+                            <div hidden id="alertLastName" class="alert alert-danger" role="alert">
+                                You should write your last name, biiitch!
+                            </div>
                             <!--Secondo campo di testo-->
                         </div>
                     </div>
@@ -159,25 +165,31 @@
                     <div class="form-row">
                         <div class="col-md-auto">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Female</label>
+                                <input type="checkbox" class="custom-control-input" id="female">
+                                <label class="custom-control-label" for="female">Female</label>
                             </div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                <label class="custom-control-label" for="customCheck2">Male</label>
+                                <input type="checkbox" class="custom-control-input" id="male">
+                                <label class="custom-control-label" for="male">Male</label>
                             </div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                <label class="custom-control-label" for="customCheck3">Free to be!</label>
+                                <input type="checkbox" class="custom-control-input" id="freetobe">
+                                <label class="custom-control-label" for="freetobe">Free to be!</label>
                             </div>
+                        </div>
+                        <div hidden id="alertGender" class="alert alert-danger" role="alert">
+                            You should select one of this fields, biiitch!
+                        </div>
+                        <div hidden id="alertGender2" class="alert alert-danger" role="alert">
+                            You should select   ONLY one of this fields, biiitch!
                         </div>
                     </div>
                     <br>
                     <!--Select-->
                     <div class="form-row">
                         <div class="col-md-auto">
-                            <label for="select">Select the band you'd like to meet</label>
-                            <select class="custom-select">
+                            <label for="select_sef">Select the band you'd like to meet</label>
+                            <select id="select_sef" class="custom-select">
                                 <option selected>Open this selection menu</option>
                                 <option value="1">Mumford & Sons</option>
                                 <option value="2">Death</option>
@@ -185,6 +197,9 @@
                                 <option value="3">Queens of the Stone Age</option>
                                 <option value="3">Bon Iver (Justin Vernon)</option>
                             </select>
+                            <div hidden id="alertSelect1" class="alert alert-danger" role="alert">
+                                You should select one of this bands, biiitch!
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -192,40 +207,46 @@
                     <div class="form-row">
                         <div class="col-md-auto">
                             <div class="form-check">
-                                <input class="form-check-input position-static" type="radio" name="blankRadio"
-                                    id="blankRadio1" value="option1" aria-label="...">
-                                <label class="form-check-label" for="exampleRadios1">Parterre</label>
+                                <input  class="form-check-input position-static" type="radio" name="blankRadio"
+                                    id="parterre" value="option1" aria-label="...">
+                                <label class="form-check-label" for="parterre">Parterre</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input position-static" type="radio" name="blankRadio"
-                                    id="blankRadio2" value="option3" aria-label="...">
-                                <label class="form-check-label" for="exampleRadios3">Tribuna</label>
+                                    id="tribuna" value="option3" aria-label="...">
+                                <label class="form-check-label" for="tribuna">Tribuna</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input position-static" type="radio" name="blankRadio"
-                                    id="blankRadio2" value="option3" aria-label="...">
-                                <label class="form-check-label" for="exampleRadios3">Vip</label>
+                                    id="vip" value="option3" aria-label="...">
+                                <label class="form-check-label" for="vip">Vip</label>
                             </div>
                         </div>
+                            <div hidden id="alertRadio" class="alert alert-danger" role="alert">
+                                You should select one of this button, biiitch!
+                            </div>
                     </div>
                     <!--SelectPagamento-->
                     <div class="form-row">
                         <div class="col-md-auto">
                             <label for="validationTooltip04">Choose payment method</label>
-                            <select class="custom-select" id="validationTooltip04" required>
+                            <select class="custom-select" id="select_pagamento">
                                 <option selected disabled value="">Choose...and choose well</option>
                                 <option>Credit Card</option>
                                 <option>Im poor</option>
                                 <option>Ask mom</option>
                                 <option>For me, it's onion!</option>
                             </select>
+                             <div hidden id="alertSelect2" class="alert alert-danger" role="alert">
+                                You should select one of this fields, biiitch!
+                            </div>
                         </div>
                     </div>
                     <br>
                     <!--submit-->
                     <div class="form-row">
                         <div class="col-md-auto">
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button id="submit_sef"type="button" class="btn btn-primary">Send</button>
                         </div>
                     </div>
 
