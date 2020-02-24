@@ -375,7 +375,21 @@ lucarequest.send()
 
 //funzioni Sefora
 document.getElementById('submit_sef').addEventListener('click', validazioneSef);
+//funzione reset Form
+document.getElementById('reset_sef').addEventListener('click',function(){
+    var form_sef = document.getElementById("form_sef");
+    form_sef.reset();
+    success_msg.setAttribute("hidden", true);
+    document.getElementById('alertName').setAttribute("hidden", true);
+    document.getElementById('alertLastName').setAttribute("hidden", true);
+    document.getElementById('alertGender').setAttribute("hidden", true);
+    document.getElementById('alertGender2').setAttribute("hidden", true);
+    document.getElementById('alertSelect1').setAttribute("hidden", true);
+    document.getElementById('alertRadio').setAttribute("hidden", true);
+    document.getElementById('alertSelect2').setAttribute("hidden", true);
 
+});
+//funzione validazione Form
 function validazioneSef() {
     var succesSef = true; // variabile booleana settata per il button di submit
     var name = document.getElementById('name').value;
