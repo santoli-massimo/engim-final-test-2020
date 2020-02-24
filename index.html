@@ -272,14 +272,20 @@
                             </div>
                         </div>
                         <br>
-                        <h3>Sign-in!</h3>
+                        <h3>Sign-up!</h3>
                         <div class="form-row">
                             <div class="col-md-auto">
                                 <label for="email_Sef" class="radius"><h5><i class="fas fa-envelope"></i>E-mail:</label></h5>
                                 <input type="e-mail" class="form-control radius " id="email_Sef" placeholder="yourock@gmail.com">
+                                <div hidden id="emailAlert" class="alert alert-danger radius" role="alert">
+                                    You should write your email , biiitch!<i class="fas fa-poo"></i>
+                                </div>
                                 <br>
                                 <label for="pass_sef" class="radius"><h5><i class="fas fa-key"></i>Password:</label></h5>
                                 <input type="password" class="form-control radius" id="pass_sef" placeholder="Password">
+                                <div hidden id="alertPass" class="alert alert-danger radius" role="alert">
+                                    You should write your password , biiitch!<i class="fas fa-poo"></i>
+                                </div>
                             </div>
                         </div>
                         <!--submit button-->
@@ -295,6 +301,7 @@
                         <br>
                         <!--reset button-->
                         <h5>If you want to reset this form, click <button id="reset_sef" type="button" class="btn btn-danger radius">here!</button></h5>
+                        
                         
                             
                          

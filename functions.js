@@ -468,6 +468,8 @@ document.getElementById('reset_sef').addEventListener('click',function(){
     document.getElementById('alertSelect1').setAttribute("hidden", true);
     document.getElementById('alertRadio').setAttribute("hidden", true);
     document.getElementById('alertSelect2').setAttribute("hidden", true);
+    document.getElementById('emailAlert').setAttribute("hidden", true);
+    document.getElementById('alertPass').setAttribute("hidden", true);
 
 });
 //funzione validazione Form
@@ -485,6 +487,8 @@ function validazioneSef() {
     var select_pagamento = document.getElementById('select_pagamento').value;
     var send = document.getElementById('submit_sef').value;
     var success_msg = document.getElementById('success_msg');
+    var mail_sef = document.getElementById('email_Sef').value;
+    var sef_password = document.getElementById('pass_sef').value;
     if (name == "") { //controllo su ogni campo del form
         succesSef = false;
         document.getElementById('alertName').removeAttribute("hidden");
@@ -537,6 +541,18 @@ function validazioneSef() {
         success_msg.removeAttribute("hidden");
     } else {
         success_msg.setAttribute("hidden", true);
+    }
+    if (mail_sef == "") {
+        succesSef = false;
+        document.getElementById('emailAlert').removeAttribute("hidden");
+    } else {
+        document.getElementById('emailAlert').setAttribute("hidden", true);
+    }
+    if (sef_password == "") {
+        succesSef = false;
+        document.getElementById('alertPass').removeAttribute("hidden");
+    } else {
+        document.getElementById('alertPass').setAttribute("hidden", true);
     }
     event.preventDefault();
 }
