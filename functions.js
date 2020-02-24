@@ -199,6 +199,9 @@ let francescoEvilPosition = {
 // FINE FUNZIONI FRANCESCO
 
 
+
+
+
 //INIZIO FUNZIONI LUCA MORO
 lucalista = [
     {
@@ -223,31 +226,7 @@ lucalista = [
     }
 ]
 
-//funziona crea lista
-lucalista = [
-    {
-        Nome: 'Tizio',
-        Cognome: 'Caio',
-        Eta: 20
-    },
-    {
-        Nome: 'Antonio',
-        Cognome: 'Cavallo',
-        Eta: 10
-    },
-    {
-        Nome: 'Cristiano',
-        Cognome: 'Ronaldo',
-        Eta: 35
-    },
-    {
-        Nome: 'Luca',
-        Cognome: 'Moro',
-        Eta: 25
-    }
-]
-
-//funziona crea lista
+//funzione crea lista
 function lucacreateTableFromList(contenitoreid, lista) {
 
     var contenitore = document.getElementById(contenitoreid)
@@ -304,7 +283,7 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
-//funzione caratteri minuscoli (risolse il case sensitive)
+//funzione caratteri minuscoli (risolve il case sensitive)
 function lucaToLowerCase(item) {
     var Nome = item.Nome.toLowerCase();
     var Cognome = item.Cognome.toLowerCase()
@@ -358,7 +337,7 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     lucacreateTableFromList('lucacontenitore1', lucalista)
 })
 
-//inio esercizio request API pubblica
+//inizio esercizio request API pubblica
 function luca2createTableFromList(lista) {
 
     var contenitore = document.getElementById("lucacontenitore3")
@@ -457,7 +436,7 @@ lucarequest.send()
 //funzioni Sefora
 document.getElementById('submit_sef').addEventListener('click', validazioneSef);
 //funzione reset Form
-document.getElementById('reset_sef').addEventListener('click',function(){
+document.getElementById('reset_sef').addEventListener('click', function () {
     var form_sef = document.getElementById("form_sef");
     form_sef.reset();
     success_msg.setAttribute("hidden", true);
