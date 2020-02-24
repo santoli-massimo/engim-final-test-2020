@@ -207,8 +207,6 @@ function lucacreateTableFromList(contenitoreid, lista) {
 //richiamo la funzione per creare la lista
 lucacreateTableFromList('lucacontenitore1', lucalista)
 
-
-
 //funzione per filtrare la lista
 function lucafiltra_lista(lista, filtro) {
     var risultato = []
@@ -225,7 +223,7 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
-//funzione che risolse il case sensitive
+//funzione caratteri minuscoli (risolse il case sensitive)
 function lucaToLowerCase(item) {
     var Nome = item.Nome.toLowerCase();
     var Cognome = item.Cognome.toLowerCase()
@@ -279,53 +277,60 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     lucacreateTableFromList('lucacontenitore1', lucalista)
 })
 
-//request API pubblica
+//inio esercizio request API pubblica
+function luca2createTableFromList(lista) {
+
+    var contenitore = document.getElementById("lucacontenitore3")
+
+    var nuovatabella = document.createElement('table')
+    nuovatabella.setAttribute('id', 'lucatabella')
+    contenitore.append(nuovatabella)
+
+    var thead = document.createElement('thead')
+    thead.setAttribute('id', 'lucathead')
+    nuovatabella.append(thead)
+
+    for (var key in lista[0]) {
+        var th = document.createElement('th')
+        th.setAttribute('id', 'lucath')
+        th.innerHTML = key
+        thead.append(th)
+    }
+
+    var tbody = document.createElement('tbody')
+    tbody.setAttribute('id', 'lucatbody')
+    nuovatabella.append(tbody)
+
+    for (var key of lista) {
+        var tr = document.createElement('tr')
+        tr.setAttribute('id', 'lucatr')
+        tbody.append(tr)
+
+        for (var persone in key) {
+            var td = document.createElement('td')
+            td.setAttribute('id', 'lucatd')
+            td.innerHTML = key[persone]
+            tr.append(td)
+        }
+    }
+}
+
+// Creo l'oggetto richiesta
 var lucarequest = new XMLHttpRequest()
 
 var lucaonresponse = function () {
     var response = lucarequest.response
+
+    // Converto i dati da JSON a js
     var dati = JSON.parse(response)
+
+    //controllo se la richiesta va a buon fine
     if (lucarequest.status === 200) {
-        luca2createTableFromList(document.getElementById('lucacontenitore3'), dati)
+        luca2createTableFromList(dati)
     }
     else {
         var contenitore = document.getElementById('lucacontenitore3')
         contenitore.innerText = 'Errore: ' + lucarequest.status
-    }
-
-    function luca2createTableFromList(contenitore, lista) {
-
-        var nuovatabella = document.createElement('table')
-        contenitore.append(nuovatabella)
-        var thead = document.createElement('thead')
-        nuovatabella.append(thead)
-
-        for (var key in lista[0]) {
-            var th = document.createElement('th')
-            th.innerHTML = key
-            thead.append(th)
-        }
-
-        for (var key of lista) {
-            var tr = document.createElement('tr')
-            nuovatabella.append(tr)
-
-            for (var persone in key) {
-                var td = document.createElement('td')
-
-                if (typeof key[persone] == 'object') {
-                    var vuota = []
-                    vuota.push(key[persone])
-                    createTableFromList(td, vuota)
-                } else { td.innerHTML = key[persone] }
-                tr.append(td)
-                nuovatabella.setAttribute('id', 'lucatabella')
-                tr.setAttribute('id', 'lucatr')
-                thead.setAttribute('id', 'lucathead')
-                th.setAttribute('id', 'lucath')
-                td.setAttribute('id', 'lucatd')
-            }
-        }
     }
 
     //assegno alla variabile lucarecord2 il pulsante prensente nel file index
@@ -346,13 +351,14 @@ var lucaonresponse = function () {
         dati.push(oggetto);
 
         document.getElementById('lucacontenitore3').innerHTML = ""
-        luca2createTableFromList('lucacontenitore3', dati)
+        luca2createTableFromList(dati)
     })
 }
 
 lucarequest.addEventListener('loadend', lucaonresponse)
 
 lucarequest.open('GET', 'https://jsonplaceholder.typicode.com/posts')
+// Eseguo la richiesta
 lucarequest.send()
 
 //fine funzioni Luca Moro
