@@ -107,15 +107,13 @@ function francescoNewGame() {
             if (mouseEvilDistance() < francescoEvilPosition.radius) {
                 francescoCaugth();
 
+            } else {
+                francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
+                francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
+                francescoEvilPosition.update();
             }
 
 
-            francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
-            francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
-
-            francescoEvilPosition.update();
-
-            console.log(mouseEvilDistance())
 
 
         }
@@ -158,7 +156,6 @@ function francescoNewGame() {
         if (tryLeft > 0) {
             setTimeout(function () { francescoJustCaught = false; }, gamePace * 5);
         }
-        console.log("Preso!", francescoJustCaught)
     }
 
 
@@ -189,7 +186,6 @@ let francescoEvilPosition = {
 
         document.getElementById("francescoEvil").style.top = (francescoEvilPosition.top - this.radius) + "px";
         document.getElementById("francescoEvil").style.left = (francescoEvilPosition.left - this.radius) + "px";
-        console.log(this.radius)
 
     }
 }
