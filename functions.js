@@ -207,8 +207,7 @@ function lucacreateTableFromList(contenitoreid, lista) {
 //richiamo la funzione per creare la lista
 lucacreateTableFromList('lucacontenitore1', lucalista)
 
-//assegno alla variabile lucarecord il pulsante prensente nel file index
-var lucarecord = document.getElementById('lucaaggiungi');
+
 
 //funzione per filtrare la lista
 function lucafiltra_lista(lista, filtro) {
@@ -258,6 +257,9 @@ lucailmioinput.addEventListener('input', function () {
     }
 })
 
+//assegno alla variabile lucarecord il pulsante prensente nel file index
+var lucarecord = document.getElementById('lucaaggiungi');
+
 //creo l'evento click
 lucarecord.addEventListener('click', function lucaaggiungi() {
 
@@ -276,6 +278,82 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     document.getElementById('lucacontenitore1').innerHTML = ""
     lucacreateTableFromList('lucacontenitore1', lucalista)
 })
+
+//request API pubblica
+var lucarequest = new XMLHttpRequest()
+
+var lucaonresponse = function () {
+    var response = lucarequest.response
+    var dati = JSON.parse(response)
+    if (lucarequest.status === 200) {
+        luca2createTableFromList(document.getElementById('lucacontenitore3'), dati)
+    }
+    else {
+        var contenitore = document.getElementById('lucacontenitore3')
+        contenitore.innerText = 'Errore: ' + lucarequest.status
+    }
+
+    function luca2createTableFromList(contenitore, lista) {
+
+        var nuovatabella = document.createElement('table')
+        contenitore.append(nuovatabella)
+        var thead = document.createElement('thead')
+        nuovatabella.append(thead)
+
+        for (var key in lista[0]) {
+            var th = document.createElement('th')
+            th.innerHTML = key
+            thead.append(th)
+        }
+
+        for (var key of lista) {
+            var tr = document.createElement('tr')
+            nuovatabella.append(tr)
+
+            for (var persone in key) {
+                var td = document.createElement('td')
+
+                if (typeof key[persone] == 'object') {
+                    var vuota = []
+                    vuota.push(key[persone])
+                    createTableFromList(td, vuota)
+                } else { td.innerHTML = key[persone] }
+                tr.append(td)
+                nuovatabella.setAttribute('id', 'lucatabella')
+                tr.setAttribute('id', 'lucatr')
+                thead.setAttribute('id', 'lucathead')
+                th.setAttribute('id', 'lucath')
+                td.setAttribute('id', 'lucatd')
+            }
+        }
+    }
+
+    //assegno alla variabile lucarecord2 il pulsante prensente nel file index
+    var lucarecord2 = document.getElementById('lucaaggiungi2');
+
+    //creo l'evento click
+    lucarecord2.addEventListener('click', function lucaaggiungi2() {
+
+        //creo un oggetto con i valori inseriti nel form
+        var oggetto = {
+            'userID': document.getElementById('lucauser').value,
+            'id': document.getElementById('lucaid').value,
+            'title': document.getElementById('lucatitle').value,
+            'body': document.getElementById('lucabody').value
+        }
+
+        //aggiungo gli elementi inseriti nel form
+        dati.push(oggetto);
+
+        document.getElementById('lucacontenitore3').innerHTML = ""
+        luca2createTableFromList('lucacontenitore3', dati)
+    })
+}
+
+lucarequest.addEventListener('loadend', lucaonresponse)
+
+lucarequest.open('GET', 'https://jsonplaceholder.typicode.com/posts')
+lucarequest.send()
 
 //fine funzioni Luca Moro
 
