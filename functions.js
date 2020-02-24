@@ -432,3 +432,97 @@ function validazioneSef() {
     event.preventDefault();
 }
 
+
+
+
+
+
+
+
+//Funzioni momo 
+function ValidazioneMailMoo(){
+   
+    var bott = document.getElementById("bottone")
+
+   var user = document.getElementById("username")
+   var pass = document.getElementById("pass")
+   var confPass = document.getElementById("confPass")
+   var showHidePass = document.getElementById("showHidePass") // variabile per mostra e nascondi password
+   var email = document.getElementById("email")
+
+  // var dataNascita = document.getElementById("data")
+  //variabili per i Radio buttons
+   var radio = document.getElementById("radio1")
+   var radio2 = document.getElementById("radio2")
+
+//Variabili per il checkbox buttons
+   var casella = document.getElementById("box1")
+   var casella2 = document.getElementById("box2")
+   var casella3 = document.getElementById("box3")   
+
+//Evento per mostrare e nascondere password tramikte un checkbox
+showHidePass.addEventListener('click', function(event){
+    
+    if(showHidePass.checked){
+        pass.type = 'text'
+        confPass.type = 'text'
+
+        console.log(pass.type)
+    } else {
+        pass.type = 'password'
+        confPass.type = 'password'
+
+        console.log(pass.type, confPass.type)
+    }
+
+})
+
+
+
+
+//Evento per controllo form e validazione
+
+
+bott.addEventListener('click', function(event){
+  
+   
+
+        if(pass.value.length >= 8 && pass.value == confPass.value){
+            console.log("password uguali")
+        } else {
+            console.log("Passwword diversi, riprovare")
+        }
+
+
+
+        if(radio.checked || radio2.checked){
+            console.log("il radio funziona")
+        } else {
+                console.log("Non selezionato")
+                }
+
+
+
+        if(casella.checked || casella2.checked || casella3.checked){
+            console.log("checkbox funziona kinda")
+        } else {
+                console.log("Selezionare almeno un elemento")
+                }
+
+
+      if(user.value == "mondo" && email.value == "momo@momo.it" ) {
+
+          console.log("lo script funziona")
+      } else {
+          console.log("script funzionaaa")
+      }
+})
+
+
+   }// Fine function
+
+
+
+   document.getElementById("showHidePass").addEventListener('click', ValidazioneMailMoo)
+   document.getElementById("bottone").addEventListener('click', ValidazioneMailMoo)
+   //Fine funzioni momo
