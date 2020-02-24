@@ -105,54 +105,55 @@
 
             <!--Inizio pagina Luca Moro-->
             <div class="page" id="Luca">
+                <div class="container">
 
-                <h1 class="lucah1">Versione base 90p - Aggiungi record a tabella + filtro</h1>
-                <div id="lucacontenitore1">
+                    <h1 class="lucah1">Versione base 90p - Aggiungi record a tabella + filtro</h1>
+                    <div id="lucacontenitore1">
+                    </div>
+                    <br>
+                    <div id="lucacontenitore2">
+                    </div>
+                    <form class="lucaform">
+                        <label>Inserisci la parola da filtrare</label>
+                        <input type="text" id="lucailmioinput">
+
+                        <label>Inserisci record</label>
+
+                        <input type="text" id="lucanome" placeholder="Inserisci nome">
+
+                        <input type="text" id="lucacognome" placeholder="Inserisci cognome">
+
+                        <input type="number" id="lucaetà" placeholder="Inserisci età">
+
+                        <input type="button" id="lucaaggiungi" value="Aggiungi">
+                    </form>
+
+                    <br>
+                    <hr>
+
+                    <h1 class="lucah1">Versione bonus +5p - Dati presi tramite API pubblica [DA FINIRE]</h1>
+
+                    <div id="lucacontenitore3">
+                    </div>
+                    <br>
+                    <div id="lucacontenitore4">
+                    </div>
+                    <form class="lucaform">
+                        <label>Inserisci la parola da filtrare</label>
+                        <input type="text" id="lucailmioinput2">
+
+                        <label>Inserisci record</label><br>
+
+                        <input type="number" id="lucauser" placeholder="userID">
+
+                        <input type="number" id="lucaid" placeholder="id">
+
+                        <input type="text" id="lucatitle" placeholder="Inserisci titolo">
+                        <textarea id="lucabody" placeholder="Inserisci body"></textarea>
+
+                        <input type="button" id="lucaaggiungi2" value="Aggiungi">
+                    </form>
                 </div>
-                <br>
-                <div id="lucacontenitore2">
-                </div>
-                <form class="lucaform">
-                    <label>Inserisci la parola da filtrare</label>
-                    <input type="text" id="lucailmioinput">
-
-                    <label>Inserisci record</label>
-
-                    <input type="text" id="lucanome" placeholder="Inserisci nome">
-
-                    <input type="text" id="lucacognome" placeholder="Inserisci cognome">
-
-                    <input type="number" id="lucaetà" placeholder="Inserisci età">
-
-                    <input type="button" id="lucaaggiungi" value="Aggiungi">
-                </form>
-
-                <br>
-                <hr>
-
-                <h1 class="lucah1">Versione bonus +5p - Dati presi tramite API pubblica [DA FINIRE]</h1>
-
-                <div id="lucacontenitore3">
-                </div>
-                <br>
-                <div id="lucacontenitore4">
-                </div>
-                <form class="lucaform">
-                    <label>Inserisci la parola da filtrare</label>
-                    <input type="text" id="lucailmioinput2">
-
-                    <label>Inserisci record</label><br>
-
-                    <input type="number" id="lucauser" placeholder="userID">
-
-                    <input type="number" id="lucaid" placeholder="id">
-
-                    <input type="text" id="lucatitle" placeholder="Inserisci titolo">
-                    <textarea id="lucabody" placeholder="Inserisci body"></textarea>
-
-                    <input type="button" id="lucaaggiungi2" value="Aggiungi">
-                </form>
-
             </div>
             <!--FINE PAGINA LUCA MORO-->
 
@@ -281,7 +282,9 @@
                                     You should write your email , biiitch!<i class="fas fa-poo"></i>
                                 </div>
                                 <br>
-                                <label for="pass_sef" class="radius"><h5><i class="fas fa-key"></i>Password:</label></h5>
+                                <label for="pass_sef" class="radius">
+                                    <h5><i class="fas fa-key"></i>Password:
+                                </label></h5>
                                 <input type="password" class="form-control radius" id="pass_sef" placeholder="Password">
                                 <div hidden id="alertPass" class="alert alert-danger radius" role="alert">
                                     You should write your password , biiitch!<i class="fas fa-poo"></i>
@@ -293,7 +296,7 @@
                             <div class="col-md-auto">
                                 <button id="submit_sef" type="button" class="btn btn-primary radius">Send</button>
                             </div>
-                            <div hidden id="success_msg"class="alert alert-success radius " role="alert">
+                            <div hidden id="success_msg" class="alert alert-success radius " role="alert">
                                 <h4 class="alert-heading">Well done!</h4>
                                 <p class="mb-0">You rock! <i class="fas fa-hand-peace"></i></p>
                             </div>
@@ -320,172 +323,173 @@
 
 
 
-        <!--Inizio div Momo-->
-        <div class="page" id="Momo">
+            <!--Inizio div Momo-->
+            <div class="page" id="Momo">
 
-            <div class="container">
-                <form> 
-    
-                    <!--CAMPO USERNAME-->
-                    <div class="form-group row">
-                        <label for="inputUser" class="col-sm-2 col-form-label">Nome utente</label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" id="username">
+                <div class="container">
+                    <form>
+
+                        <!--CAMPO USERNAME-->
+                        <div class="form-group row">
+                            <label for="inputUser" class="col-sm-2 col-form-label">Nome utente</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="username">
+                            </div>
                         </div>
-                    </div>
-    
-    
-    
-    
-                     <!--CAMPO EMAIL-->
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" id="email">
+
+
+
+
+                        <!--CAMPO EMAIL-->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="email">
+                            </div>
                         </div>
-                    </div>
-    
-    
-    
-    
-    
-                    <!--CAMPO PASSWORD-->
-                    <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-3">
-                            <input type="password" class="form-control" id="pass">
-                        </div>     
-                    </div>
-    
-                        
-                         <!--CAMPO CONFERMA PASSWORD-->
-                         <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Conferma password</label>
-                        <div class="col-sm-3">
-                            <input type="password" class="form-control" id="confPass">    
-    
-    
-                         <!--MOSTRA NASCONDI PASSWORD-->
-                        <input class="form-check-input" type="checkbox" id="showHidePass">
-                            <label class="form-check-label" for="showHidePass">
-                                 Mostra o nascondi Password
-                            </label>
-                        </div>       
-                    </div>
-    
-    
-    
-    
-                    
-                    
-                       
-                
-                    
-    
-    
-    
-    
-                
-    
-    
-                    <!--CAMPO DATA NASCITA -->
-                    <div class="form-group row">
-                        <label for="data" class="col-sm-2 col-form-label">Nome utente</label>
-                        <div class="col-sm-3">
-                            <input type="date" class="form-control" id="data" placeholder="gg/mm/aaaa">
+
+
+
+
+
+                        <!--CAMPO PASSWORD-->
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="pass">
+                            </div>
                         </div>
-                    </div>
-    
-    
-    
-    
-    
-    
-    
-                    <!--RADIO-->
-                    <fieldset class="form-group">
-                        <div class="row">
-                            <legend class="col-form-label col-sm-2 pt-0">Sesso</legend>
+
+
+                        <!--CAMPO CONFERMA PASSWORD-->
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Conferma password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="confPass">
+
+
+                                <!--MOSTRA NASCONDI PASSWORD-->
+                                <input class="form-check-input" type="checkbox" id="showHidePass">
+                                <label class="form-check-label" for="showHidePass">
+                                    Mostra o nascondi Password
+                                </label>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!--CAMPO DATA NASCITA -->
+                        <div class="form-group row">
+                            <label for="data" class="col-sm-2 col-form-label">Nome utente</label>
+                            <div class="col-sm-3">
+                                <input type="date" class="form-control" id="data" placeholder="gg/mm/aaaa">
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <!--RADIO-->
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Sesso</legend>
+                                <div class="col-sm-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="radio1"
+                                            value="maschio" checked>
+                                        <label class="form-check-label" for="radio1">
+                                            Maschio
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="radio2"
+                                            value="femmina">
+                                        <label class="form-check-label" for="radio2">
+                                            Femmina
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+
+
+
+
+
+                        <!--CHECKBOX-->
+                        <div class="form-group row">
+                            <div class="col-sm-2">Indica le categorie che ti interessano</div>
                             <div class="col-sm-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="radio1"
-                                        value="maschio" checked>
-                                    <label class="form-check-label" for="radio1">
-                                        Maschio
+                                    <input class="form-check-input" type="checkbox" id="box1">
+                                    <label class="form-check-label" for="box1">
+                                        Attualità
                                     </label>
                                 </div>
+
+
+
+
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="radio2"
-                                        value="femmina">
-                                    <label class="form-check-label" for="radio2">
-                                        Femmina
+                                    <input class="form-check-input" type="checkbox" id="box2">
+                                    <label class="form-check-label" for="box2">
+                                        Tecnologia
+                                    </label>
+                                </div>
+
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="box3">
+                                    <label class="form-check-label" for="box3">
+                                        Politica
                                     </label>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
-    
-    
-    
-    
-    
-    
-    
-                    <!--CHECKBOX-->
-                    <div class="form-group row">
-                        <div class="col-sm-2">Indica le categorie che ti interessano</div>
-                        <div class="col-sm-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="box1">
-                                <label class="form-check-label" for="box1">
-                                    Attualità
-                                </label>
-                            </div>
-    
-    
-    
-    
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="box2">
-                                <label class="form-check-label" for="box2">
-                                    Tecnologia
-                                </label>
-                            </div>
-    
-    
-    
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="box3">
-                                <label class="form-check-label" for="box3">
-                                    Politica
-                                </label>
+
+
+
+
+
+
+
+
+
+                        <!--BOTTONE SUBMIT-->
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                <button type="button" class="btn btn-primary" id="bottone">Submit</button>
+
+
+                                <!--BOTTONE RESET FORM-->
+                                <button type="reset" class="btn btn-primary" id="bottone">Reset form</button>
                             </div>
                         </div>
-                    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-                    <!--BOTTONE SUBMIT-->
-                    <div class="form-group row">
-                        <div class="col-sm-5">
-                            <button type="button" class="btn btn-primary" id="bottone">Submit</button>   
-    
-    
-                             <!--BOTTONE RESET FORM-->
-                            <button type="reset" class="btn btn-primary" id="bottone">Reset form</button>
-                        </div>
-                    </div>
-                
-                </form>
-            </div> <!--Fine container-->
-    </div>
-    <!--Fine div Momo-->
+
+                    </form>
+                </div>
+                <!--Fine container-->
+            </div>
+            <!--Fine div Momo-->
 
 
 

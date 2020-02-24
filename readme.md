@@ -245,7 +245,7 @@ Crare un form che al submit aggiunga un record alla lista di oggetti e aggiorni 
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Rimuovi record da tabella(90-100p)
+### Rimuovi record da tabella(90-100p) Violetta Bertone
 BASE DA CUI PARTIRE: tabella da lista di oggetti.
 Aggiungere una colonna con un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
 
