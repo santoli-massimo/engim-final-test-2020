@@ -89,12 +89,39 @@ function francescoNewGame() {
 
     let gamePace = 200; //tempo del gioco, in millisecondi per passo
     let stride = 20; //distanza percorsa per passo
+    let francescoJustCaught = false;
+    let tryLeft = 5;
+
+    let tryLeftBox = document.createElement("p");
+    document.getElementById("tryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
+
+
+    function mouseEvilDistance() {
+        return Math.sqrt((francescoMousePosition.top - francescoEvilPosition.top) * (francescoMousePosition.top - francescoEvilPosition.top) + (francescoMousePosition.left - francescoEvilPosition.left) * (francescoMousePosition.left - francescoEvilPosition.left))
+    }
 
     function francescoMuovi() { // intelligenza del movimento
-        francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
-        francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
-        francescoEvilPosition.update();
-        console.log(francescoMousePosition)
+
+        if (!francescoJustCaught) {
+
+            if (mouseEvilDistance() < francescoEvilPosition.radius) {
+                francescoCaugth();
+
+            }
+
+
+            francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
+            francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
+
+            francescoEvilPosition.update();
+
+            console.log(mouseEvilDistance())
+
+
+        }
+
+
+
     }
 
 
@@ -103,31 +130,37 @@ function francescoNewGame() {
         francescoEvilPosition.top = 250;
         francescoEvilPosition.left = 250;
         francescoEvilPosition.update();
-        francescoMousePosition.top = 250;
-        francescoMousePosition.left = 250;
 
     }
 
 
 
-    let francescoInterval = setInterval(francescoMuovi, gamePace) // Avvio animazione 
+    let francescoInterval = setInterval(francescoMuovi, gamePace) // Avvio animazione
 
-    document.getElementById("francescoContainer").addEventListener("mouseleave", function () {
+    function francescoQuit() {
         console.log("sei uscito!")
 
         clearInterval(francescoInterval); //stop animazione
         francescoCentraEvil();
+        document.getElementById("francescoContainer").removeEventListener("mouseleave", francescoQuit);
 
+        document.getElementById("tryLeftBox").innerText = "Entra nel quadrato per cominciare la sfida";
+    }
 
-    })
+    document.getElementById("francescoContainer").addEventListener("mouseleave", francescoQuit);
 
+    function francescoCaugth() {
+        francescoCentraEvil();
+        francescoJustCaught = true;
+        tryLeft--;
+        document.getElementById("tryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
 
-    document.getElementById("francescoEvil").addEventListener("mouseover", function () { //cattura
-        console.log("Preso!")
+        if (tryLeft > 0) {
+            setTimeout(function () { francescoJustCaught = false; }, gamePace * 5);
+        }
+        console.log("Preso!", francescoJustCaught)
+    }
 
-
-
-    })
 
 
 
@@ -156,6 +189,7 @@ let francescoEvilPosition = {
 
         document.getElementById("francescoEvil").style.top = (francescoEvilPosition.top - this.radius) + "px";
         document.getElementById("francescoEvil").style.left = (francescoEvilPosition.left - this.radius) + "px";
+        console.log(this.radius)
 
     }
 }
