@@ -104,6 +104,8 @@ body{
 .lucaform {
     border: 4px solid black;
     border-collapse: collapse;
+    margin-top: 10px;
+    width: 220px;
 }
 
 .lucaform input {
@@ -119,6 +121,10 @@ body{
 }
 
 .lucah1 {
+    text-align: center;
+}
+
+.lucah5{
     text-align: center;
 }
 
