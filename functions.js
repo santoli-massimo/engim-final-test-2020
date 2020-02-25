@@ -66,29 +66,126 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
 // INIZIO FUNZIONI FRANCESCO
 
-
-let francescoLeaving = document.getElementById("francescoContainer").addEventListener("mouseleave", function () {
-    console.log("sei uscito!")
-
-})
-
-let francescoMousePos = document.getElementById("francescoContainer").addEventListener("mousemove", function (event) {
-
-    francescoMousePosition.top = event.clientY - document.getElementById("francescoContainer").offsetTop
-    francescoMousePosition.left = event.clientX - document.getElementById("francescoContainer").offsetLeft
-
-})
+function francescoInit() {
 
 
-let francescoCaught = document.getElementById("francescoEvil").addEventListener("mouseover", function () {
-    console.log("Preso!")
+    document.getElementById("francescoContainer").addEventListener("mousemove", function (event) {  //monitora posizione del mouse rispetto al container
 
-})
+        francescoMousePosition.top = event.clientY - document.getElementById("francescoContainer").getBoundingClientRect().top
+        francescoMousePosition.left = event.clientX - document.getElementById("francescoContainer").getBoundingClientRect().left
 
-let francescoEvilPosition = {
-    top: 10,
-    left: 10
+    })
+
+
+    document.querySelector("#francescoContainer").addEventListener("mouseenter", function () { //avvia nuova partita all'ingresso
+        francescoNewGame();
+    })
+
+
+
 }
+
+function francescoNewGame() {
+
+    let gameLevelsPaces = [30, 50, 70, 110, 150, 200] //tempo del gioco, in millisecondi per passo
+    let level = gameLevelsPaces.length;
+    let levelTime = 3000; //durata di un livello, in millisecondi
+    let levelTimeLeft = levelTime;
+    let stride = 20; //distanza percorsa per passo
+    let francescoJustCaught = false;
+    let tryLeft = 5; // numero di "vite" a inizio sfida
+    let francescoInterval; // referenza all'animazione
+
+    document.getElementById("francescoTryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
+
+
+    function mouseEvilDistance() {
+        return Math.sqrt((francescoMousePosition.top - francescoEvilPosition.top) * (francescoMousePosition.top - francescoEvilPosition.top) + (francescoMousePosition.left - francescoEvilPosition.left) * (francescoMousePosition.left - francescoEvilPosition.left))
+    }
+
+
+    function francescoNextLevel() {
+        level--;
+        clearInterval(francescoInterval)
+
+        if (level < 0) {
+            document.getElementById("francescoTryLeftBox").innerText = `ok, hai spaccato, lo ammetto`;
+            francescoCentraEvil();
+        } else {
+            levelTimeLeft = levelTime;
+            francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
+            document.getElementById("francescoEvil").style.transition = gameLevelsPaces[level] + "ms linear";
+            document.getElementById("francescoLevelUp").style.transition = gameLevelsPaces[level] + "ms linear";
+
+
+        }
+
+    }
+
+
+    function francescoMuovi() { // intelligenza del movimento
+
+        if (!francescoJustCaught) {
+            if (mouseEvilDistance() < francescoEvilPosition.radius) {
+                francescoCaugth();
+            } else {
+                francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
+                francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
+                francescoEvilPosition.update();
+                levelTimeLeft -= gameLevelsPaces[level];
+                document.getElementById("francescoLevelUp").style.width = (levelTimeLeft * 100 / levelTime) + "%";
+                if (levelTimeLeft <= 0) {
+                    francescoNextLevel()
+
+                }
+            }
+        }
+    }
+
+
+    function francescoCentraEvil() { //reset al centro
+
+        francescoEvilPosition.top = 250;
+        francescoEvilPosition.left = 250;
+        francescoEvilPosition.update();
+
+    }
+
+
+
+
+    function francescoQuit() {
+        clearInterval(francescoInterval); //stop animazione
+        francescoCentraEvil();
+        document.getElementById("francescoContainer").removeEventListener("mouseleave", francescoQuit);
+        document.getElementById("francescoLevelUp").style.width = "100%";
+
+        document.getElementById("francescoTryLeftBox").innerText = "Entra nel quadrato per cominciare la sfida";
+    }
+
+    document.getElementById("francescoContainer").addEventListener("mouseleave", francescoQuit);
+
+    function francescoCaugth() {
+        francescoCentraEvil();
+        francescoJustCaught = true;
+        tryLeft--;
+        document.getElementById("francescoTryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
+
+        if (tryLeft > 0) {
+            setTimeout(function () { francescoJustCaught = false; }, gameLevelsPaces[level] * 5);
+        }
+    }
+
+
+
+    document.getElementById("francescoContainer").addEventListener("mouseleave", francescoQuit); //controlla la fuga
+    francescoNextLevel(); //fa partire il primo livello
+}
+
+
+
+
+
 
 let francescoMousePosition = {
     top: 250,
@@ -97,25 +194,31 @@ let francescoMousePosition = {
 
 
 
-function francescoMuovi(top = francescoMousePosition.top, left = francescoMousePosition.left) {
+let francescoEvilPosition = {
+    top: 250,
+    left: 250,
+    radius: 20,
+    update: function () {
 
+        francescoEvilPosition.top = Math.max(this.radius, Math.min(500 - this.radius, francescoEvilPosition.top))
+        francescoEvilPosition.left = Math.max(this.radius, Math.min(500 - this.radius, francescoEvilPosition.left))
 
+        document.getElementById("francescoEvil").style.top = (francescoEvilPosition.top - this.radius) + "px";
+        document.getElementById("francescoEvil").style.left = (francescoEvilPosition.left - this.radius) + "px";
 
-    top = Math.max(Math.min(top - francescoEvilPosition.top - 20, 20), -20)
-
-
-    left = Math.max(Math.min(left - francescoEvilPosition.left - 20, 20), -20)
-
-    francescoEvilPosition.top += top + 460;
-    francescoEvilPosition.top %= 460;
-    document.getElementById("francescoEvil").style.top = francescoEvilPosition.top + "px";
-    francescoEvilPosition.left += left + 460;
-    francescoEvilPosition.left %= 460;
-    document.getElementById("francescoEvil").style.left = francescoEvilPosition.left + "px";
+    }
 }
 
 
+
+
+
+
+
 // FINE FUNZIONI FRANCESCO
+
+
+
 
 
 //INIZIO FUNZIONI LUCA MORO
@@ -142,31 +245,7 @@ lucalista = [
     }
 ]
 
-//funziona crea lista
-lucalista = [
-    {
-        Nome: 'Tizio',
-        Cognome: 'Caio',
-        Eta: 20
-    },
-    {
-        Nome: 'Antonio',
-        Cognome: 'Cavallo',
-        Eta: 10
-    },
-    {
-        Nome: 'Cristiano',
-        Cognome: 'Ronaldo',
-        Eta: 35
-    },
-    {
-        Nome: 'Luca',
-        Cognome: 'Moro',
-        Eta: 25
-    }
-]
-
-//funziona crea lista
+//funzione crea lista
 function lucacreateTableFromList(contenitoreid, lista) {
 
     var contenitore = document.getElementById(contenitoreid)
@@ -223,7 +302,7 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
-//funzione caratteri minuscoli (risolse il case sensitive)
+//funzione caratteri minuscoli (risolve il case sensitive)
 function lucaToLowerCase(item) {
     var Nome = item.Nome.toLowerCase();
     var Cognome = item.Cognome.toLowerCase()
@@ -277,7 +356,7 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     lucacreateTableFromList('lucacontenitore1', lucalista)
 })
 
-//inio esercizio request API pubblica
+//inizio esercizio request API pubblica
 function luca2createTableFromList(lista) {
 
     var contenitore = document.getElementById("lucacontenitore3")
@@ -375,8 +454,25 @@ lucarequest.send()
 
 //funzioni Sefora
 document.getElementById('submit_sef').addEventListener('click', validazioneSef);
+//funzione reset Form
+document.getElementById('reset_sef').addEventListener('click', function () {
+    var form_sef = document.getElementById("form_sef");
+    form_sef.reset();
+    success_msg.setAttribute("hidden", true);
+    document.getElementById('alertName').setAttribute("hidden", true);
+    document.getElementById('alertLastName').setAttribute("hidden", true);
+    document.getElementById('alertGender').setAttribute("hidden", true);
+    document.getElementById('alertGender2').setAttribute("hidden", true);
+    document.getElementById('alertSelect1').setAttribute("hidden", true);
+    document.getElementById('alertRadio').setAttribute("hidden", true);
+    document.getElementById('alertSelect2').setAttribute("hidden", true);
+    document.getElementById('emailAlert').setAttribute("hidden", true);
+    document.getElementById('alertPass').setAttribute("hidden", true);
 
+});
+//funzione validazione Form
 function validazioneSef() {
+    var succesSef = true; // variabile booleana settata per il button di submit
     var name = document.getElementById('name').value;
     var lastName = document.getElementById('lastName').value;
     var female = document.getElementById('female').checked;
@@ -388,17 +484,23 @@ function validazioneSef() {
     var vip = document.getElementById('vip').value;
     var select_pagamento = document.getElementById('select_pagamento').value;
     var send = document.getElementById('submit_sef').value;
-    if (name == "") {
+    var success_msg = document.getElementById('success_msg');
+    var mail_sef = document.getElementById('email_Sef').value;
+    var sef_password = document.getElementById('pass_sef').value;
+    if (name == "") { //controllo su ogni campo del form
+        succesSef = false;
         document.getElementById('alertName').removeAttribute("hidden");
     } else {
         document.getElementById('alertName').setAttribute("hidden", true);
     }
     if (lastName == "") {
+        succesSef = false;
         document.getElementById('alertLastName').removeAttribute("hidden");
     } else {
         document.getElementById('alertLastName').setAttribute("hidden", true);
     }
     if (female == false && male == false && freetobe == false) {
+        succesSef = false;
         document.getElementById('alertGender').removeAttribute("hidden");
     } else {
         document.getElementById('alertGender').setAttribute("hidden", true);
@@ -410,24 +512,45 @@ function validazioneSef() {
             qta += 1;
         }
     } if (qta >= 2) {
+        succesSef = false;
         document.getElementById('alertGender2').removeAttribute("hidden");
     } else {
         document.getElementById('alertGender2').setAttribute("hidden", true);
     }
     if (select == "Open this selection menu") {
+        succesSef = false;
         document.getElementById('alertSelect1').removeAttribute("hidden");
     } else {
         document.getElementById('alertSelect1').setAttribute("hidden", true);
     }
     if (parterre == false && tribuna == false && vip == false) {
+        succesSef = false;
         document.getElementById('alertRadio').removeAttribute("hidden");
     } else {
         document.getElementById('alertRadio').setAttribute("hidden", true);
     }
     if (select_pagamento == "") {
+        succesSef = false;
         document.getElementById('alertSelect2').removeAttribute("hidden");
     } else {
         document.getElementById('alertSelect2').setAttribute("hidden", true);
+    }
+    if (succesSef == true) {
+        success_msg.removeAttribute("hidden");
+    } else {
+        success_msg.setAttribute("hidden", true);
+    }
+    if (mail_sef == "") {
+        succesSef = false;
+        document.getElementById('emailAlert').removeAttribute("hidden");
+    } else {
+        document.getElementById('emailAlert').setAttribute("hidden", true);
+    }
+    if (sef_password == "") {
+        succesSef = false;
+        document.getElementById('alertPass').removeAttribute("hidden");
+    } else {
+        document.getElementById('alertPass').setAttribute("hidden", true);
     }
     event.preventDefault();
 }
@@ -440,146 +563,134 @@ function validazioneSef() {
 
 
 
-
-
 //Funzioni momo 
-function ValidazioneMailMoo(){
-   
+function ValidazioneMailMoo() {
+
     var bott = document.getElementById("bottone")
+    var user = document.getElementById("username")
+    var pass = document.getElementById("pass")
+    var confPass = document.getElementById("confPass")
+    var showHidePass = document.getElementById("showHidePass") // variabile per mostra e nascondi password
+    var email = document.getElementById("email")
 
-   var user = document.getElementById("username")
-   var pass = document.getElementById("pass")
-   var confPass = document.getElementById("confPass")
-   var showHidePass = document.getElementById("showHidePass") // variabile per mostra e nascondi password
-   var email = document.getElementById("email")
-
-  // var dataNascita = document.getElementById("data")
-
-
-  //variabili per i Radio buttons
-   var radio = document.getElementById("radio1")
-   var radio2 = document.getElementById("radio2")
-
-//Variabili per il checkbox buttons
-   var casella = document.getElementById("box1")
-   var casella2 = document.getElementById("box2")
-   var casella3 = document.getElementById("box3") 
-   
-   
-
-   //Variabili select
-   var selezione = document.getElementById("select")
-
-//Evento per mostrare e nascondere password tramite un checkbox
-showHidePass.addEventListener('click', function(event){
     
-    if(showHidePass.checked){
-        pass.type = 'text'
-        confPass.type = 'text'
-
-        console.log(pass.type)
-    } else {
-        pass.type = 'password'
-        confPass.type = 'password'
-
-        console.log(pass.type, confPass.type)
-    }
-
-})
+    // var dataNascita = document.getElementById("data")
+    //variabili per i Radio buttons
+    var radio = document.getElementById("radio1")
+    var radio2 = document.getElementById("radio2")
 
 
+    //Variabili per il checkbox buttons
+    var casella = document.getElementById("box1")
+    var casella2 = document.getElementById("box2")
+    var casella3 = document.getElementById("box3")
 
 
-//Evento per controllo form e validazione
-bott.addEventListener('click', function(event){
-  
+    //Variabili select
+    var selezione = document.getElementById("select")
 
 
 
 
+    //Evento per mostrare e nascondere password tramikte un checkbox
+    showHidePass.addEventListener('click', function (event) {
 
-   //Controllo select 
-    if(selezione.value){
-        console.log("Selezione completata")
-    } else {
-        console.log("Selezione non fatta")
-    }
-
-
-
-        // Controllo password
-        if(pass.value.length >= 8 && pass.value == confPass.value){
-            console.log("password uguali")
+        if (showHidePass.checked) {
+            pass.type = 'text'
+            confPass.type = 'text'
+            console.log(pass.type, confPass.type)
         } else {
-            console.log("Passwword diversi, riprovare")
+            pass.type = 'password'
+            confPass.type = 'password'
+            console.log(pass.type, confPass.type)
         }
+    })
 
 
 
 
 
-        // Controllo radio
-        if(radio.checked || radio2.checked){
-            console.log("il radio funziona")
-        } else {
-             console.log("Non selezionato")
-                }
 
-
-
-
-
-        //Controllo checkbox
-        if(casella.checked || casella2.checked || casella3.checked){
-            console.log("checkbox funziona kinda")
-        } else {
-                console.log("Selezionare almeno un elemento")
-                }
-
-
+    //Evento per controllo form e validazione
+    bott.addEventListener('click', function (event) {
 
 
 
         //Controllo username        
-        if(user.value == "mondo" ) {
+        if (user.value == "mondo") {
             console.log("Controllo username eseguito")
         } else {
             console.log("Controllo non riuscito")
+        }
+        //Fine controllo username
+
+
+        //Controllo email
+        if (email.value == "momo@momo.it") {
+
+            console.log("Controllo email completato")
+        } else {
+            console.log("Controllo email fallito")
+        }
+        //Fine controllo email
+
+
+        //Controllo password
+        if (pass.value.length >= 8 && pass.value == confPass.value) {
+            console.log("password uguali")
+        } else {
+            console.log("Passwword diversi, riprovare")
+        }
+        //Fine controllo password
+
+
+
+        //Controllo radio
+        if (radio.checked || radio2.checked) {
+            console.log("il radio funziona")
+        } else {
+            console.log("Non selezionato")
+        }
+        //Fine controllo radio
+
+
+
+        //Controllo checkbox
+        if (casella.checked || casella2.checked || casella3.checked) {
+            console.log("checkbox funziona kinda")
+        } else {
+            console.log("Selezionare almeno un elemento")
+        }
+        //Fine controllo checkox
+
+
+
+        //Controllo select 
+        if (selezione.value) {
+            console.log("Selezione completata")
+        } else {
+            console.log("Selezione non fatta")
         }
 
 
 
 
+        //Controllo generale forse finale
+        if (pass.value.length >= 8 && pass.value == confPass.value && selezione.value &&
+            (radio.checked || radio2.checked) && (casella.checked || casella2.checked || casella3.checked)
+            && user.value == "mondo" && email.value == "momo@momo.it") {
+            alert("Form completato con successo")
+        } else {
 
-
-        //Controllo email
-      if(email.value == "momo@momo.it" ) {
-
-          console.log("Controllo email completato")
-      } else {
-          console.log("Controllo email fallito")
-      }
-
-
-
-
-      if(pass.value.length >= 8 && pass.value == confPass.value && selezione.value && (radio.checked || radio2.checked) && (casella.checked || casella2.checked || casella3.checked)
-     && user.value == "mondo" && email.value == "momo@momo.it"){
-
-        alert("Form completato con successo")
-
-     } else {
-
-         alert("Errore nel form, riprovare")
-     }
+            alert("Errore nel form, riprovare")
+        }
+        //Fine di esso
 
 
 
-})
- }// Fine function
+    })
 
-
-
-   document.getElementById("showHidePass").addEventListener('click', ValidazioneMailMoo)
-   document.getElementById("bottone").addEventListener('click', ValidazioneMailMoo)
+}// Fine function
+document.getElementById("showHidePass").addEventListener('click', ValidazioneMailMoo)
+document.getElementById("bottone").addEventListener('click', ValidazioneMailMoo)
    //Fine funzioni momo

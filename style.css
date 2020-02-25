@@ -62,7 +62,7 @@ body{
 
 
 #francescoContainer{
-    margin: 50px auto;
+    margin: 10px auto;
     background-color: antiquewhite;
     height: 500px;
     width: 500px;
@@ -79,6 +79,28 @@ body{
     left: 230px;
     transition:  200ms linear ;
 }
+
+#francescoTryLeftBox{
+    color: red;
+    width: 500px;
+    margin: 20px auto;
+
+}
+
+#francescoLevelUpContainer {
+    width: 500px;
+    height: 20px;
+    margin: 10px auto;
+}
+
+#francescoLevelUp {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: purple;
+
+}
+
 
 /*inizio foglio stile Luca Moro*/
 #lucatabella {
