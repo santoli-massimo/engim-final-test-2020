@@ -287,7 +287,7 @@ L'utente deve riuscire a non toccare il div col puntatore.
 Tenere traccia del punteggio
 
 
-### Memory (100p)
+### Memory (100p) Carolina C
 Creare il gioco del memory con almeno 16 carte.
 
 
