@@ -439,6 +439,9 @@ function validazioneSef() {
 
 
 
+
+
+
 //Funzioni momo 
 function ValidazioneMailMoo(){
    
@@ -451,6 +454,8 @@ function ValidazioneMailMoo(){
    var email = document.getElementById("email")
 
   // var dataNascita = document.getElementById("data")
+
+
   //variabili per i Radio buttons
    var radio = document.getElementById("radio1")
    var radio2 = document.getElementById("radio2")
@@ -458,9 +463,14 @@ function ValidazioneMailMoo(){
 //Variabili per il checkbox buttons
    var casella = document.getElementById("box1")
    var casella2 = document.getElementById("box2")
-   var casella3 = document.getElementById("box3")   
+   var casella3 = document.getElementById("box3") 
+   
+   
 
-//Evento per mostrare e nascondere password tramikte un checkbox
+   //Variabili select
+   var selezione = document.getElementById("select")
+
+//Evento per mostrare e nascondere password tramite un checkbox
 showHidePass.addEventListener('click', function(event){
     
     if(showHidePass.checked){
@@ -481,12 +491,23 @@ showHidePass.addEventListener('click', function(event){
 
 
 //Evento per controllo form e validazione
-
-
 bott.addEventListener('click', function(event){
   
-   
 
+
+
+
+
+   //Controllo select 
+    if(selezione.value){
+        console.log("Selezione completata")
+    } else {
+        console.log("Selezione non fatta")
+    }
+
+
+
+        // Controllo password
         if(pass.value.length >= 8 && pass.value == confPass.value){
             console.log("password uguali")
         } else {
@@ -495,14 +516,20 @@ bott.addEventListener('click', function(event){
 
 
 
+
+
+        // Controllo radio
         if(radio.checked || radio2.checked){
             console.log("il radio funziona")
         } else {
-                console.log("Non selezionato")
+             console.log("Non selezionato")
                 }
 
 
 
+
+
+        //Controllo checkbox
         if(casella.checked || casella2.checked || casella3.checked){
             console.log("checkbox funziona kinda")
         } else {
@@ -510,16 +537,46 @@ bott.addEventListener('click', function(event){
                 }
 
 
-      if(user.value == "mondo" && email.value == "momo@momo.it" ) {
 
-          console.log("lo script funziona")
+
+
+        //Controllo username        
+        if(user.value == "mondo" ) {
+            console.log("Controllo username eseguito")
+        } else {
+            console.log("Controllo non riuscito")
+        }
+
+
+
+
+
+
+        //Controllo email
+      if(email.value == "momo@momo.it" ) {
+
+          console.log("Controllo email completato")
       } else {
-          console.log("script funzionaaa")
+          console.log("Controllo email fallito")
       }
+
+
+
+
+      if(pass.value.length >= 8 && pass.value == confPass.value && selezione.value && (radio.checked || radio2.checked) && (casella.checked || casella2.checked || casella3.checked)
+     && user.value == "mondo" && email.value == "momo@momo.it"){
+
+        alert("Form completato con successo")
+
+     } else {
+
+         alert("Errore nel form, riprovare")
+     }
+
+
+
 })
-
-
-   }// Fine function
+ }// Fine function
 
 
 
