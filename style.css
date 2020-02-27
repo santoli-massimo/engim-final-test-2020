@@ -351,3 +351,132 @@ body {
     bottom: -180px;
     display: none;
 }
+
+#Stefania{
+    background-image: url("immagini/stefania/sfondo.jpg");
+    
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.titoloSte{
+            font-family: 'Parisienne' ;
+            font-size: 50px;
+            font-weight: normal;
+            color: black;
+            
+        }
+#calcolatrice_ste {
+    width: 325px;
+  height:500px;
+  padding:10px;
+  border-radius:20px;
+  background-color:#ff3399;
+  background-image: url("immagini/stefania/monogram-668685_1920.png");
+  background-position: center;
+  background-size: cover;
+  border-color: black;
+  top:25px;
+  left:32px;
+  font-family: 'Caveat';
+  margin:10px;
+            
+        }
+        .tasto_ste {
+            color:black;
+  background-color:violet;
+  width:130px;
+  height:60px;
+  border-radius:50px;
+  border-color: violet;
+  font-size:40px;
+  margin:5px;
+  text-align:center;
+  line-height:55px;
+  float:left;
+  margin-left:9px;
+  font-family: 'Caveat';
+        }
+        .display_ste {
+            /*background: none;*/
+            color: #000;
+            
+            
+            margin: 4px 2px;
+            width:300px;
+             
+            border-radius:10px ;
+            border-color: b#ff3399;
+  text-align:right;
+  font-size:40px;
+  background-color: pink;
+  height:80px;
+  font-family: 'Caveat';
+         
+        }
+        .uguale_ste {
+            width: 208px;
+            font-family: 'Caveat';
+          
+        }
+        .prima_ste{
+            color:black;
+  background-color:lightpink;
+  width:60px;
+  height:60px;
+  border-radius:50px;
+  border-color: lightpink ;
+  text-align:center;
+  line-height:55px;
+  font-size:40px;
+  float:left;
+  margin:5px;
+  margin-left:9px;
+  font-family: 'Caveat';
+        }
+        .operatore_ste{
+            color:white;
+  background-color:purple;
+  width:60px;
+  height:60px;
+  border-radius:50px;
+  border-color: purple;
+  text-align:center;
+  line-height:55px;
+  font-size:40px;
+  float:left;
+  margin:5px;
+  margin-left:9px;
+  font-family: 'Caveat';
+        }
+
+.secondo_ste{
+    color: black;
+  background-color:violet;
+  width:60px;
+  height:60px;
+  border-radius:50px;
+  border-color: violet;
+  font-size:40px;
+  margin:5px;
+  text-align:center;
+  line-height:55px;
+  float:left;
+  margin-left:9px;
+  font-family: 'Caveat';
+}
+#label_ste{
+    font-family: 'Parisienne' ;
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+}
+#colore_label_ste{
+    display: none;
+}
+#colore_ste{
+    width: 70px;
+    height: 40px;
+}
