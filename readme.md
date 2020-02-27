@@ -55,7 +55,7 @@ Potranno essere premiati (ad insindacabile discrezione del docente):
 
 # ESAMI
 
-### Cambia colore (60p)
+### Cambia colore (60p) Stefania Cappellino
 Creare un input tipo color ed un paragrafo. 
 Al cambio del valore dell input il paragrafo cambia colore
 
