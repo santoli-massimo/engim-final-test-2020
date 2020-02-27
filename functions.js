@@ -923,3 +923,60 @@ function alessandro_games() {
 }
 //richiamo della funzione
 alessandro_games()
+
+function inserisci_ste(numero_ste){
+    var operazione_ste = document.getElementById('operazioni_ste');
+    operazione_ste.value += numero_ste;
+   
+    
+    
+}
+function calcola_ste(){
+    var operazione_ste = document.getElementById('operazioni_ste');
+    operazione_ste.value=eval(operazione_ste.value);
+    
+   
+}
+function cancella_ste(){
+    var operazione_ste = document.getElementById('operazioni_ste');
+    operazione_ste.value = "";
+}
+function selezionecolore_ste(){
+    colore_ste = document.getElementById('colore_ste');
+    colore_label_ste=document.getElementById('colore_label_ste');
+    colore_ste.value=colorebase_ste;
+    colore_label_ste.value=colorebase_ste;
+    colore_ste.addEventListener('input', testo_ste, false);
+    colore_label_ste.addEventListener('input', testo_ste, false);
+    colore_ste.addEventListener('change', cambia_ste, false);
+    colore_label_ste.addEventListener('change', cambia_ste, false);
+    colore_ste.select();
+    colore_label_ste.select();
+
+}
+function testo_ste(event){
+    var h1_ste = document.getElementById('cambio_ste');
+    var label_ste=document.getElementById('label_ste');
+    
+    if(h1_ste ){
+        h1_ste.style.color=event.target.value;
+        
+        
+    }
+    if(label_ste){
+        label_ste.style.color=event.target.value;
+    }
+    
+    
+    
+}
+function cambia_ste(event){
+    document.getElementById('cambio_ste').foreach(function(cambio_ste){
+        h1_ste.style.color=event.target.value;
+        
+    });
+    document.getElementById('label_ste').foreach(function(label_ste){
+        label_ste.style.color=event.target.value;
+    })
+    
+}
