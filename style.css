@@ -1,4 +1,4 @@
-body{
+body {
     background: #a6f0db;
     min-height: 100vh;
 }
@@ -7,17 +7,18 @@ body{
     min-height: 100%;
 }
 
-.page{
-    height: 100%; width:100%;
+.page {
+    height: 100%;
+    width: 100%;
     display: none;
 }
-.page:first-child{
+
+.page:first-child {
     display: block;
 }
 
-
-#santoli15{
-    margin: 30 ;
+#santoli15 {
+    margin: 30;
     border: solid blue 1px;
     background: antiquewhite;
     width: 404px;
@@ -25,13 +26,11 @@ body{
     display: flex;
     flex-wrap: wrap;
     padding: 2px;
-    
 }
-
 
 #santoli15 .square {
     margin: 1px;
-    border-radius:3px;
+    border-radius: 3px;
     background: white;
     width: 97px;
     height: 97px;
@@ -39,11 +38,10 @@ body{
     font: 32px bold;
 }
 
-#santoli15 .square img{
+#santoli15 .square img {
     width: 100%;
     height: 100%;
-    border-radius:3px;
-
+    border-radius: 3px;
 }
 
 #santoli15 .void {
@@ -51,7 +49,7 @@ body{
     border: solid 1px antiquewhite;
 }
 
-#santoli15 .win{
+#santoli15 .win {
     position: absolute;
     margin: auto;
     z-index: -5;
@@ -60,8 +58,7 @@ body{
     background-image: url("immagini/15/Santoli.jpeg");
 }
 
-
-#francescoContainer{
+#francescoContainer {
     margin: 10px auto;
     background-color: antiquewhite;
     height: 500px;
@@ -69,7 +66,7 @@ body{
     cursor: move;
 }
 
-#francescoEvil{
+#francescoEvil {
     height: 40px;
     width: 40px;
     border-radius: 20px;
@@ -77,14 +74,13 @@ body{
     position: relative;
     top: 230px;
     left: 230px;
-    transition:  200ms linear ;
+    transition: 200ms linear;
 }
 
-#francescoTryLeftBox{
+#francescoTryLeftBox {
     color: red;
     width: 500px;
     margin: 20px auto;
-
 }
 
 #francescoLevelUpContainer {
@@ -98,11 +94,11 @@ body{
     height: 100%;
     margin: 0;
     background-color: purple;
-
 }
 
 
 /*inizio foglio stile Luca Moro*/
+
 #lucatabella {
     width: 100%;
     border: 4px solid black;
@@ -146,29 +142,212 @@ body{
     text-align: center;
 }
 
-.lucah5{
+.lucah5 {
     text-align: center;
 }
+
 
 /*fine foglio stile Luca Moro*/
 
+
 /* foglio CSS Sefora */
-.title_sef{
+
+.title_sef {
     font-family: 'Chicle';
-    color:black;
+    color: black;
     text-align: center;
     margin-top: 20px;
 }
-#form_sef{
-    font-family:'Baloo Tammudu';
+
+#form_sef {
+    font-family: 'Baloo Tammudu';
 }
-.radius{
+
+.radius {
     border-radius: 200px;
 }
-#Sefora{
+
+#Sefora {
     background-image: url("immagini/ImgSef/bg.jpg");
     background-size: auto;
     background-repeat: no-repeat;
     background-size: cover;
-    
+}
+
+#alessandro_root {
+    height: 883px;
+    width: 100%;
+    background: url(immagini/img_ale/wall.jpg);
+    background-repeat: no-repeat;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#alessandro_h1 {
+    text-align: center;
+    color: white;
+}
+
+#alessandro_h2diff {
+    text-align: center;
+    color: white;
+}
+
+#alessandro_h2 {
+    text-align: center;
+    display: none;
+    color: white;
+}
+
+#alessandro_img {
+    display: none;
+}
+
+#alessandro_start {
+    position: relative;
+    bottom: -129px;
+    left: 900px;
+    height: 100px;
+    width: 100px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background: #8E1A23;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: url(immagini/img_ale/alessandro_hand.png), auto
+}
+
+#alessandro_facile {
+    position: relative;
+    bottom: -80px;
+    left: 500px;
+    height: 100px;
+    width: 150px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background: #8E1A23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: url(immagini/img_ale/alessandro_hand.png), auto;
+}
+
+#alessandro_facile {
+    position: relative;
+    bottom: -80px;
+    left: 500px;
+    height: 100px;
+    width: 150px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background: #8E1A23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: url(immagini/img_ale/alessandro_hand.png), auto;
+}
+
+#alessandro_media {
+    position: relative;
+    bottom: 24px;
+    left: 875px;
+    height: 100px;
+    width: 150px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background: #8E1A23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: url(immagini/img_ale/alessandro_hand.png), auto;
+}
+
+#alessandro_difficile {
+    position: relative;
+    bottom: 128px;
+    left: 1240px;
+    height: 100px;
+    width: 150px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background: #8E1A23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: url(immagini/img_ale/alessandro_hand.png), auto;
+}
+
+#alessandro_positivo {
+    position: relative;
+    display: none;
+    bottom: 100px;
+    left: 50px;
+    height: 100px;
+    width: 250px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: lightgreen;
+    border-radius: 15px;
+    background: #8E1A23;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#alessandro_negativo {
+    position: relative;
+    display: none;
+    bottom: 50px;
+    left: 50px;
+    height: 100px;
+    width: 250px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: lightsalmon;
+    border-radius: 15px;
+    background: #8E1A23;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#alessandro_restart {
+    position: relative;
+    bottom: -630px;
+    left: 875px;
+    height: 100px;
+    width: 150px;
+    border: solid 2px white;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background: #8E1A23;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: url(immagini/img_ale/alessandro_hand.png), auto;
+}
+
+#alessandro_restartvid {
+    border: white solid 2px;
+    position: relative;
+    left: 480px;
+    bottom: -180px;
+    display: none;
 }
