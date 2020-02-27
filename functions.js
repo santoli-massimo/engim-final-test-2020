@@ -7,11 +7,11 @@ function nascondiPagine(list) {
 
 let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
-    init: function() {
+    init: function () {
         for (let square of document.querySelectorAll("#santoli15 .square")) { // imposta l'evento al click sui riquadri non vuoti: invert e checkwin e avvia il gioco una prima volta
 
             if (!square.classList.contains("void")) {
-                square.addEventListener("click", function() {
+                square.addEventListener("click", function () {
                     santoli15.invert(this);
                     santoli15.checkWin()
                 });
@@ -21,7 +21,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
         santoli15.start15();
     },
 
-    start15: function() { // avvio del gioco: sposta sotto la faccia completa ed esegue 10000 mosse casuali (la maggior parte saranno ignorate perché non lecite)
+    start15: function () { // avvio del gioco: sposta sotto la faccia completa ed esegue 10000 mosse casuali (la maggior parte saranno ignorate perché non lecite)
         document.querySelector("#santoli15 .win").style.zIndex = -5;
         for (let i = 0; i < 10000; i++) {
             santoli15.invert(document.getElementsByClassName("square")[Math.floor(Math.random() * 15)])
@@ -30,7 +30,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 
 
 
-    invert: function(toInvert) { //dato un riquadro lo scambia con il riquadro void se ha verificato che è una mossa lecita, altrimenti non fa nulla
+    invert: function (toInvert) { //dato un riquadro lo scambia con il riquadro void se ha verificato che è una mossa lecita, altrimenti non fa nulla
         let voidSquare = document.getElementsByClassName("void")[0];
 
         let distance = toInvert.style.order - voidSquare.style.order
@@ -44,7 +44,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
     },
 
 
-    checkWin: function() { //verifica la vittoria: se l'ordine dei riquadri corrisponde all'ordine delle foto sposta in alto l'immagine completa
+    checkWin: function () { //verifica la vittoria: se l'ordine dei riquadri corrisponde all'ordine delle foto sposta in alto l'immagine completa
         let squares = document.getElementsByClassName("square")
 
         let win = true
@@ -69,7 +69,7 @@ let santoli15 = { // tutto il codice che serve  per il giochino/dedica in home
 function francescoInit() {
 
 
-    document.getElementById("francescoContainer").addEventListener("mousemove", function(event) { //monitora posizione del mouse rispetto al container
+    document.getElementById("francescoContainer").addEventListener("mousemove", function (event) { //monitora posizione del mouse rispetto al container
 
         francescoMousePosition.top = event.clientY - document.getElementById("francescoContainer").getBoundingClientRect().top
         francescoMousePosition.left = event.clientX - document.getElementById("francescoContainer").getBoundingClientRect().left
@@ -77,7 +77,7 @@ function francescoInit() {
     })
 
 
-    document.querySelector("#francescoContainer").addEventListener("mouseenter", function() { //avvia nuova partita all'ingresso
+    document.querySelector("#francescoContainer").addEventListener("mouseenter", function () { //avvia nuova partita all'ingresso
         francescoNewGame();
     })
 
@@ -129,8 +129,14 @@ function francescoNewGame() {
             if (mouseEvilDistance() < francescoEvilPosition.radius) {
                 francescoCaugth();
             } else {
-                francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
-                francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
+                let angle = Math.atan((francescoMousePosition.top - francescoEvilPosition.top) / (francescoMousePosition.left - francescoEvilPosition.left));
+                if (francescoMousePosition.left < francescoEvilPosition.left) {
+                    angle += Math.PI;
+                }
+                francescoEvilPosition.top += Math.sin(angle) * stride;
+                francescoEvilPosition.left += Math.cos(angle) * stride;
+                // francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
+                // francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
                 francescoEvilPosition.update();
                 levelTimeLeft -= gameLevelsPaces[level];
                 document.getElementById("francescoLevelUp").style.width = (levelTimeLeft * 100 / levelTime) + "%";
@@ -172,7 +178,7 @@ function francescoNewGame() {
         document.getElementById("francescoTryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
 
         if (tryLeft > 0) {
-            setTimeout(function() { francescoJustCaught = false; }, gameLevelsPaces[level] * 5);
+            setTimeout(function () { francescoJustCaught = false; }, gameLevelsPaces[gameLevelsPaces.length - 1] * 4);
         }
     }
 
@@ -198,7 +204,7 @@ let francescoEvilPosition = {
     top: 250,
     left: 250,
     radius: 20,
-    update: function() {
+    update: function () {
 
         francescoEvilPosition.top = Math.max(this.radius, Math.min(500 - this.radius, francescoEvilPosition.top))
         francescoEvilPosition.left = Math.max(this.radius, Math.min(500 - this.radius, francescoEvilPosition.left))
@@ -223,25 +229,25 @@ let francescoEvilPosition = {
 
 //INIZIO FUNZIONI LUCA MORO
 lucalista = [{
-        Nome: 'Tizio',
-        Cognome: 'Caio',
-        Eta: 20
-    },
-    {
-        Nome: 'Antonio',
-        Cognome: 'Cavallo',
-        Eta: 10
-    },
-    {
-        Nome: 'Cristiano',
-        Cognome: 'Ronaldo',
-        Eta: 35
-    },
-    {
-        Nome: 'Luca',
-        Cognome: 'Moro',
-        Eta: 25
-    }
+    Nome: 'Tizio',
+    Cognome: 'Caio',
+    Eta: 20
+},
+{
+    Nome: 'Antonio',
+    Cognome: 'Cavallo',
+    Eta: 10
+},
+{
+    Nome: 'Cristiano',
+    Cognome: 'Ronaldo',
+    Eta: 35
+},
+{
+    Nome: 'Luca',
+    Cognome: 'Moro',
+    Eta: 25
+}
 ]
 
 //funzione crea lista
@@ -316,7 +322,7 @@ lucalista2 = lucalista.map(lucaToLowerCase)
 var lucailmioinput = document.getElementById('lucailmioinput')
 
 //creo l'evento input per il filtro lista
-lucailmioinput.addEventListener('input', function() {
+lucailmioinput.addEventListener('input', function () {
 
     document.getElementById('lucacontenitore2').innerHTML = ""
 
@@ -396,7 +402,7 @@ function luca2createTableFromList(lista) {
 // Creo l'oggetto richiesta
 var lucarequest = new XMLHttpRequest()
 
-var lucaonresponse = function() {
+var lucaonresponse = function () {
     var response = lucarequest.response
 
     // Converto i dati da JSON a js
@@ -435,7 +441,7 @@ var lucaonresponse = function() {
 lucarequest.addEventListener('loadend', lucaonresponse)
 
 lucarequest.open('GET', 'https://jsonplaceholder.typicode.com/posts')
-    // Eseguo la richiesta
+// Eseguo la richiesta
 lucarequest.send()
 
 //fine funzioni Luca Moro
@@ -453,7 +459,7 @@ lucarequest.send()
 //funzioni Sefora
 document.getElementById('submit_sef').addEventListener('click', validazioneSef);
 //funzione reset Form
-document.getElementById('reset_sef').addEventListener('click', function() {
+document.getElementById('reset_sef').addEventListener('click', function () {
     var form_sef = document.getElementById("form_sef");
     form_sef.reset();
     success_msg.setAttribute("hidden", true);
@@ -592,7 +598,7 @@ function ValidazioneMailMoo() {
 
 
     //Evento per mostrare e nascondere password tramikte un checkbox
-    showHidePass.addEventListener('click', function(event) {
+    showHidePass.addEventListener('click', function (event) {
 
         if (showHidePass.checked) {
             pass.type = 'text'
@@ -611,7 +617,7 @@ function ValidazioneMailMoo() {
 
 
     //Evento per controllo form e validazione
-    bott.addEventListener('click', function(event) {
+    bott.addEventListener('click', function (event) {
 
 
 
@@ -692,16 +698,16 @@ function ValidazioneMailMoo() {
 } // Fine function
 document.getElementById("showHidePass").addEventListener('click', ValidazioneMailMoo)
 document.getElementById("bottone").addEventListener('click', ValidazioneMailMoo)
-    //Fine funzioni momo
+//Fine funzioni momo
 
 //funzione di ale the best
 //array img
 var alessandro_imgs = ["immagini/img_ale/alessandro_1.jpg", "immagini/img_ale/alessandro_2.jpg", "immagini/img_ale/alessandro_4.jpg",
-        "immagini/img_ale/alessandro_5.jpg", "immagini/img_ale/alessandro_6.jpg",
-        "immagini/img_ale/alessandro_7.jpg", "immagini/img_ale/alessandro_8.jpg", "immagini/img_ale/alessandro_9.jpg",
-        "immagini/img_ale/alessandro_10.png", "immagini/img_ale/alessandro_11.jpg", "immagini/img_ale/alessandro_13.jpg"
-    ]
-    //function principale
+    "immagini/img_ale/alessandro_5.jpg", "immagini/img_ale/alessandro_6.jpg",
+    "immagini/img_ale/alessandro_7.jpg", "immagini/img_ale/alessandro_8.jpg", "immagini/img_ale/alessandro_9.jpg",
+    "immagini/img_ale/alessandro_10.png", "immagini/img_ale/alessandro_11.jpg", "immagini/img_ale/alessandro_13.jpg"
+]
+//function principale
 function alessandro_games() {
     // creo tutti gli elementi
     var root = document.getElementById("alessandro_root")
@@ -716,7 +722,7 @@ function alessandro_games() {
     var tdpos = document.createElement("div")
     var tdneg = document.createElement("div")
     var restart = document.createElement("div")
-        //imposto tutti gli elementi
+    //imposto tutti gli elementi
     h1.id = "alessandro_h1"
     h1.innerHTML = "ATTACCO EPILETTICO"
     h2diff.id = "alessandro_h2diff"
@@ -736,7 +742,7 @@ function alessandro_games() {
     tdneg.id = "alessandro_negativo"
     restart.id = "alessandro_restart"
     restart.innerHTML = "RESTART"
-        //appendo tutti gli elementi nel div
+    //appendo tutti gli elementi nel div
     root.prepend(h1)
     root.append(h2diff)
     root.append(h2)
@@ -748,49 +754,49 @@ function alessandro_games() {
     root.append(tdpos)
     root.append(tdneg)
     root.append(restart)
-        //livello facile
-    facile.addEventListener("click", function() {
-            facile.style.display = "none"
-            media.style.display = "none"
-            difficile.style.display = "none"
-            h2diff.style.display = "none"
-            diff = 500
-            start.style.display = "flex"
-        })
-        //livello medio
-    media.addEventListener("click", function() {
-            facile.style.display = "none"
-            media.style.display = "none"
-            difficile.style.display = "none"
-            h2diff.style.display = "none"
-            diff = 350
-            start.style.display = "flex"
-        })
-        //livello difficile
-    difficile.addEventListener("click", function() {
-            facile.style.display = "none"
-            media.style.display = "none"
-            difficile.style.display = "none"
-            h2diff.style.display = "none"
-            diff = 200
-            start.style.display = "flex"
-        })
-        // evento dal click del bottone
-    start.addEventListener("click", function() {
+    //livello facile
+    facile.addEventListener("click", function () {
+        facile.style.display = "none"
+        media.style.display = "none"
+        difficile.style.display = "none"
+        h2diff.style.display = "none"
+        diff = 500
+        start.style.display = "flex"
+    })
+    //livello medio
+    media.addEventListener("click", function () {
+        facile.style.display = "none"
+        media.style.display = "none"
+        difficile.style.display = "none"
+        h2diff.style.display = "none"
+        diff = 350
+        start.style.display = "flex"
+    })
+    //livello difficile
+    difficile.addEventListener("click", function () {
+        facile.style.display = "none"
+        media.style.display = "none"
+        difficile.style.display = "none"
+        h2diff.style.display = "none"
+        diff = 200
+        start.style.display = "flex"
+    })
+    // evento dal click del bottone
+    start.addEventListener("click", function () {
         start.style.display = "none"
-            // preso img da id
+        // preso img da id
         var img = document.getElementById('alessandro_img')
-            // presa immagine random da array
+        // presa immagine random da array
         var imgrandom = alessandro_imgs[Math.floor(alessandro_imgs.length * Math.random())]
-            // preso h2 con display none per poterlo far vedere una volte che si è premuto il pulsante
+        // preso h2 con display none per poterlo far vedere una volte che si è premuto il pulsante
         var h2 = document.getElementById("alessandro_h2")
-            // indicazioni su quale img bisogna targettare
+        // indicazioni su quale img bisogna targettare
         h2.style.display = "block"
-            // nuovo tag img per far capire all' utente cosa deve cercare
+        // nuovo tag img per far capire all' utente cosa deve cercare
         var imgofsearch = document.createElement("img")
-            //l'appendo all' h2
+        //l'appendo all' h2
         h2.append(imgofsearch)
-            // setto tutti i parametri dell' img
+        // setto tutti i parametri dell' img
         imgofsearch.id = "alessandro_img2"
         imgofsearch.style.position = "relative"
         imgofsearch.style.left = "505px"
@@ -798,122 +804,122 @@ function alessandro_games() {
         imgofsearch.style.border = "solid 2px white"
         imgofsearch.style.display = "block"
         imgofsearch.src = imgrandom
-            //tempo necessario per vedere l 'img da trovare
-        var timeout = setTimeout(function() {
-                var img2 = document.getElementById("alessandro_img2")
-                img2.style.display = "none"
-                img.style.position = "relative"
-                img.style.left = "505px"
-                img.style.bottom = "-172px"
-                img.style.border = "solid 2px white"
-                h2.style.display = "none"
-                img.style.display = "block"
-                clearTimeout(timeout)
-            }, 3000)
-            //variabili settate a 0 per div giusto e sbagliato
+        //tempo necessario per vedere l 'img da trovare
+        var timeout = setTimeout(function () {
+            var img2 = document.getElementById("alessandro_img2")
+            img2.style.display = "none"
+            img.style.position = "relative"
+            img.style.left = "505px"
+            img.style.bottom = "-172px"
+            img.style.border = "solid 2px white"
+            h2.style.display = "none"
+            img.style.display = "block"
+            clearTimeout(timeout)
+        }, 3000)
+        //variabili settate a 0 per div giusto e sbagliato
         I = 0
         J = 0
-            //click sull ' img
-        img.addEventListener("click", function() {
-                //se è uguale a quello random
-                if (this.src == imgofsearch.src) {
-                    tdpos.style.display = "flex"
-                    I++
-                    tdpos.innerHTML = "GIUSTE: " + I
-                        //come da traccia si potrebbe inserire questo per riportare al click dell' img corretta all' inizio, ma se l' img fosse la
-                        //prima sarebbe troppo facile quindi ho preferito non metterlo
-                        //n=0
-                        //5 click sull' img giusta per vincere
-                    if (I == 5) {
-                        var win = document.createElement("h1")
-                        img.style.display = "none"
-                        win.style.color = "WHITE"
-                        win.innerHTML = "HAI VINTO CAMPIONE"
-                        h1.append(win)
-                            //ho inserito una canzone per rendere più eroica la vittoria
-                        songwin = document.getElementById("alessandro_songwin")
-                            // start della canzone
-                        songwin.play()
-                        restart.style.display = "flex"
-                        tdpos.style.display = "none"
-                        tdneg.style.display = "none"
-                            //al click del restart si avvia un interval lungo il necessario per il video
-                        clearInterval(interval)
-                        restart.addEventListener("click", function() {
-                            restartvid = document.getElementById("alessandro_restartvid")
-                            restart.style.display = "none"
-                            songwin.pause()
-                            restartvid.style.display = "block"
-                            win.style.display = "none"
-                            restartvid.play()
-                                //funzione che rimuevo tutto
-                            setTimeout(function() {
-                                restartvid.style.display = "none"
-                                h1.remove()
-                                h2diff.remove()
-                                h2.remove()
-                                img.remove()
-                                start.remove()
-                                facile.remove()
-                                media.remove()
-                                difficile.remove()
-                                tdpos.remove()
-                                tdneg.remove()
-                                restart.remove()
-                                alessandro_games()
-                            }, 6800)
-                        })
-                    }
-                } else {
-                    //div sbagliate
-                    tdneg.style.display = "flex"
-                    J++
-                    tdneg.innerHTML = "SBAGLIATE: " + J
-                    if (J == 15) {
-                        //stessa cosa di prima con click dell' img sbagliata
-                        var lose = document.createElement("h1")
-                        img.style.display = "none"
-                        lose.style.color = "WHITE"
-                        lose.innerHTML = "HAI PERSO"
-                        h1.append(lose)
-                        songlose = document.getElementById("alessandro_songlose")
-                        songlose.play()
-                        restart.style.display = "flex"
-                        tdpos.style.display = "none"
-                        tdneg.style.display = "none"
-                        clearInterval(interval)
-                        restart.addEventListener("click", function() {
-                            //click fa apparire video e mette in pausa lò song
-                            restartvid = document.getElementById("alessandro_restartvid")
-                            restart.style.display = "none"
-                            songlose.pause()
-                            restartvid.style.display = "block"
-                            lose.style.display = "none"
-                            restartvid.play()
-                                //stessa funzione di sopra
-                            setTimeout(function() {
-                                restartvid.style.display = "none"
-                                h1.remove()
-                                h2diff.remove()
-                                h2.remove()
-                                img.remove()
-                                start.remove()
-                                facile.remove()
-                                media.remove()
-                                difficile.remove()
-                                tdpos.remove()
-                                tdneg.remove()
-                                restart.remove()
-                                alessandro_games()
-                            }, 6800)
-                        })
-
-                    }
+        //click sull ' img
+        img.addEventListener("click", function () {
+            //se è uguale a quello random
+            if (this.src == imgofsearch.src) {
+                tdpos.style.display = "flex"
+                I++
+                tdpos.innerHTML = "GIUSTE: " + I
+                //come da traccia si potrebbe inserire questo per riportare al click dell' img corretta all' inizio, ma se l' img fosse la
+                //prima sarebbe troppo facile quindi ho preferito non metterlo
+                //n=0
+                //5 click sull' img giusta per vincere
+                if (I == 5) {
+                    var win = document.createElement("h1")
+                    img.style.display = "none"
+                    win.style.color = "WHITE"
+                    win.innerHTML = "HAI VINTO CAMPIONE"
+                    h1.append(win)
+                    //ho inserito una canzone per rendere più eroica la vittoria
+                    songwin = document.getElementById("alessandro_songwin")
+                    // start della canzone
+                    songwin.play()
+                    restart.style.display = "flex"
+                    tdpos.style.display = "none"
+                    tdneg.style.display = "none"
+                    //al click del restart si avvia un interval lungo il necessario per il video
+                    clearInterval(interval)
+                    restart.addEventListener("click", function () {
+                        restartvid = document.getElementById("alessandro_restartvid")
+                        restart.style.display = "none"
+                        songwin.pause()
+                        restartvid.style.display = "block"
+                        win.style.display = "none"
+                        restartvid.play()
+                        //funzione che rimuevo tutto
+                        setTimeout(function () {
+                            restartvid.style.display = "none"
+                            h1.remove()
+                            h2diff.remove()
+                            h2.remove()
+                            img.remove()
+                            start.remove()
+                            facile.remove()
+                            media.remove()
+                            difficile.remove()
+                            tdpos.remove()
+                            tdneg.remove()
+                            restart.remove()
+                            alessandro_games()
+                        }, 6800)
+                    })
                 }
-            })
-            //intervallo per far cambiare le img
+            } else {
+                //div sbagliate
+                tdneg.style.display = "flex"
+                J++
+                tdneg.innerHTML = "SBAGLIATE: " + J
+                if (J == 15) {
+                    //stessa cosa di prima con click dell' img sbagliata
+                    var lose = document.createElement("h1")
+                    img.style.display = "none"
+                    lose.style.color = "WHITE"
+                    lose.innerHTML = "HAI PERSO"
+                    h1.append(lose)
+                    songlose = document.getElementById("alessandro_songlose")
+                    songlose.play()
+                    restart.style.display = "flex"
+                    tdpos.style.display = "none"
+                    tdneg.style.display = "none"
+                    clearInterval(interval)
+                    restart.addEventListener("click", function () {
+                        //click fa apparire video e mette in pausa lò song
+                        restartvid = document.getElementById("alessandro_restartvid")
+                        restart.style.display = "none"
+                        songlose.pause()
+                        restartvid.style.display = "block"
+                        lose.style.display = "none"
+                        restartvid.play()
+                        //stessa funzione di sopra
+                        setTimeout(function () {
+                            restartvid.style.display = "none"
+                            h1.remove()
+                            h2diff.remove()
+                            h2.remove()
+                            img.remove()
+                            start.remove()
+                            facile.remove()
+                            media.remove()
+                            difficile.remove()
+                            tdpos.remove()
+                            tdneg.remove()
+                            restart.remove()
+                            alessandro_games()
+                        }, 6800)
+                    })
+
+                }
+            }
+        })
+        //intervallo per far cambiare le img
         var n = 0
-        var interval = setInterval(function() {
+        var interval = setInterval(function () {
             img.src = alessandro_imgs[n++]
             if (n == alessandro_imgs.length) {
                 n = 0
