@@ -930,6 +930,8 @@ function alessandro_games() {
 //richiamo della funzione
 alessandro_games()
 
+
+//funzione per inserire i numeri nella calcolatrice
 function inserisci_ste(numero_ste){
     var operazione_ste = document.getElementById('operazioni_ste');
     operazione_ste.value += numero_ste;
@@ -937,16 +939,19 @@ function inserisci_ste(numero_ste){
     
     
 }
+//funzione per il calcolo delle operazioni
 function calcola_ste(){
     var operazione_ste = document.getElementById('operazioni_ste');
     operazione_ste.value=eval(operazione_ste.value);
     
    
 }
+//funzione per cancellare
 function cancella_ste(){
     var operazione_ste = document.getElementById('operazioni_ste');
     operazione_ste.value = "";
 }
+//funzione per cambiare il colore al testo
 function selezionecolore_ste(){
     colore_ste = document.getElementById('colore_ste');
     colore_label_ste=document.getElementById('colore_label_ste');
