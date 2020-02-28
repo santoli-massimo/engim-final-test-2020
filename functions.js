@@ -228,29 +228,30 @@ let francescoEvilPosition = {
 
 
 //INIZIO FUNZIONI LUCA MORO
-lucalista = [{
-    Nome: 'Tizio',
-    Cognome: 'Caio',
-    Eta: 20
-},
-{
-    Nome: 'Antonio',
-    Cognome: 'Cavallo',
-    Eta: 10
-},
-{
-    Nome: 'Cristiano',
-    Cognome: 'Ronaldo',
-    Eta: 35
-},
-{
-    Nome: 'Luca',
-    Cognome: 'Moro',
-    Eta: 25
-}
+lucalista = [
+    {
+        Nome: 'Tizio',
+        Cognome: 'Caio',
+        Eta: 20
+    },
+    {
+        Nome: 'Antonio',
+        Cognome: 'Cavallo',
+        Eta: 10
+    },
+    {
+        Nome: 'Cristiano',
+        Cognome: 'Ronaldo',
+        Eta: 35
+    },
+    {
+        Nome: 'Luca',
+        Cognome: 'Moro',
+        Eta: 25
+    }
 ]
 
-//funzione crea lista
+//funziona crea lista
 function lucacreateTableFromList(contenitoreid, lista) {
 
     var contenitore = document.getElementById(contenitoreid)
@@ -307,7 +308,7 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
-//funzione caratteri minuscoli (risolve il case sensitive)
+//funzione caratteri minuscoli (risolse il case sensitive)
 function lucaToLowerCase(item) {
     var Nome = item.Nome.toLowerCase();
     var Cognome = item.Cognome.toLowerCase()
@@ -361,7 +362,7 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     lucacreateTableFromList('lucacontenitore1', lucalista)
 })
 
-//inizio esercizio request API pubblica
+//inio esercizio request API pubblica
 function luca2createTableFromList(lista) {
 
     var contenitore = document.getElementById("lucacontenitore3")
@@ -411,10 +412,12 @@ var lucaonresponse = function () {
     //controllo se la richiesta va a buon fine
     if (lucarequest.status === 200) {
         luca2createTableFromList(dati)
-    } else {
+    }
+    else {
         var contenitore = document.getElementById('lucacontenitore3')
         contenitore.innerText = 'Errore: ' + lucarequest.status
     }
+
 
     //assegno alla variabile lucarecord2 il pulsante prensente nel file index
     var lucarecord2 = document.getElementById('lucaaggiungi2');
@@ -436,6 +439,7 @@ var lucaonresponse = function () {
         document.getElementById('lucacontenitore3').innerHTML = ""
         luca2createTableFromList(dati)
     })
+
 }
 
 lucarequest.addEventListener('loadend', lucaonresponse)
