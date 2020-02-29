@@ -527,3 +527,21 @@ body {
     width: 70px;
     height: 40px;
 }
+
+
+/* foglio CSS Christian */
+.c_div_normali{
+    margin-left: 30% ;
+    margin-bottom: 1%;
+} 
+
+#chris_h1{
+   text-align: center ;
+   margin-right: 10%;
+   color: royalblue;
+}
+
+#c_button_reset{
+   margin-left: 30%;
+}
+/* Fine foglio CSS Christian */

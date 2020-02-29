@@ -254,7 +254,7 @@ Aggiungere una colonna con un tasto rimuovi. Alla pressione del tasto l'oggetto 
 +5p le righe selezionate si posizionano sempre prima delle altre(senza creare duplicati)
 
 
-### Rimuovi record da Lista di card(90-100p)
+### Rimuovi record da Lista di card(90-100p) Alessio
 BASE DA CUI PARTIRE: Lista di card da lista di oggetti.
 Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
 
@@ -273,7 +273,7 @@ Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei botton
 +5p Inserire delle miniature di tutte le immagini sotto al carousel, Cliccando su una miniatura il carousel va a all'immmagine corrispondente e continua da quell'immagine.
 
 
-### Prendi il div!(100p) Alessio
+### Prendi il div!(100p)
 Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
 Il div si muove casualmente e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a cliccarlo.
