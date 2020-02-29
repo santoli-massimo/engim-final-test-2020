@@ -1067,17 +1067,10 @@ function cambia_ste(event){
             }    
         }       
 
-        //funzione che permette di resettare il colore delle celle
+        //funzione che permette di il reset
         function c_reset(){
-            var chris_contenitore = document.getElementById('chris_contenitore')
-            var chris_table = chris_contenitore.getElementsByTagName('table')
-            var_button = document.getElementById('c_button_reset')
-            for(var p = 0; p <chris_table.length; p++){
-                var chris_tds = chris_table[p].getElementsByTagName("td")
-            }  
-            for(var r = 0; r< chris_tds.length;r++){
-                chris_tds[r].style.background = '#a6f0db'
-            }
+            chris_contenitore.innerHTML = ""
+            chris_create_table(8)
         }
 
         //aggiungo evento c_reset al bottone reset
