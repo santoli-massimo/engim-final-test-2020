@@ -462,6 +462,7 @@ lucarequest.send()
 
 //funzioni Sefora
 document.getElementById('submit_sef').addEventListener('click', validazioneSef);
+document.getElementById('eyeshow').addEventListener('click', hideshow_sef);
 //funzione reset Form
 document.getElementById('reset_sef').addEventListener('click', function () {
     var form_sef = document.getElementById("form_sef");
@@ -487,15 +488,17 @@ function validazioneSef() {
     var male = document.getElementById('male').checked;
     var freetobe = document.getElementById('freetobe').checked;
     var select = document.getElementById('select_sef').value;
-    var parterre = document.getElementById('parterre').value;
-    var tribuna = document.getElementById('tribuna').value;
-    var vip = document.getElementById('vip').value;
+    var parterre = document.getElementById('parterre').checked;
+    var tribuna = document.getElementById('tribuna').checked;
+    var vip = document.getElementById('vip').checked;
     var select_pagamento = document.getElementById('select_pagamento').value;
     var send = document.getElementById('submit_sef').value;
     var success_msg = document.getElementById('success_msg');
     var mail_sef = document.getElementById('email_Sef').value;
     var sef_password = document.getElementById('pass_sef').value;
-    if (name == "") { //controllo su ogni campo del form
+
+    //viene controllato ogni campo del form
+    if (name == "") { 
         succesSef = false;
         document.getElementById('alertName').removeAttribute("hidden");
     } else {
@@ -563,14 +566,16 @@ function validazioneSef() {
     }
     event.preventDefault();
 }
-
-
-
-
-
-
-
-
+//function hide/show Password
+function hideshow_sef(){
+    var pass = document.getElementById('pass_sef');
+    if(pass.type === "password"){
+        pass.type= "text";
+    }else{
+        pass.type="password";
+    }
+}
+// fine funzioni sefora
 
 //Funzioni momo 
 function ValidazioneMailMoo() {

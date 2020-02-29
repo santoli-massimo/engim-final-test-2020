@@ -215,6 +215,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+#eyeshow{
+    float: right;
+}
+
+/*fine foglio Css Sefora*/
 
 #alessandro_root {
     height: 883px;
