@@ -995,3 +995,94 @@ function cambia_ste(event){
     })
     
 }
+//fine funzioni ste
+
+
+//funzioni di Christian
+
+        //richiamo funzione per la creazione della tabella
+        chris_create_table(8)
+
+            
+        //creo tabella con input di tipo numero
+        var chris_filtro = document.getElementById('c_input')
+        chris_filtro.addEventListener('click',function(){
+            chris_contenitore.innerHTML = ""
+            var chris_int_testo = chris_filtro.value
+            if(chris_int_testo <0){
+                alert("Come faccio a creare la tabella con numeri minori di zero? ;)")
+            }else{
+                chris_create_table(chris_int_testo)
+            }
+        })
+
+        //funzione per la creazione di una tabella nxn
+        function chris_create_table(chris_int_testo){
+
+            var chris_contenitore = document.getElementById('chris_contenitore')
+            var chris_table = document.createElement('table')
+            chris_table.id = 'chris_table_id'
+            chris_contenitore.append(chris_table)
+            
+            for(var i = 0; i<chris_int_testo; i++){
+                var chris_tr = document.createElement('tr')
+                chris_table.append(chris_tr)
+                for(var k = 0;k<chris_int_testo; k++){
+                    var chris_td = document.createElement('td')
+        
+                    chris_tr.append(chris_td)
+        
+                    chris_td.style.border = '1px solid black'
+                }
+                chris_table.style.border = 'collapse'    
+                chris_table.style.marginLeft = '30%'
+                chris_table.style.marginTop = '2%'
+                chris_table.style.marginBottom = '2%'
+                chris_table.style.width = '30%'
+                chris_table.style.height = '400px'
+                c_click_td()
+            }
+            
+
+        }
+
+        //funzione per cliccare ogni singola cella della tabella e poterne modificare lo stile 
+        function c_click_td() {
+            var chris_contenitore = document.getElementById('chris_contenitore')
+            var chris_table = chris_contenitore.getElementsByTagName('table')
+            for(var p = 0; p <chris_table.length; p++){
+                var chris_tds = chris_table[p].getElementsByTagName("td")
+            }       
+            for(var j = 0; j< chris_tds.length;j++){
+                var chris_curr_td = chris_tds[j]
+                var c_click = function(chris_curr_td){
+                    return function(){
+                        var chris_cell = chris_curr_td
+                        var chris_color = document.getElementById('c_selected-color').value;
+                        chris_cell.style.background = chris_color
+                    }
+                }
+                chris_curr_td.onclick = c_click(chris_curr_td)
+
+            }    
+        }       
+
+        //funzione che permette di resettare il colore delle celle a bianco
+        function c_reset(){
+            var chris_contenitore = document.getElementById('chris_contenitore')
+            var chris_table = chris_contenitore.getElementsByTagName('table')
+            var_button = document.getElementById('c_button_reset')
+            for(var p = 0; p <chris_table.length; p++){
+                var chris_tds = chris_table[p].getElementsByTagName("td")
+            }  
+            for(var r = 0; r< chris_tds.length;r++){
+                chris_tds[r].style.background = 'white'
+            }
+        }
+
+        //aggiungo evento c_reset al bottone reset
+        c_button = document.getElementById('c_button_reset')
+        c_button.addEventListener('click', c_reset)
+
+
+//fine funzioni Christian
