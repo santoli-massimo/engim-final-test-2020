@@ -1067,7 +1067,7 @@ function cambia_ste(event){
             }    
         }       
 
-        //funzione che permette di resettare il colore delle celle a bianco
+        //funzione che permette di resettare il colore delle celle
         function c_reset(){
             var chris_contenitore = document.getElementById('chris_contenitore')
             var chris_table = chris_contenitore.getElementsByTagName('table')
@@ -1076,7 +1076,7 @@ function cambia_ste(event){
                 var chris_tds = chris_table[p].getElementsByTagName("td")
             }  
             for(var r = 0; r< chris_tds.length;r++){
-                chris_tds[r].style.background = 'white'
+                chris_tds[r].style.background = '#a6f0db'
             }
         }
 
