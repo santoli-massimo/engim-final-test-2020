@@ -67,7 +67,7 @@ Al cambio del valore dell input il font dell intera applicazione cambia.
 +10p se clicco su un elemento cambia il font solo all elemento cliccato. Limtare questo effetto ad una sola pagina.
 
 
-### Carousel (60p-70p) natascia
+### Carousel (60p-75p) natascia
 Creare un div con dentro un immagine. 
 L'immagine cambia ogni 3 secondi
 
@@ -75,8 +75,10 @@ L'immagine cambia ogni 3 secondi
 
 +5p Creare un bottone che inverte in qualsiasi momento la direzione.
 
++5p Cambiare velocità con un input di tipo "range"
 
-### Calcolatrice (60p-70p) Stefania Cappellino
+
+### Calcolatrice (60p-80p) Stefania Cappellino
 Creare una interfaccia con bottoni simile a quelli di una calcolatrice:
 - Cifre da 1 a 9
 - Operazioni + - * /
@@ -87,6 +89,12 @@ La calcolatrice esegue le operazioni su 2 numeri
 
 +5p La calcolatrice continua a prendere valori e da il risultato solo quando si schiaccia il taso '='
 
++5p Aggiungere un tasto che se premuto crea un nuovo paragrafo con l'ultimo risultato in modo da salvarlo permanentemente. 
+Si possono salvare fino a 10 risultati, all inserimento dell 11mo risultato il primo si cancella. 
+Se clicco su un risultato salvato verra usato nella calcalatice come se fosse stato inserito con i tasti.
+
++5p Aggiungere tasto indietro, che se premuto elimina l'ultima cifra/operazione inserita
+
 
 ### Zoom immagine (70p-85p) Cristina
 Creare un div con dentro un immagine. Creare i tasti: giu, su, destra, sinistra, zoom+, zoom-
@@ -96,7 +104,7 @@ il tasto zoom ingrandisce l'immagine i tasti direzionali la spostano.
 
 +5p l'immagine si sposta con le freccie della tastiera, zoom+,zoom- con i tasti '+' e '-' della tastiera
 
-+5p l'immagine non diventa piu piccola del div contenitore
++5p l'immagine non diventa più piccola del div contenitore
 
 
 ### Inodvina numero (70-100p)
@@ -189,7 +197,7 @@ Le righe selezionate rimangono sempre visibili nella tabella nonostante il filtr
 ### Lista card da lista di oggetti Advanced(80p-90p) Consuelo Fadda
 BASE DA CUI PARTIRE: 'Lista card da lista di oggetti' + bonus 'Campo di testo che filtra la lista'.
 Rendere gli elementi selezionabili: cliccando su una card la card cambia stile.
-Le card selezionate rimangono sempre visibili nella tabella nonostante il filtro
+Le card selezionate rimangono sempre visibili nella pagina nonostante il filtro
 
 +5p prendere i dati tramite request da una API pubblica a tua scelta
 
@@ -233,6 +241,7 @@ Alla pressione del bottone si crea un nuovo campo di input testuale in cui l'ute
 Ogni pressione successiva del bottone aggiungera un ulteriore input (solo se l'input indirizzo precendete non risulta vuoto).
 
 +5p ogni input aggiunto ha di fianco un bottone per rimuoverlo
+
 +5p impedire l'inserimento di duplicati
 
 
@@ -256,7 +265,7 @@ Aggiungere una colonna con un tasto rimuovi. Alla pressione del tasto l'oggetto 
 
 ### Rimuovi record da Lista di card(90-100p) Alessio
 BASE DA CUI PARTIRE: Lista di card da lista di oggetti.
-Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la tabella si aggiorna.
+Aggiungere nella card un tasto rimuovi. Alla pressione del tasto l'oggetto viene rimosso dalla lista e la lista si aggiorna.
 
 +5p prendere i dati tramite request da una API pubblica a tua scelta
 
@@ -274,14 +283,14 @@ Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei botton
 
 
 ### Prendi il div!(100p)
-Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
+Creare un div contenitore che rappresenta l'area di gioco. aggiungere all interno un div quadrato.
 Il div si muove casualmente e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
 
 ### Scappa dal div! (100p) - Francesco Ponzin
-Creare un div contenitore che rappresenta l'area di gioco. aggiunger all interno un div quadrato.
+Creare un div contenitore che rappresenta l'area di gioco. aggiungere all interno un div quadrato.
 Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco. 
 L'utente deve riuscire a non toccare il div col puntatore.
 Tenere traccia del punteggio
@@ -289,11 +298,6 @@ Tenere traccia del punteggio
 
 ### Memory (100p) Carolina C
 Creare il gioco del memory con almeno 16 carte.
-
-
-### Gico del 15(100p) - Francesco Ponzin
-Creare il gioco del 15 
-
 
 
 # ESAMI PROPOSTI DAGLI STUDENTI
