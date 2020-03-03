@@ -88,7 +88,7 @@ function francescoInit() {
 function francescoNewGame() {
 
     let gameLevelsPaces = [30, 50, 70, 90, 110, 130, 150] //tempo del gioco, in millisecondi per passo
-    let gameLevelsColors = ["red","orange","yellow","green","blue","indigo","violet"];
+    let gameLevelsColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 
     let level = gameLevelsPaces.length;
     let levelTime = 3000; //durata di un livello, in millisecondi
@@ -117,7 +117,7 @@ function francescoNewGame() {
         } else {
             levelTimeLeft = levelTime;
             document.getElementById("francescoLevelUp").style.transition = "0ms linear"
-            document.getElementById("francescoLevelUp").style.width =  "100%";
+            document.getElementById("francescoLevelUp").style.width = "100%";
 
             francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
             document.getElementById("francescoEvil").style.transition = gameLevelsPaces[level] + "ms linear";
@@ -308,25 +308,14 @@ function lucafiltra_lista(lista, filtro) {
         var oggetto = lista[i]
 
         for (var key in oggetto) {
-            if (oggetto[key].toString().indexOf(filtro) !== -1) {
+            if (oggetto[key].toString().toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
                 risultato[risultato.length] = oggetto
-                break
             }
         }
     }
     return risultato
 }
 
-//funzione caratteri minuscoli (risolse il case sensitive)
-function lucaToLowerCase(item) {
-    var Nome = item.Nome.toLowerCase();
-    var Cognome = item.Cognome.toLowerCase()
-    var Eta = item.Eta
-    var oggetto = { Nome, Cognome, Eta };
-    return oggetto;
-}
-
-lucalista2 = lucalista.map(lucaToLowerCase)
 
 //assegno alla variabile lucailmioinput l'elemento input presente nel file index
 var lucailmioinput = document.getElementById('lucailmioinput')
@@ -337,9 +326,9 @@ lucailmioinput.addEventListener('input', function () {
     document.getElementById('lucacontenitore2').innerHTML = ""
 
     //assegno ad 'x' il mio input trasformandolo in caratteri minuscoli
-    var x = lucailmioinput.value.toLowerCase()
+    var x = lucailmioinput.value
 
-    var lista_filtrata = lucafiltra_lista(lucalista2, x)
+    var lista_filtrata = lucafiltra_lista(lucalista, x)
 
     if (lucailmioinput.value == "") {
         document.getElementById('lucacontenitore2').innerHTML = ""
@@ -364,14 +353,12 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
 
     //aggiungo gli elementi inseriti nel form, nella lista iniziale
     lucalista.push(oggetto);
-    lucalista2.push(oggetto)
-    lucalista2 = lucalista.map(lucaToLowerCase)
 
     document.getElementById('lucacontenitore1').innerHTML = ""
     lucacreateTableFromList('lucacontenitore1', lucalista)
 })
 
-//inio esercizio request API pubblica
+//inizio esercizio request API pubblica
 function luca2createTableFromList(lista) {
 
     var contenitore = document.getElementById("lucacontenitore3")
@@ -507,7 +494,7 @@ function validazioneSef() {
     var sef_password = document.getElementById('pass_sef').value;
 
     //viene controllato ogni campo del form
-    if (name == "") { 
+    if (name == "") {
         succesSef = false;
         document.getElementById('alertName').removeAttribute("hidden");
     } else {
@@ -576,12 +563,12 @@ function validazioneSef() {
     event.preventDefault();
 }
 //function hide/show Password
-function hideshow_sef(){
+function hideshow_sef() {
     var pass = document.getElementById('pass_sef');
-    if(pass.type === "password"){
-        pass.type= "text";
-    }else{
-        pass.type="password";
+    if (pass.type === "password") {
+        pass.type = "text";
+    } else {
+        pass.type = "password";
     }
 }
 // fine funzioni sefora
@@ -950,31 +937,31 @@ alessandro_games()
 
 
 //funzione per inserire i numeri nella calcolatrice
-function inserisci_ste(numero_ste){
+function inserisci_ste(numero_ste) {
     var operazione_ste = document.getElementById('operazioni_ste');
     operazione_ste.value += numero_ste;
-   
-    
-    
+
+
+
 }
 //funzione per il calcolo delle operazioni
-function calcola_ste(){
+function calcola_ste() {
     var operazione_ste = document.getElementById('operazioni_ste');
-    operazione_ste.value=eval(operazione_ste.value);
-    
-   
+    operazione_ste.value = eval(operazione_ste.value);
+
+
 }
 //funzione per cancellare
-function cancella_ste(){
+function cancella_ste() {
     var operazione_ste = document.getElementById('operazioni_ste');
     operazione_ste.value = "";
 }
 //funzione per cambiare il colore al testo
-function selezionecolore_ste(){
+function selezionecolore_ste() {
     colore_ste = document.getElementById('colore_ste');
-    colore_label_ste=document.getElementById('colore_label_ste');
-    colore_ste.value=colorebase_ste;
-    colore_label_ste.value=colorebase_ste;
+    colore_label_ste = document.getElementById('colore_label_ste');
+    colore_ste.value = colorebase_ste;
+    colore_label_ste.value = colorebase_ste;
     colore_ste.addEventListener('input', testo_ste, false);
     colore_label_ste.addEventListener('input', testo_ste, false);
     colore_ste.addEventListener('change', cambia_ste, false);
@@ -983,113 +970,113 @@ function selezionecolore_ste(){
     colore_label_ste.select();
 
 }
-function testo_ste(event){
+function testo_ste(event) {
     var h1_ste = document.getElementById('cambio_ste');
-    var label_ste=document.getElementById('label_ste');
-    
-    if(h1_ste ){
-        h1_ste.style.color=event.target.value;
-        
-        
+    var label_ste = document.getElementById('label_ste');
+
+    if (h1_ste) {
+        h1_ste.style.color = event.target.value;
+
+
     }
-    if(label_ste){
-        label_ste.style.color=event.target.value;
+    if (label_ste) {
+        label_ste.style.color = event.target.value;
     }
-    
-    
-    
+
+
+
 }
-function cambia_ste(event){
-    document.getElementById('cambio_ste').foreach(function(cambio_ste){
-        h1_ste.style.color=event.target.value;
-        
+function cambia_ste(event) {
+    document.getElementById('cambio_ste').foreach(function (cambio_ste) {
+        h1_ste.style.color = event.target.value;
+
     });
-    document.getElementById('label_ste').foreach(function(label_ste){
-        label_ste.style.color=event.target.value;
+    document.getElementById('label_ste').foreach(function (label_ste) {
+        label_ste.style.color = event.target.value;
     })
-    
+
 }
 //fine funzioni ste
 
 
 //funzioni di Christian
 
-        //richiamo funzione per la creazione della tabella
-        chris_create_table(8)
+//richiamo funzione per la creazione della tabella
+chris_create_table(8)
 
-            
-        //creo tabella con input di tipo numero
-        var chris_filtro = document.getElementById('c_input')
-        chris_filtro.addEventListener('click',function(){
-            chris_contenitore.innerHTML = ""
-            var chris_int_testo = chris_filtro.value
-            if(chris_int_testo <0){
-                alert("Come faccio a creare la tabella con numeri minori di zero? ;)")
-            }else{
-                chris_create_table(chris_int_testo)
-            }
-        })
 
-        //funzione per la creazione di una tabella nxn
-        function chris_create_table(chris_int_testo){
+//creo tabella con input di tipo numero
+var chris_filtro = document.getElementById('c_input')
+chris_filtro.addEventListener('click', function () {
+    chris_contenitore.innerHTML = ""
+    var chris_int_testo = chris_filtro.value
+    if (chris_int_testo < 0) {
+        alert("Come faccio a creare la tabella con numeri minori di zero? ;)")
+    } else {
+        chris_create_table(chris_int_testo)
+    }
+})
 
-            var chris_contenitore = document.getElementById('chris_contenitore')
-            var chris_table = document.createElement('table')
-            chris_table.id = 'chris_table_id'
-            chris_contenitore.append(chris_table)
-            
-            for(var i = 0; i<chris_int_testo; i++){
-                var chris_tr = document.createElement('tr')
-                chris_table.append(chris_tr)
-                for(var k = 0;k<chris_int_testo; k++){
-                    var chris_td = document.createElement('td')
-        
-                    chris_tr.append(chris_td)
-        
-                    chris_td.style.border = '1px solid black'
-                }
-                chris_table.style.border = 'collapse'    
-                chris_table.style.marginLeft = '30%'
-                chris_table.style.marginTop = '2%'
-                chris_table.style.marginBottom = '2%'
-                chris_table.style.width = '30%'
-                chris_table.style.height = '400px'
-                c_click_td()
-            }
-            
+//funzione per la creazione di una tabella nxn
+function chris_create_table(chris_int_testo) {
 
+    var chris_contenitore = document.getElementById('chris_contenitore')
+    var chris_table = document.createElement('table')
+    chris_table.id = 'chris_table_id'
+    chris_contenitore.append(chris_table)
+
+    for (var i = 0; i < chris_int_testo; i++) {
+        var chris_tr = document.createElement('tr')
+        chris_table.append(chris_tr)
+        for (var k = 0; k < chris_int_testo; k++) {
+            var chris_td = document.createElement('td')
+
+            chris_tr.append(chris_td)
+
+            chris_td.style.border = '1px solid black'
         }
+        chris_table.style.border = 'collapse'
+        chris_table.style.marginLeft = '30%'
+        chris_table.style.marginTop = '2%'
+        chris_table.style.marginBottom = '2%'
+        chris_table.style.width = '30%'
+        chris_table.style.height = '400px'
+        c_click_td()
+    }
 
-        //funzione per cliccare ogni singola cella della tabella e poterne modificare lo stile 
-        function c_click_td() {
-            var chris_contenitore = document.getElementById('chris_contenitore')
-            var chris_table = chris_contenitore.getElementsByTagName('table')
-            for(var p = 0; p <chris_table.length; p++){
-                var chris_tds = chris_table[p].getElementsByTagName("td")
-            }       
-            for(var j = 0; j< chris_tds.length;j++){
-                var chris_curr_td = chris_tds[j]
-                var c_click = function(chris_curr_td){
-                    return function(){
-                        var chris_cell = chris_curr_td
-                        var chris_color = document.getElementById('c_selected-color').value;
-                        chris_cell.style.background = chris_color
-                    }
-                }
-                chris_curr_td.onclick = c_click(chris_curr_td)
 
-            }    
-        }       
+}
 
-        //funzione che permette di il reset
-        function c_reset(){
-            chris_contenitore.innerHTML = ""
-            chris_create_table(8)
+//funzione per cliccare ogni singola cella della tabella e poterne modificare lo stile 
+function c_click_td() {
+    var chris_contenitore = document.getElementById('chris_contenitore')
+    var chris_table = chris_contenitore.getElementsByTagName('table')
+    for (var p = 0; p < chris_table.length; p++) {
+        var chris_tds = chris_table[p].getElementsByTagName("td")
+    }
+    for (var j = 0; j < chris_tds.length; j++) {
+        var chris_curr_td = chris_tds[j]
+        var c_click = function (chris_curr_td) {
+            return function () {
+                var chris_cell = chris_curr_td
+                var chris_color = document.getElementById('c_selected-color').value;
+                chris_cell.style.background = chris_color
+            }
         }
+        chris_curr_td.onclick = c_click(chris_curr_td)
 
-        //aggiungo evento c_reset al bottone reset
-        c_button = document.getElementById('c_button_reset')
-        c_button.addEventListener('click', c_reset)
+    }
+}
+
+//funzione che permette di il reset
+function c_reset() {
+    chris_contenitore.innerHTML = ""
+    chris_create_table(8)
+}
+
+//aggiungo evento c_reset al bottone reset
+c_button = document.getElementById('c_button_reset')
+c_button.addEventListener('click', c_reset)
 
 
 //fine funzioni Christian
@@ -1164,14 +1151,14 @@ function crea_cards(show_list) {
         btn.setAttribute('data-item-index', i);
 
 
-        btn.onclick = function() {
+        btn.onclick = function () {
             var itemIndex = this.getAttribute('data-item-index');
             show_list.splice(itemIndex, 1);
             console.log(show_list);
             container.innerHTML = '';
             crea_cards(film)
         }
-        
+
         // btn.addEventListener('click', canc)
 
         img.src = show
