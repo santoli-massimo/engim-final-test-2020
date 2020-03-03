@@ -58,6 +58,8 @@ body {
     background-image: url("immagini/15/Santoli.jpeg");
 }
 
+/* INIZIO CSS FRANCESCO*/
+
 #francescoContainer {
     margin: 10px auto;
     background-color: antiquewhite;
@@ -93,8 +95,10 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background-color: purple;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
 }
+
+/* FINE CSS FRANCESCO*/
 
 
 /*inizio foglio stile Luca Moro*/

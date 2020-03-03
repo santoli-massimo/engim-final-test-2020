@@ -87,16 +87,19 @@ function francescoInit() {
 
 function francescoNewGame() {
 
-    let gameLevelsPaces = [30, 50, 70, 110, 150, 200] //tempo del gioco, in millisecondi per passo
+    let gameLevelsPaces = [30, 50, 70, 90, 110, 130, 150] //tempo del gioco, in millisecondi per passo
+    let gameLevelsColors = ["red","orange","yellow","green","blue","indigo","violet"];
+
     let level = gameLevelsPaces.length;
     let levelTime = 3000; //durata di un livello, in millisecondi
     let levelTimeLeft = levelTime;
-    let stride = 20; //distanza percorsa per passo
+    let stride = 25; //distanza percorsa per passo
     let francescoJustCaught = false;
     let tryLeft = 5; // numero di "vite" a inizio sfida
     let francescoInterval; // referenza all'animazione
 
     document.getElementById("francescoTryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
+    document.getElementById("francescoLevelUp").style.backgroundImage = "none";
 
 
     function mouseEvilDistance() {
@@ -113,9 +116,14 @@ function francescoNewGame() {
             francescoCentraEvil();
         } else {
             levelTimeLeft = levelTime;
+            document.getElementById("francescoLevelUp").style.transition = "0ms linear"
+            document.getElementById("francescoLevelUp").style.width =  "100%";
+
             francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
             document.getElementById("francescoEvil").style.transition = gameLevelsPaces[level] + "ms linear";
             document.getElementById("francescoLevelUp").style.transition = gameLevelsPaces[level] + "ms linear";
+            document.getElementById("francescoLevelUp").style.backgroundColor = gameLevelsColors[level];
+
 
 
         }
@@ -165,6 +173,7 @@ function francescoNewGame() {
         francescoCentraEvil();
         document.getElementById("francescoContainer").removeEventListener("mouseleave", francescoQuit);
         document.getElementById("francescoLevelUp").style.width = "100%";
+        document.getElementById("francescoLevelUp").style.backgroundImage = "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"
 
         document.getElementById("francescoTryLeftBox").innerText = "Entra nel quadrato per cominciare la sfida";
     }
