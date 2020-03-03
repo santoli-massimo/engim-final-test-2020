@@ -1093,3 +1093,91 @@ function cambia_ste(event){
 
 
 //fine funzioni Christian
+
+/******************FUNCTION ALESSIO******************/
+
+var film = ["immagini/img_alessio/1917.jpg", "immagini/img_alessio/Arancia Meccanica.jpg", "immagini/img_alessio/Avengers.jpg",
+    "immagini/img_alessio/Il signore dei tranelli.jpg", "immagini/img_alessio/Iron Man.jpg", "immagini/img_alessio/Jurassic World.jpg",
+    "immagini/img_alessio/Pirati dei caraibi - Oltre i confini del mare.jpg", "immagini/img_alessio/Spider-man - Homecoming.jpg",
+    "immagini/img_alessio/Star Wars.jpg", "immagini/img_alessio/Una notte da leoni.jpg", "immagini/img_alessio/Venom.jpg", "immagini/img_alessio/Via col vento.jpg"];
+
+
+function filtra_lista(lista, filtro) {
+    var risultato = []
+    for (var i = 0; i < lista.length; i++) {
+        var oggetto = lista[i]
+
+        if (oggetto.toString().toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
+            risultato[risultato.length] = oggetto
+
+
+        }
+    }
+    return risultato
+}
+
+var container = document.getElementById('containerAlessio')
+
+var filtro = document.getElementById('filtroAlessio')
+filtro.addEventListener('input', function () {
+
+    console.log(filtro.value)
+
+    container.innerHTML = ''
+
+    var testoperilfiltro = filtro.value
+
+    var nuova_lista = filtra_lista(film, testoperilfiltro)
+
+    crea_cards(nuova_lista)
+
+})
+
+function crea_cards(show_list) {
+
+    var container = document.getElementById('containerAlessio')
+
+    container.innerHTML = ''
+
+
+    for (var i = 0; i < show_list.length; i++) {
+        var show = show_list[i]
+
+        var div = document.createElement('div')
+        div.setAttribute('id', 'cardAlessio')
+
+        var divBut = document.createElement('div')
+        divBut.setAttribute('id', 'cardButAlessio')
+
+        var img = document.createElement('img')
+        img.setAttribute('id', 'imgAlessio')
+
+        container.append(div)
+        div.append(img)
+        div.append(divBut)
+
+        var btn = document.createElement('input')
+        divBut.append(btn)
+        btn.setAttribute('id', 'btnAlessio')
+        btn.setAttribute('type', 'button')
+        btn.setAttribute('value', 'Remove')
+        btn.setAttribute('data-item-index', i);
+
+
+        btn.onclick = function() {
+            var itemIndex = this.getAttribute('data-item-index');
+            show_list.splice(itemIndex, 1);
+            console.log(show_list);
+            container.innerHTML = '';
+            crea_cards(film)
+        }
+        
+        // btn.addEventListener('click', canc)
+
+        img.src = show
+    }
+}
+
+crea_cards(film)
+
+/***********************FINE**********************/

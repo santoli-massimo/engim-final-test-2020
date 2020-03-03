@@ -549,3 +549,49 @@ body {
    margin-left: 30%;
 }
 /* Fine foglio CSS Christian */
+
+/******************STYLE ALESSIO******************/
+
+#headerAlessio{
+    text-align: center;
+
+}
+
+#containerAlessio{
+    background-image: url(legno.jpg);
+    
+}
+
+#labelAlessio{
+    padding-top: 20px;
+    margin-left: 35px;  
+    font-weight: bold; 
+         
+}
+
+#filtroAlessio{
+    margin-left: 25px;
+    
+}
+
+#cardAlessio{
+    float: left;
+    text-align: center;
+    margin-left: 50px;
+
+}
+
+#btnAlessio{
+    width: 125px;
+    height: 25px;  
+    
+}
+
+#imgAlessio{
+    padding: 25px;
+    width: 250px;
+    height: 325px;
+    
+}
+
+/*********************FINE*********************/
