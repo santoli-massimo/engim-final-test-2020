@@ -1168,3 +1168,67 @@ function crea_cards(show_list) {
 crea_cards(film)
 
 /***********************FINE**********************/
+
+
+// functions Natascia
+function natascia_function(){
+    //Carousel (60p-70p) natascia
+    //Creare un div con dentro un immagine. L'immagine cambia ogni 3 secondi
+    //+5p ricomincia da capo quando arriva all'ultima immagine
+    //+5p Creare un bottone che inverte in qualsiasi momento la direzione.
+    var flag_BT_inv = false;
+    var ciclocagnolini=0;
+   
+    document.getElementById("natascia_button_inv").addEventListener("click", natascia_inverti);
+    function natascia_inverti(){
+        if (flag_BT_inv === true){
+            flag_BT_inv=false; 
+        }else{
+            flag_BT_inv=true; 
+        }  
+        //console.log('Premuto tasto Inverti rotazione');
+        //if (flag_BT_go==false && flag_BT_stop==true){
+        //    //console.log('Premuto tasto Inverti rotazione ma sono in STOP ROTAZIONE di conseguenza lancio natascia vai');
+        //    natascia_vai();
+        //}
+    }
+    
+    var natascia_index = 1;
+    function natascia_cambia_immagine(){
+        var cagnolino = document.getElementById('cagnolino');
+        var natascia_lista = [
+        'immagini/natascia_img/Mos4.jpg', 
+        'immagini/natascia_img/Mos6.jpg',
+        'immagini/natascia_img/Mos12.jpg',
+        'immagini/natascia_img/Mos11.jpg'
+        ]
+    
+        cagnolino.src = natascia_lista[natascia_index];
+        if (flag_BT_inv == false){
+            if(natascia_index>= natascia_lista.length-1){
+                natascia_index=0;
+            }
+            else{
+                natascia_index = natascia_index + 1;
+            }
+        }else{
+            if(natascia_index <= 0){
+                natascia_index=3;
+            }
+            else{
+                natascia_index = natascia_index - 1;
+            }
+        }
+    
+    }
+    var ciclocagnolini = setInterval(natascia_cambia_immagine,3000);    
+    }
+    
+    natascia_function();
+    
+
+// fine functions Natascia
+
+
+
+

@@ -595,3 +595,97 @@ body {
 }
 
 /*********************FINE*********************/
+
+
+/* foglio di stile Natascia*/
+
+.natascia_body {
+    background-color: darkkhaki;
+}
+.natascia_box{
+    background-color: darkseagreen;
+    background-image: url(immagini/natascia_img/img_tree.png), url(immagini/natascia_img/img_tree.png); 
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+    margin: 0 auto; 
+    width: 60%;
+    height: 950px;
+    border: 6px solid gray;
+    text-align: center;
+    }
+.natascia_divfoto{
+    border: 4px solid gold;
+    display: block;
+    margin-top: 220px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+    margin-left: 200px;
+}   
+.natascia_foto{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;                
+    margin-left: auto;
+    margin-right: auto;                
+} 
+.natascia_bottone{
+    border-style: none;
+    background-color:#E87E04;
+    color: white;
+    margin: 2px;
+    padding: 5px 8px 5px 8px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    bottom: 20px;
+                  
+}
+.natascia_bottone:hover {
+    background-color:white;
+    color: #E87E04;
+    transition:1s all;
+    border: solid 1px #E87E04;
+}
+.natascia_frase{
+    height: 50px;
+    width: 450px;
+    margin: 20px;
+    text-align: center;
+    margin-top: 70px;
+    padding: 10px;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+}
+.natascia_h1{
+    color:red;
+    font-size:40px; 
+    font-family: fantasy;
+    text-align:center; 
+}
+.natascia_titolo{
+    color:rgb(14, 46, 105);
+    font-size:40px; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align:center; 
+    margin: 0;
+    transform: translate(-50%, -50%);
+    position: absolute; 
+    top: 40%; 
+    left: 50%
+
+}
+.natascia_sfondo_rosa{
+    color:rgb(62, 96, 158);
+    background-color: pink;
+    text-decoration: underline;
+    font-style: normal;
+}
+.natascia_konrad{
+    color:rgb(14, 46, 105);
+    font-style: normal;
+}
+
+
+
+/* fine foglio di stile Natascia*/
