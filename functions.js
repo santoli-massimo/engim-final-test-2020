@@ -120,7 +120,9 @@ function francescoNewGame() {
             document.getElementById("francescoLevelUp").style.width = "100%";
 
             francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
-            document.getElementById("francescoEvil").style.transition = gameLevelsPaces[level] + "ms linear";
+            document.getElementById("francescoEvil").style.transition = "top "+ gameLevelsPaces[level] + "ms linear, left " +gameLevelsPaces[level] + "ms linear";
+            //document.getElementById("francescoEvil").style.transition = "left " +gameLevelsPaces[level] + "ms linear";
+
             document.getElementById("francescoLevelUp").style.transition = gameLevelsPaces[level] + "ms linear";
             document.getElementById("francescoLevelUp").style.backgroundColor = gameLevelsColors[level];
 
@@ -141,6 +143,8 @@ function francescoNewGame() {
                 if (francescoMousePosition.left < francescoEvilPosition.left) {
                     angle += Math.PI;
                 }
+                document.getElementById("francescoEvil").style.rotate = angle + "rad";
+
                 francescoEvilPosition.top += Math.sin(angle) * stride;
                 francescoEvilPosition.left += Math.cos(angle) * stride;
                 // francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)

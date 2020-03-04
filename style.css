@@ -60,27 +60,45 @@ body {
 
 /* INIZIO CSS FRANCESCO*/
 
+
+#Francesco {
+    background: darkslategray;
+    height: 100vh;
+    color: #bbb;
+
+}
+
+
+#Francesco .temp{
+    display: none;
+}
+
+#Francesco h1{
+    color: #bbb;
+    text-align: center;
+}
+
 #francescoContainer {
     margin: 10px auto;
     background-color: antiquewhite;
     height: 500px;
     width: 500px;
-    cursor: move;
+    cursor: url(immagini/francesco/ghost30.png),move;
+    box-shadow: beige;
 }
 
 #francescoEvil {
     height: 40px;
     width: 40px;
     border-radius: 20px;
-    background-color: red;
+    background-image: url(immagini/francesco/pac40.png);
     position: relative;
     top: 230px;
     left: 230px;
-    transition: 200ms linear;
+
 }
 
 #francescoTryLeftBox {
-    color: red;
     width: 500px;
     margin: 20px auto;
 }
