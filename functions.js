@@ -143,7 +143,7 @@ function francescoNewGame() {
                 if (francescoMousePosition.left < francescoEvilPosition.left) {
                     angle += Math.PI;
                 }
-                document.getElementById("francescoEvil").style.rotate = angle + "rad";
+                document.getElementById("francescoEvil").style.transform = "rotate(" +angle + "rad)";
 
                 francescoEvilPosition.top += Math.sin(angle) * stride;
                 francescoEvilPosition.left += Math.cos(angle) * stride;
