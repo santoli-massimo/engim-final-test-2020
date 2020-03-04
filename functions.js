@@ -1082,7 +1082,40 @@ function c_reset() {
 c_button = document.getElementById('c_button_reset')
 c_button.addEventListener('click', c_reset)
 
+//aggiungo evento c_click_td al selettore di colore
+input = document.getElementById('c_selected-color')
+input.addEventListener('click',c_click_td)
 
+//aggiungo evento chris_special_color al bottone speciale
+c_bt = document.getElementById('c_special_button')
+c_bt.addEventListener('click',chris_special_color)
+
+
+
+//funzione per cambiare colore randomicamente ogni 100 ms
+function chris_special_color() {
+    var chris_contenitore = document.getElementById('chris_contenitore')
+    var chris_table = chris_contenitore.getElementsByTagName('table')
+    for(var p = 0; p <chris_table.length; p++){
+        var chris_tds = chris_table[p].getElementsByTagName("td")
+    }       
+    for(var j = 0; j< chris_tds.length;j++){
+        var chris_curr_td = chris_tds[j]
+        var c_click = function(chris_curr_td){
+            return function(){
+                var chris_cell = chris_curr_td
+                //setto colore cella e tempo in cui cambia automaticamente
+                setInterval(function(){
+                    chris_cell.style.background = "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)
+
+                },100)
+                
+            }
+        }
+        chris_curr_td.onclick = c_click(chris_curr_td)
+
+    }    
+}   
 //fine funzioni Christian
 
 /******************FUNCTION ALESSIO******************/
