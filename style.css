@@ -707,3 +707,86 @@ body {
 
 
 /* fine foglio di stile Natascia*/
+
+
+
+/* INIZIO ALBERTO CSS */
+
+#albyCarousel{
+    max-width: 65%;
+    height: 505px;
+    background-color: black;
+}
+
+/* Alby immagini */
+
+#albyMiniature{
+    position: absolute; 
+    top: 45px;
+    left: 30px;
+}
+
+.albyPiccole{
+    max-width: 50px;
+    max-height: 80px;
+    opacity: 0.8;
+    border: 2px solid white;
+    margin: 5px;
+}
+
+#albyImmagini{
+box-sizing: border-box;
+}
+
+#albyGrandi{
+    max-width: 690px;
+    max-height: 395px;
+    border: 2px solid white;
+    margin: 20px;
+    position:absolute;
+    top: 25px;
+    left: 150px;
+}
+
+/* Alby pulsanti */
+
+#albyPulsanti ul li{
+    position: relative; 
+    top: 435px;
+    left: 167px;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#albyIndietro{
+    padding-bottom: 1px;
+}
+
+#albyPausa{
+    padding-top: 4px;
+}
+
+/* Alby testo */
+
+#albyTesto{
+   color: white;
+   position:absolute;
+   top: 40px;
+   left: 505px;    
+}
+
+#albyTesto h2{
+    font-size: 75px; 
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#albyTesto p{
+    font-size: 18px;
+    text-align: center;
+    padding-top: 0px;
+    font-family: serif ;
+}
+
+/* FINE ALBERTO CSS */

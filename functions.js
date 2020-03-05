@@ -1268,4 +1268,82 @@ function natascia_function(){
 
 
 
+// INIZIO ALBERTO FUNZIONI
+
+var albyFoto = [
+    "albyImmagini/albyGrandi/koala.jpeg",
+    "albyImmagini/albyGrandi/volpe.jpeg",
+    "albyImmagini/albyGrandi/scimmia.jpeg",
+    "albyImmagini/albyGrandi/pesci.jpeg"
+]
+
+var albyIndex = 0;
+var albyImmagine = document.getElementById("albyGrandi")
+
+// Alby avanzamento automatico
+
+var albyAutomatico = setInterval(function () {
+    if (albyIndex < albyFoto.length - 1) {
+        albyIndex++;
+    } else
+        albyIndex = 0;
+    albyImmagine.src = albyFoto[albyIndex]
+}, 3000) // immagine cambia ogni 3 secondi
+
+
+// Alby Pulsanti
+
+var albyPrev = document.getElementById('albyIndietro')
+albyPrev.addEventListener("click", function () {
+    if (albyIndex == 0) {
+        albyIndex = albyFoto.length - 1
+    } else
+        albyIndex--;
+    albyImmagine.src = albyFoto[albyIndex];
+})
+
+var albyPause = document.getElementById('albyPausa')
+albyPause.addEventListener("click", function () {
+    clearInterval(albyAutomatico); // ferma avanzamento automatico
+})
+
+var albyNext = document.getElementById('albyAvanti')
+albyNext.addEventListener("click", function () {
+    if (albyIndex < albyFoto.length - 1) {
+        albyIndex++;
+    } else
+        albyIndex = 0;
+    albyImmagine.src = albyFoto[albyIndex]
+})
+
+
+// Alby Miniature
+
+var albyKoala = document.getElementById("albyKoala")
+albyKoala.addEventListener("click", function (event) {
+    event.preventDefault() // impedisce di aprire il link
+    albyImmagine.src = albyKoala
+})
+
+var albyVolpe = document.getElementById("albyVolpe")
+albyVolpe.addEventListener("click", function (event) {
+    event.preventDefault()
+    albyImmagine.src = albyVolpe
+})
+
+var albyScimmia = document.getElementById("albyScimmia")
+albyScimmia.addEventListener("click", function (event) {
+    event.preventDefault()
+    albyImmagine.src = albyScimmia
+})
+
+var albyPesci = document.getElementById("albyPesci")
+albyPesci.addEventListener("click", function (event) {
+    event.preventDefault()
+    albyImmagine.src = albyPesci
+})
+
+// FINE ALBERTO FUNZIONI
+
+
 
