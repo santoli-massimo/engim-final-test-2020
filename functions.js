@@ -1271,10 +1271,10 @@ function natascia_function(){
 // INIZIO ALBERTO FUNZIONI
 
 var albyFoto = [
-    "albyImmagini/albyGrandi/koala.jpeg",
-    "albyImmagini/albyGrandi/volpe.jpeg",
-    "albyImmagini/albyGrandi/scimmia.jpeg",
-    "albyImmagini/albyGrandi/pesci.jpeg"
+    "immagini/albyImmagini/albyGrandi/koala.jpeg",
+    "immagini/albyImmagini/albyGrandi/volpe.jpeg",
+    "immagini/albyImmagini/albyGrandi/scimmia.jpeg",
+    "immagini/albyImmagini/albyGrandi/pesci.jpeg"
 ]
 
 var albyIndex = 0;
