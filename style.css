@@ -712,18 +712,25 @@ body {
 
 /* INIZIO ALBERTO CSS */
 
+
 #albyCarousel{
-    max-width: 65%;
-    height: 505px;
-    background-color: black;
+    max-width: 100%;
+    height: 95vh;
+    background-color: #000;
 }
 
 /* Alby immagini */
 
 #albyMiniature{
     position: absolute; 
-    top: 45px;
+    top: 130px;
     left: 30px;
+    background-color: #000;
+}
+
+#albyMiniature ul li{
+    list-style-type: none;
+    text-decoration: none;
 }
 
 .albyPiccole{
@@ -744,7 +751,7 @@ box-sizing: border-box;
     border: 2px solid white;
     margin: 20px;
     position:absolute;
-    top: 25px;
+    top: 75px;
     left: 150px;
 }
 
@@ -752,19 +759,24 @@ box-sizing: border-box;
 
 #albyPulsanti ul li{
     position: relative; 
-    top: 435px;
-    left: 167px;
+    top: 450px;
+    left: 175px;
     margin: 5px;
     text-decoration: none;
     display: inline-block;
+    list-style: none;
 }
 
 #albyIndietro{
-    padding-bottom: 1px;
+    padding-top: 5px;
 }
 
 #albyPausa{
-    padding-top: 4px;
+    padding-top: 3px;
+}
+
+#albyAvanti{
+    padding-top: 1px;
 }
 
 /* Alby testo */
@@ -772,7 +784,7 @@ box-sizing: border-box;
 #albyTesto{
    color: white;
    position:absolute;
-   top: 40px;
+   top: 80px;
    left: 505px;    
 }
 
