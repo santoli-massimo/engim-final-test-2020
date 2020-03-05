@@ -244,9 +244,10 @@ body {
 /*fine foglio Css Sefora*/
 
 #alessandro_root {
-    height: 883px;
-    width: 100%;
-    background: url(immagini/img_ale/wall.jpg);
+    min-height: 862px;
+    width: auto;
+    background-image: url(immagini/img_ale/wall.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -272,9 +273,9 @@ body {
 }
 
 #alessandro_start {
-    position: relative;
-    bottom: -129px;
-    left: 900px;
+    position: absolute;
+    bottom: 72%;
+    left: 47%;
     height: 100px;
     width: 100px;
     border: solid 2px white;
@@ -290,27 +291,9 @@ body {
 }
 
 #alessandro_facile {
-    position: relative;
-    bottom: -80px;
-    left: 500px;
-    height: 100px;
-    width: 150px;
-    border: solid 2px white;
-    font-weight: bold;
-    color: white;
-    border-radius: 15px;
-    background: #8E1A23;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    cursor: url(immagini/img_ale/alessandro_hand.png), auto;
-}
-
-#alessandro_facile {
-    position: relative;
-    bottom: -80px;
-    left: 500px;
+    position: absolute;
+    bottom: auto;
+    left: 30%;
     height: 100px;
     width: 150px;
     border: solid 2px white;
@@ -326,9 +309,9 @@ body {
 }
 
 #alessandro_media {
-    position: relative;
-    bottom: 24px;
-    left: 875px;
+    position: absolute;
+    bottom: auto;
+    left: 45%;
     height: 100px;
     width: 150px;
     border: solid 2px white;
@@ -344,9 +327,9 @@ body {
 }
 
 #alessandro_difficile {
-    position: relative;
-    bottom: 128px;
-    left: 1240px;
+    position: absolute;
+    bottom: auto;
+    left: 60%;
     height: 100px;
     width: 150px;
     border: solid 2px white;
@@ -362,10 +345,10 @@ body {
 }
 
 #alessandro_positivo {
-    position: relative;
+    position: absolute;
     display: none;
-    bottom: 100px;
-    left: 50px;
+    bottom: 55%;
+    left: 5%;
     height: 100px;
     width: 250px;
     border: solid 2px white;
@@ -379,10 +362,10 @@ body {
 }
 
 #alessandro_negativo {
-    position: relative;
+    position: absolute;
     display: none;
-    bottom: 50px;
-    left: 50px;
+    bottom: 40%;
+    left: 5%;
     height: 100px;
     width: 250px;
     border: solid 2px white;
@@ -396,9 +379,9 @@ body {
 }
 
 #alessandro_restart {
-    position: relative;
-    bottom: -630px;
-    left: 875px;
+    position: absolute;
+    bottom: 70%;
+    left: 45%;
     height: 100px;
     width: 150px;
     border: solid 2px white;
@@ -415,9 +398,9 @@ body {
 
 #alessandro_restartvid {
     border: white solid 2px;
-    position: relative;
-    left: 480px;
-    bottom: -180px;
+    position: absolute;
+    left: 25%;
+    bottom: 15%;
     display: none;
 }
 

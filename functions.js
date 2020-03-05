@@ -807,9 +807,9 @@ function alessandro_games() {
         h2.append(imgofsearch)
         // setto tutti i parametri dell' img
         imgofsearch.id = "alessandro_img2"
-        imgofsearch.style.position = "relative"
-        imgofsearch.style.left = "505px"
-        imgofsearch.style.bottom = "-140px"
+        imgofsearch.style.position = "absolute"
+        imgofsearch.style.left = "25%"
+        imgofsearch.style.bottom = "15%"
         imgofsearch.style.border = "solid 2px white"
         imgofsearch.style.display = "block"
         imgofsearch.src = imgrandom
@@ -817,9 +817,9 @@ function alessandro_games() {
         var timeout = setTimeout(function () {
             var img2 = document.getElementById("alessandro_img2")
             img2.style.display = "none"
-            img.style.position = "relative"
-            img.style.left = "505px"
-            img.style.bottom = "-172px"
+            img.style.position = "absolute"
+            img.style.left = "25%"
+            img.style.bottom = "15%"
             img.style.border = "solid 2px white"
             h2.style.display = "none"
             img.style.display = "block"
