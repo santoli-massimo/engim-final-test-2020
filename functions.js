@@ -98,12 +98,21 @@ function francescoNewGame() {
     let tryLeft = 5; // numero di "vite" a inizio sfida
     let francescoInterval; // referenza all'animazione
 
-    document.getElementById("francescoTryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
+    document.getElementById("francescoTryLeftBox").innerHTML = disegnaVite(tryLeft)
     document.getElementById("francescoLevelUp").style.backgroundImage = "none";
 
 
     function mouseEvilDistance() {
         return Math.sqrt((francescoMousePosition.top - francescoEvilPosition.top) * (francescoMousePosition.top - francescoEvilPosition.top) + (francescoMousePosition.left - francescoEvilPosition.left) * (francescoMousePosition.left - francescoEvilPosition.left))
+    }
+
+    function disegnaVite(numero){
+        let stringaVite = "";
+        for (let index = 0; index < numero; index++) {
+            stringaVite += "<img src=\"immagini/francesco/ghost30.png\" alt = \"fantasmino\">";
+            
+        }
+        return stringaVite;
     }
 
 
@@ -112,7 +121,7 @@ function francescoNewGame() {
         clearInterval(francescoInterval)
 
         if (level < 0) {
-            document.getElementById("francescoTryLeftBox").innerText = `ok, hai spaccato, lo ammetto`;
+            document.getElementById("francescoTryLeftBox").innerHTML = `ok, hai spaccato, lo ammetto`;
             francescoCentraEvil();
         } else {
             levelTimeLeft = levelTime;
@@ -179,7 +188,7 @@ function francescoNewGame() {
         document.getElementById("francescoLevelUp").style.width = "100%";
         document.getElementById("francescoLevelUp").style.backgroundImage = "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"
 
-        document.getElementById("francescoTryLeftBox").innerText = "Entra nel quadrato per cominciare la sfida";
+        document.getElementById("francescoTryLeftBox").innerHTML = "Entra nel quadrato per cominciare la sfida";
     }
 
     document.getElementById("francescoContainer").addEventListener("mouseleave", francescoQuit);
@@ -188,7 +197,7 @@ function francescoNewGame() {
         francescoCentraEvil();
         francescoJustCaught = true;
         tryLeft--;
-        document.getElementById("francescoTryLeftBox").innerText = `Vite rimaste: ${tryLeft}`
+        document.getElementById("francescoTryLeftBox").innerHTML = disegnaVite(tryLeft)
 
         if (tryLeft > 0) {
             setTimeout(function () { francescoJustCaught = false; }, gameLevelsPaces[gameLevelsPaces.length - 1] * 4);

@@ -103,6 +103,10 @@ body {
     margin: 20px auto;
 }
 
+#francescoTryLeftBox img{
+    margin: 0 5px;
+}
+
 #francescoLevelUpContainer {
     width: 500px;
     height: 20px;
