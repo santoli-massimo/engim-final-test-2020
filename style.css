@@ -738,6 +738,7 @@ h4 input#lucaTop {
 
 #albyImmagini{
 box-sizing: border-box;
+
 }
 
 #albyGrandi{
@@ -797,3 +798,85 @@ box-sizing: border-box;
 }
 
 /* FINE ALBERTO CSS */
+
+/*INIZIO CAROLINA*/
+
+#cont {position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(immagini/C/sfondo.jpg) no-repeat fixed;
+        background-size: 100% 100%;
+        padding-top: 10px;
+        box-sizing: content-box;
+        }
+
+#board{display: grid;
+        grid-template-columns: auto auto auto auto;
+        padding: 8px;
+        margin: auto;
+        width: 500px;
+        height: 500px;
+        border: solid 1px black;
+        background: url(immagini/C/smoke.jpg) no-repeat;
+        box-sizing: content-box;
+    }
+
+#screen {background: black;
+        position: absolute;
+        margin: auto;
+        width: 670px;
+        height: 590px;
+        padding: 10px;
+        left: 0;
+        right: 0;
+        box-sizing: content-box;
+    }
+
+.screenIMG {margin: auto;
+            margin-top: 120px;
+            margin-left: 100px;
+            left: 0;
+            right: 0;
+            box-sizing: content-box;
+        }
+                    
+.div_cell {border: solid 2px transparent;
+            text-align: center;
+            width: 120px;
+            height: 120px;
+            margin: auto;
+            box-sizing: content-box;
+        }
+
+#down_bar {
+            margin: auto;
+            margin-top: 15px;
+            width: 500px;
+            height: 50px;
+            box-sizing: content-box;
+        }
+
+.buttonRefresh {width: 100px;
+                height: 50px;
+                margin-left: 190px;
+                background: #a30a0a;
+                border-radius: 30px 30px 30px 30px;
+                color: white;
+                box-sizing: content-box;
+            }
+#youwin{position: relative;
+    box-sizing: content-box;
+    }
+
+.victory{
+    position: absolute;
+    width: 600px;
+    height: 200px;
+    margin: auto;
+    padding: 120px;
+    left: 0;
+    right: 0;
+    box-sizing: content-box;
+}
+
+/*FINE CAROLINA*/

@@ -1392,4 +1392,258 @@ albyPesci.addEventListener("click", function (event) {
 // FINE ALBERTO FUNZIONI
 
 
+// ----- INIZIO CAROLINA -----//
 
+let arrayCards = [
+    {
+    cardIMG: 'immagini/C/blanka.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/blanka.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/chunli.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/chunli.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/dhalsim.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/dhalsim.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/guile.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/guile.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/honda.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/honda.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/ken.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/ken.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/ryu.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/ryu.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/vega.jpg',
+    status: 'close'
+    },
+    {
+    cardIMG: 'immagini/C/vega.jpg',
+    status: 'close'
+    },
+]
+
+shuffle(arrayCards)
+
+
+//PAGINA DI START
+
+    // Prendo il riferimento del div
+let screen = document.getElementById('screen')
+    // creo elemento immagine, lo appendo al div e gli assegno una classe
+let screenIMG = document.createElement('img')
+screen.appendChild(screenIMG)
+screenIMG.classList.add('screenIMG')
+
+    // gli inserisco una gif
+screen.children[0].src = 'immagini/C/start.gif'
+
+    // al clic sul div di start nascondo il suddetto div
+screen.addEventListener('click', function(){
+    screen.style.display = 'none'
+    
+    // Creo var per audio
+    let audio = new Audio()
+    audio.src = 'immagini/C/soundtrack.mp3'
+    // esegue audio
+    audio.play()
+})
+
+
+// Prendo il riferimento del div per la tavola da gioco
+let board = document.getElementById('board')
+
+//CREO LA GRIGLIA DI GIOCO
+function createGrid(container, lista) {
+        for(let i=0; i<lista.length; i++) {
+            // creo tanti div-celle quanto è lungo il mio array di carte e gli assegno una classe
+            let cella = document.createElement('div')
+            cella.classList.add('div_cell')
+            // creo un elemento img per ogni cella della griglia e le appendo
+            let image = document.createElement("img")
+            cella.appendChild(image)
+            board.appendChild(cella)
+
+        //EVENTO CLICK SU CELLA:
+            //richiamo la funzione 'cardClick' definita sotto
+            cella.addEventListener('click', function() {
+                cardClick(i, cella)
+            })
+        }
+}
+createGrid(board, arrayCards)
+updateView()
+
+
+
+//GESTIONE CLIC SULLE CELLE
+function cardClick(i, cella) {
+    let card = arrayCards[i]
+    // restituisce il numero delle carte aperte "fino a questo momento"
+    let oldOpen = getOpenCards()
+  // quando arrivano ad essere 2 si ferma
+  if (oldOpen.length == 2) {
+  return
+  } // se la carta in cui clicco è coperta, si gira e aggiorna la vista  
+    if (card.status == 'close') {
+        card.status = 'open'
+        updateView()
+    } else {
+        return
+    }
+    // restituisce il numero delle NUOVE carte aperte
+    let openCards = getOpenCards()
+    //CONFRONTO IMMAGINI:
+    if (openCards.length == 2) {
+        // controlla che le immagini siano uguali
+        if(openCards[0].cardIMG === openCards[1].cardIMG) {
+            //se si, cambiano di status divenendo carte trovate
+            openCards[0].status = 'found'
+            openCards[1].status = 'found'
+            
+            //(Controlla il numero di carte trovate)
+            chkWin()
+        } else { //altrimenti tornano allo status originario dopo 2 secondi, aggiornando anche la vista
+                setTimeout(function(){
+                    openCards[0].status = 'close'
+                    openCards[1].status = 'close'
+                    updateView()}, 2000)
+            }
+    }
+}
+
+
+// CONTROLLO VISTA DEL GIOCO
+function updateView() {
+    //scompongo l'array in singole carte
+    for(let i=0; i<arrayCards.length; i++) {
+        let card = arrayCards[i]
+        //dichiaro la variabile 'cella' assegnandole stesso nome e valore della funzione 'createGrid'
+        let cella = board.children[i]
+    
+    // CONTROLLO STATUS SINGOLE CARTE:
+        //se è 'close', la carta è coperta e le assegno l'immagine del retro
+        if (card.status == 'close') {
+            cella.children[0].src = 'immagini/C/s.png'
+            //altrimenti l'immagine di fronte che ricavo dall'array scomposto
+        } else {
+            cella.children[0].src = card.cardIMG
+        }
+    }
+}
+
+
+//CONFRONTO DELLE CARTE APERTE
+function getOpenCards() {
+    //Creo array vuoto
+    let open = []
+    for(let i=0; i<arrayCards.length; i++) {
+        let card = arrayCards[i]
+        // vi inserisco le carte aperte
+        if(card.status=='open') {
+            open.push(card)
+        }
+    } // restituisce le carte aperte da gestire nella funzione 'cardClick'
+    return open
+}
+
+
+//MISCHIA LE CARTE (TROVATA ONLINE E RIPROPOSTA IDENTICA)
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+
+//CONTROLLA SE HAI VINTO
+function chkWin() {
+    //creo variabile di appoggio
+    let cardFound = 0
+    for(let i=0; i<arrayCards.length; i++) {
+        let card = arrayCards[i]
+        //inserisco nella variabile ogni carta trovata
+        if(card.status == 'found') {
+            cardFound++
+        }
+        //se il numero corrisponde alla lunghezza dell'array:
+        if(cardFound == arrayCards.length) {
+            //rendo invisibile la tavola da gioco
+            board.style.display = 'none'
+            // SCHERMATA DI VITTORIA!
+            
+            let youwin = document.getElementById('youwin')
+            let victory = document.createElement ('img')
+            youwin.appendChild(victory)
+            victory.classList.add('victory')
+            youwin.children[0].src = 'immagini/C/victory.gif'
+        }
+    }
+}
+
+
+//CREO UN DIV PER CONTENERE UN PULSANTE PER IL REFRESH DELLE CARTE
+let div_down = document.getElementById('down_bar')
+let btnRest = document.createElement('button')
+div_down.appendChild(btnRest)
+btnRest.classList.add('buttonRefresh')
+btnRest.innerHTML = 'RESTART'
+
+//Il punsante chiude tutte le carte aperte
+btnRest.addEventListener('click', function() {
+    for(let i=0; i<arrayCards.length; i++) {
+        let card = arrayCards[i]
+        card.status = 'close'
+    }
+    //rimischia, aggiorna e rende nuovamente visibile la tavola da gioco
+    shuffle(arrayCards)
+    updateView()
+    board.style.display = ''
+    youwin.removeChild(youwin.childNodes[0])
+})
+
+//-------FINE CAROLINA--------//
