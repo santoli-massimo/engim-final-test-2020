@@ -201,8 +201,8 @@ body {
 
 #lucacontenitore2 {
     position: absolute;
-    top: 100px;
-    left: 700px;
+    top: 45px;
+    left: 900px;
     margin-top: 10px;
 }
 
@@ -212,6 +212,14 @@ body {
 
 .lucah1, .lucah5, #labelM {
     text-align: center;
+}
+
+h4 input#lucaTop {
+    border-radius: 10px;
+}
+
+#lucatabella tr:hover {
+    cursor: pointer;
 }
 
 

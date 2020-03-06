@@ -297,9 +297,13 @@ function lucacreateTableFromList(contenitoreid, lista) {
     tbody.setAttribute('id', 'lucatbody')
     nuovatabella.append(tbody)
 
+
     for (var key of lista) {
         var tr = document.createElement('tr')
+
         tr.setAttribute('id', 'lucatr')
+        tr.setAttribute('style', 'color: black')
+
         tbody.append(tr)
 
         for (var persone in key) {
@@ -307,6 +311,14 @@ function lucacreateTableFromList(contenitoreid, lista) {
             td.setAttribute('id', 'lucatd')
             td.innerHTML = key[persone]
             tr.append(td)
+        }
+
+        //al click colora il font delle righe di blu
+        var elements = document.getElementById('lucatabella').rows;
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener("click", function () {
+                this.style.color = 'blue';
+            });
         }
     }
 }
@@ -369,6 +381,31 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
 
     document.getElementById('lucacontenitore1').innerHTML = ""
     lucacreateTableFromList('lucacontenitore1', lucalista)
+})
+
+//Assegno alla variabile lucaTop il pulsante 'sposta' presente in index
+var lucaTop = document.getElementById('lucaTop')
+
+//creo l'evento per spostare le righe selezionate
+lucaTop.addEventListener('click', function () {
+    var table = document.getElementById("lucatabella");
+
+    var elements = document.getElementsByTagName('tr');
+
+    for (j = 0; j < elements.length; j++) {
+        if (elements[j].style.color == 'blue') {
+            var tab = document.getElementById('lucatabella').rows[j]
+            var firstRow = table.rows[0];
+
+            firstRow.parentNode.insertBefore(tab, firstRow);
+        }
+    }
+
+    //al click sul pulsante le righe ritornano di colore nero
+    for (var i = 0; i < elements.length; i++) {
+        (elements)[i].style.color = 'black';
+    }
+
 })
 
 //inizio esercizio request API pubblica
