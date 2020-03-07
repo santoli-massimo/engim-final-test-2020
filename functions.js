@@ -250,6 +250,8 @@ let francescoEvilPosition = {
 
 
 //INIZIO FUNZIONI LUCA MORO
+
+//creo una lista di oggetti
 lucalista = [
     {
         Nome: 'Tizio',
@@ -273,7 +275,7 @@ lucalista = [
     }
 ]
 
-//funziona crea lista
+//funzione crea lista
 function lucacreateTableFromList(contenitoreid, lista) {
 
     var contenitore = document.getElementById(contenitoreid)
@@ -350,11 +352,12 @@ lucailmioinput.addEventListener('input', function () {
 
     document.getElementById('lucacontenitore2').innerHTML = ""
 
-    //assegno ad 'x' il mio input trasformandolo in caratteri minuscoli
+    //assegno ad 'x' ciò che inserisco nel mio input
     var x = lucailmioinput.value
 
     var lista_filtrata = lucafiltra_lista(lucalista, x)
 
+    //se l'input è vuoto non creo la tabella filtrata
     if (lucailmioinput.value == "") {
         document.getElementById('lucacontenitore2').innerHTML = ""
     } else {
@@ -392,6 +395,7 @@ lucaTop.addEventListener('click', function () {
 
     var elements = document.getElementsByTagName('tr');
 
+    //sposto le righe di colore 'blu'
     for (j = 0; j < elements.length; j++) {
         if (elements[j].style.color == 'blue') {
             var tab = document.getElementById('lucatabella').rows[j]
@@ -408,7 +412,10 @@ lucaTop.addEventListener('click', function () {
 
 })
 
+
 //inizio esercizio request API pubblica
+
+//funzione crea lista
 function luca2createTableFromList(lista) {
 
     var contenitore = document.getElementById("lucacontenitore3")
@@ -493,6 +500,46 @@ lucarequest.addEventListener('loadend', lucaonresponse)
 lucarequest.open('GET', 'https://jsonplaceholder.typicode.com/posts')
 // Eseguo la richiesta
 lucarequest.send()
+
+
+//assagno alle varibili gli elementi presenti in index
+var esRighe = document.getElementById('esRighe')
+var botRighe = document.getElementById('lucaRighe')
+var lucaTitoloRighe = document.getElementById('lucaTitoloExtra1')
+var lucaTitoloApi = document.getElementById('lucaTitoloExtra2')
+var esApi = document.getElementById('esApi')
+var botApi = document.getElementById('lucaApi')
+var luca1 = document.getElementById('lucacontenitore1')
+var luca2 = document.getElementById('lucacontenitore2')
+var lucaDivFiltro = document.getElementById('lucaFiltro')
+var lucaRecord = document.getElementById('lucaRecord')
+var lucaScegli = document.getElementById('lucaScegli')
+
+//nascondo gli elementi che non voglio visualizzare al caricamento della pagina
+lucaTitoloRighe.style.display = 'none'
+esRighe.style.display = 'none'
+lucaTitoloApi.style.display = 'none'
+esApi.style.display = 'none'
+
+//creo l'evento per mostrare l'esercizio 'sposta righe'
+botRighe.addEventListener('click', function () {
+    esRighe.style.display = 'block'
+    lucaTitoloRighe.style.display = 'block'
+    botRighe.style.display = 'none'
+})
+
+//creo l'evento per mostrare l'esercizio 'tabella da API'
+botApi.addEventListener('click', function () {
+    esApi.style.display = 'block'
+    lucaTitoloApi.style.display = 'block'
+    lucaTitoloRighe.style.display = 'none'
+    luca1.style.display = 'none'
+    luca2.style.display = 'none'
+    lucaScegli.style.display = 'none'
+    lucaDivFiltro.style.display = 'none'
+    esRighe.style.display = 'none'
+    lucaRecord.style.display = 'none'
+})
 
 //fine funzioni Luca Moro
 

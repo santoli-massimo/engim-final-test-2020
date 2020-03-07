@@ -124,6 +124,11 @@ body {
 
 
 /*inizio foglio stile Luca Moro*/
+#lucacontainer {
+    position: absolute;
+    margin-left: 100px;
+}
+
 #lucatabella {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 14px;
@@ -176,18 +181,29 @@ body {
     border-right: none;
 }
 
-#filtroL {
-    width: fit-content;
+#lucacontenitore1 #lucatabella tr:hover {
+    cursor: pointer;
+}
+
+#lucacontenitore1 {
+    margin-right: 15px;
+    margin-bottom: 5px;
+    float: left;
+}
+
+#lucacontenitore2 {
+    float: left;
+}
+
+#lucaFiltro {
+    float: left;
     border: 2px solid #BCEBDD;
     border-radius: 17px;
     background: #F8E391;
     color: black;
     text-shadow: 0 1px 1px #2D2020;
-    margin-top: 20px;
-}
-
-.lucaform input {
-    margin: 5px 5px 5px 5px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 #lucailmioinput {
@@ -195,15 +211,36 @@ body {
     border-radius: 10px;
 }
 
-#lucanome, #lucacognome, #lucaetà, #lucaaggiungi, #lucauser, #lucaid, #lucabody, #lucatitle, #lucaaggiungi2 {
+.lucaEs {
+    float: left;
+    margin-bottom: 20px;
+}
+
+.luca {
+    float: left;
+    border: 2px solid #BCEBDD;
+    border-radius: 17px;
+    background: #F8E391;
+    color: black;
+    text-shadow: 0 1px 1px #2D2020;
+    margin-top: 10px;
+}
+
+h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
     border-radius: 10px;
 }
 
-#lucacontenitore2 {
-    position: absolute;
-    top: 95px;
-    left: 800px;
+#lucaTitoloExtra1 {
+    float: left;
     margin-top: 10px;
+}
+
+#lucaApi, #lucaTop {
+    margin-top: 15px;
+}
+
+#lucanome, #lucacognome, #lucaetà, #lucaaggiungi, #lucauser, #lucaid, #lucabody, #lucatitle, #lucaaggiungi2 {
+    border-radius: 10px;
 }
 
 #lucauser, #lucaid {
@@ -212,14 +249,6 @@ body {
 
 .lucah1, .lucah5, #labelM {
     text-align: center;
-}
-
-h4 input#lucaTop {
-    border-radius: 10px;
-}
-
-#lucatabella tr:hover {
-    cursor: pointer;
 }
 
 
