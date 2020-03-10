@@ -272,7 +272,12 @@ lucalista = [
         Nome: 'Luca',
         Cognome: 'Moro',
         Eta: 25
-    }
+    },
+    {
+        Nome: 'Tizio',
+        Cognome: 'Caio',
+        Eta: 20
+    },
 ]
 
 //funzione crea lista
@@ -317,7 +322,9 @@ function lucacreateTableFromList(contenitoreid, lista) {
 
         //al click colora il font delle righe di blu
         var elements = document.getElementById('lucatabella').rows;
+
         for (var i = 0; i < elements.length; i++) {
+
             elements[i].addEventListener("click", function () {
                 this.style.color = 'blue';
             });
@@ -389,6 +396,11 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
 //Assegno alla variabile lucaTop il pulsante 'sposta' presente in index
 var lucaTop = document.getElementById('lucaTop')
 
+//assegno alla variabile 'avviso' il paragrafo prensente in index
+var avviso = document.getElementById('lucaAvviso');
+//lo nascondo all'inizio
+avviso.style.display = "none";
+
 //creo l'evento per spostare le righe selezionate
 lucaTop.addEventListener('click', function () {
     var table = document.getElementById("lucatabella");
@@ -397,19 +409,50 @@ lucaTop.addEventListener('click', function () {
 
     //sposto le righe di colore 'blu'
     for (j = 0; j < elements.length; j++) {
+
+        //controllo se il colore è blu
         if (elements[j].style.color == 'blue') {
             var tab = document.getElementById('lucatabella').rows[j]
+
+            //prima riga della tabella
             var firstRow = table.rows[0];
 
-            firstRow.parentNode.insertBefore(tab, firstRow);
+            //td presenti nella riga che seleziono
+            var elSposta = elements[j].childNodes;
+
+            //td presenti nella prima riga della tabella
+            var elFirstRow = firstRow.childNodes;
+
+            //creo un ciclo per iterare tutti i td presenti nelle righe
+            for (a = 0; a < elSposta.length; a++) {
+
+                //controllo se i contenuti delle righe sono uguali
+                if (elSposta[a].innerText == elFirstRow[a].innerText) {
+
+                    //se sono uguali non sposta la riga
+
+                    //mostro il paragrafo e gli assegno lo stile
+                    document.getElementById('lucaAvviso').style.display = "block";
+                    document.getElementById('lucaAvviso').style.color = "red";
+                    document.getElementById('lucaAvviso').style.fontSize = "30px";
+
+                } else {
+                    //sposta le righe non uguali
+                    firstRow.parentNode.insertBefore(tab, firstRow);
+
+                    //nascondo il paragrafo
+                    document.getElementById('lucaAvviso').style.display = "none";
+                }
+
+            }
         }
     }
 
     //al click sul pulsante le righe ritornano di colore nero
     for (var i = 0; i < elements.length; i++) {
-        (elements)[i].style.color = 'black';
-    }
+        elements[i].style.color = 'black';
 
+    }
 })
 
 
@@ -540,6 +583,8 @@ botApi.addEventListener('click', function () {
     esRighe.style.display = 'none'
     lucaRecord.style.display = 'none'
 })
+
+
 
 //fine funzioni Luca Moro
 
