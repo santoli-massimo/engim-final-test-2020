@@ -130,7 +130,7 @@ function francescoNewGame() {
 
             francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
             document.getElementById("francescoEvil").style.transition = "top " + gameLevelsPaces[level] + "ms linear, left " + gameLevelsPaces[level] + "ms linear";
-            document.getElementById("francescoEvil").style.transition = "all " +gameLevelsPaces[level] + "ms linear";
+            document.getElementById("francescoEvil").style.transition = "all " + gameLevelsPaces[level] + "ms linear";
 
             document.getElementById("francescoLevelUp").style.transition = gameLevelsPaces[level] + "ms linear";
             document.getElementById("francescoLevelUp").style.backgroundColor = gameLevelsColors[level];
@@ -153,9 +153,17 @@ function francescoNewGame() {
                     angle += Math.PI;
                 }
 
+                while ( angle - francescoEvilPosition.angle < -Math.PI) {
+                    angle += 2 * Math.PI;
+                }
+
+
+                while (angle - francescoEvilPosition.angle > Math.PI){
+                    angle -= 2 * Math.PI;
+                }
+
+
                 francescoEvilPosition.angle = angle;
-
-
                 francescoEvilPosition.top += Math.sin(angle) * stride;
                 francescoEvilPosition.left += Math.cos(angle) * stride;
                 francescoEvilPosition.update();
@@ -186,7 +194,7 @@ function francescoNewGame() {
         document.getElementById("francescoLevelUp").style.width = "100%";
         document.getElementById("francescoLevelUp").style.backgroundImage = "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"
 
-        document.getElementById("francescoTryLeftBox").innerHTML = "Entra nel quadrato per cominciare la sfida";
+        document.getElementById("francescoTryLeftBox").innerHTML = "Sei uscito, rientra nel quadrato per ricominciare la sfida";
     }
 
     document.getElementById("francescoContainer").addEventListener("mouseleave", francescoQuit);
