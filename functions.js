@@ -102,15 +102,15 @@ function francescoNewGame() {
     document.getElementById("francescoLevelUp").style.backgroundImage = "none";
 
 
-    function mouseEvilDistance() {
+    function mouseEvilDistance() { // calcola la distanza
         return Math.sqrt((francescoMousePosition.top - francescoEvilPosition.top) * (francescoMousePosition.top - francescoEvilPosition.top) + (francescoMousePosition.left - francescoEvilPosition.left) * (francescoMousePosition.left - francescoEvilPosition.left))
     }
 
-    function disegnaVite(numero){
+    function disegnaVite(numero) {
         let stringaVite = "";
         for (let index = 0; index < numero; index++) {
             stringaVite += "<img src=\"immagini/francesco/ghost30.png\" alt = \"fantasmino\">";
-            
+
         }
         return stringaVite;
     }
@@ -129,8 +129,8 @@ function francescoNewGame() {
             document.getElementById("francescoLevelUp").style.width = "100%";
 
             francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
-            document.getElementById("francescoEvil").style.transition = "top "+ gameLevelsPaces[level] + "ms linear, left " +gameLevelsPaces[level] + "ms linear";
-            //document.getElementById("francescoEvil").style.transition = "left " +gameLevelsPaces[level] + "ms linear";
+            document.getElementById("francescoEvil").style.transition = "top " + gameLevelsPaces[level] + "ms linear, left " + gameLevelsPaces[level] + "ms linear";
+            document.getElementById("francescoEvil").style.transition = "all " +gameLevelsPaces[level] + "ms linear";
 
             document.getElementById("francescoLevelUp").style.transition = gameLevelsPaces[level] + "ms linear";
             document.getElementById("francescoLevelUp").style.backgroundColor = gameLevelsColors[level];
@@ -152,12 +152,12 @@ function francescoNewGame() {
                 if (francescoMousePosition.left < francescoEvilPosition.left) {
                     angle += Math.PI;
                 }
-                document.getElementById("francescoEvil").style.transform = "rotate(" +angle + "rad)";
+
+                francescoEvilPosition.angle = angle;
+
 
                 francescoEvilPosition.top += Math.sin(angle) * stride;
                 francescoEvilPosition.left += Math.cos(angle) * stride;
-                // francescoEvilPosition.top += Math.max(Math.min(francescoMousePosition.top - francescoEvilPosition.top, stride), -stride)
-                // francescoEvilPosition.left += Math.max(Math.min(francescoMousePosition.left - francescoEvilPosition.left, stride), -stride)
                 francescoEvilPosition.update();
                 levelTimeLeft -= gameLevelsPaces[level];
                 document.getElementById("francescoLevelUp").style.width = (levelTimeLeft * 100 / levelTime) + "%";
@@ -174,12 +174,10 @@ function francescoNewGame() {
 
         francescoEvilPosition.top = 250;
         francescoEvilPosition.left = 250;
+        francescoEvilPosition.angle = 0;
         francescoEvilPosition.update();
 
     }
-
-
-
 
     function francescoQuit() {
         clearInterval(francescoInterval); //stop animazione
@@ -211,10 +209,6 @@ function francescoNewGame() {
 }
 
 
-
-
-
-
 let francescoMousePosition = {
     top: 250,
     left: 250
@@ -226,10 +220,12 @@ let francescoEvilPosition = {
     top: 250,
     left: 250,
     radius: 20,
+    angle: Math.PI,
     update: function () {
 
         francescoEvilPosition.top = Math.max(this.radius, Math.min(500 - this.radius, francescoEvilPosition.top))
         francescoEvilPosition.left = Math.max(this.radius, Math.min(500 - this.radius, francescoEvilPosition.left))
+        document.getElementById("francescoEvil").style.transform = "rotate(" + this.angle + "rad)";
 
         document.getElementById("francescoEvil").style.top = (francescoEvilPosition.top - this.radius) + "px";
         document.getElementById("francescoEvil").style.left = (francescoEvilPosition.left - this.radius) + "px";
@@ -1222,11 +1218,11 @@ c_button.addEventListener('click', c_reset)
 
 //aggiungo evento c_click_td al selettore di colore
 input = document.getElementById('c_selected-color')
-input.addEventListener('click',c_click_td)
+input.addEventListener('click', c_click_td)
 
 //aggiungo evento chris_special_color al bottone speciale
 c_bt = document.getElementById('c_special_button')
-c_bt.addEventListener('click',chris_special_color)
+c_bt.addEventListener('click', chris_special_color)
 
 
 
@@ -1234,26 +1230,26 @@ c_bt.addEventListener('click',chris_special_color)
 function chris_special_color() {
     var chris_contenitore = document.getElementById('chris_contenitore')
     var chris_table = chris_contenitore.getElementsByTagName('table')
-    for(var p = 0; p <chris_table.length; p++){
+    for (var p = 0; p < chris_table.length; p++) {
         var chris_tds = chris_table[p].getElementsByTagName("td")
-    }       
-    for(var j = 0; j< chris_tds.length;j++){
+    }
+    for (var j = 0; j < chris_tds.length; j++) {
         var chris_curr_td = chris_tds[j]
-        var c_click = function(chris_curr_td){
-            return function(){
+        var c_click = function (chris_curr_td) {
+            return function () {
                 var chris_cell = chris_curr_td
                 //setto colore cella e tempo in cui cambia automaticamente
-                setInterval(function(){
-                    chris_cell.style.background = "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)
+                setInterval(function () {
+                    chris_cell.style.background = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255)
 
-                },100)
-                
+                }, 100)
+
             }
         }
         chris_curr_td.onclick = c_click(chris_curr_td)
 
-    }    
-}   
+    }
+}
 //fine funzioni Christian
 
 /******************FUNCTION ALESSIO******************/
@@ -1346,61 +1342,61 @@ crea_cards(film)
 
 
 // functions Natascia
-function natascia_function(){
+function natascia_function() {
     //Carousel (60p-70p) natascia
     //Creare un div con dentro un immagine. L'immagine cambia ogni 3 secondi
     //+5p ricomincia da capo quando arriva all'ultima immagine
     //+5p Creare un bottone che inverte in qualsiasi momento la direzione.
     var flag_BT_inv = false;
-    var ciclocagnolini=0;
-   
+    var ciclocagnolini = 0;
+
     document.getElementById("natascia_button_inv").addEventListener("click", natascia_inverti);
-    function natascia_inverti(){
-        if (flag_BT_inv === true){
-            flag_BT_inv=false; 
-        }else{
-            flag_BT_inv=true; 
-        }  
+    function natascia_inverti() {
+        if (flag_BT_inv === true) {
+            flag_BT_inv = false;
+        } else {
+            flag_BT_inv = true;
+        }
         //console.log('Premuto tasto Inverti rotazione');
         //if (flag_BT_go==false && flag_BT_stop==true){
         //    //console.log('Premuto tasto Inverti rotazione ma sono in STOP ROTAZIONE di conseguenza lancio natascia vai');
         //    natascia_vai();
         //}
     }
-    
+
     var natascia_index = 1;
-    function natascia_cambia_immagine(){
+    function natascia_cambia_immagine() {
         var cagnolino = document.getElementById('cagnolino');
         var natascia_lista = [
-        'immagini/natascia_img/Mos4.jpg', 
-        'immagini/natascia_img/Mos6.jpg',
-        'immagini/natascia_img/Mos12.jpg',
-        'immagini/natascia_img/Mos11.jpg'
+            'immagini/natascia_img/Mos4.jpg',
+            'immagini/natascia_img/Mos6.jpg',
+            'immagini/natascia_img/Mos12.jpg',
+            'immagini/natascia_img/Mos11.jpg'
         ]
-    
+
         cagnolino.src = natascia_lista[natascia_index];
-        if (flag_BT_inv == false){
-            if(natascia_index>= natascia_lista.length-1){
-                natascia_index=0;
+        if (flag_BT_inv == false) {
+            if (natascia_index >= natascia_lista.length - 1) {
+                natascia_index = 0;
             }
-            else{
+            else {
                 natascia_index = natascia_index + 1;
             }
-        }else{
-            if(natascia_index <= 0){
-                natascia_index=3;
+        } else {
+            if (natascia_index <= 0) {
+                natascia_index = 3;
             }
-            else{
+            else {
                 natascia_index = natascia_index - 1;
             }
         }
-    
+
     }
-    var ciclocagnolini = setInterval(natascia_cambia_immagine,3000);    
-    }
-    
-    natascia_function();
-    
+    var ciclocagnolini = setInterval(natascia_cambia_immagine, 3000);
+}
+
+natascia_function();
+
 
 // fine functions Natascia
 
@@ -1488,68 +1484,68 @@ albyPesci.addEventListener("click", function (event) {
 
 let arrayCards = [
     {
-    cardIMG: 'immagini/C/blanka.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/blanka.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/blanka.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/blanka.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/chunli.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/chunli.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/chunli.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/chunli.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/dhalsim.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/dhalsim.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/dhalsim.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/dhalsim.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/guile.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/guile.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/guile.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/guile.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/honda.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/honda.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/honda.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/honda.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/ken.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/ken.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/ken.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/ken.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/ryu.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/ryu.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/ryu.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/ryu.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/vega.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/vega.jpg',
+        status: 'close'
     },
     {
-    cardIMG: 'immagini/C/vega.jpg',
-    status: 'close'
+        cardIMG: 'immagini/C/vega.jpg',
+        status: 'close'
     },
 ]
 
@@ -1558,20 +1554,20 @@ shuffle(arrayCards)
 
 //PAGINA DI START
 
-    // Prendo il riferimento del div
+// Prendo il riferimento del div
 let screen = document.getElementById('screen')
-    // creo elemento immagine, lo appendo al div e gli assegno una classe
+// creo elemento immagine, lo appendo al div e gli assegno una classe
 let screenIMG = document.createElement('img')
 screen.appendChild(screenIMG)
 screenIMG.classList.add('screenIMG')
 
-    // gli inserisco una gif
+// gli inserisco una gif
 screen.children[0].src = 'immagini/C/start.gif'
 
-    // al clic sul div di start nascondo il suddetto div
-screen.addEventListener('click', function(){
+// al clic sul div di start nascondo il suddetto div
+screen.addEventListener('click', function () {
     screen.style.display = 'none'
-    
+
     // Creo var per audio
     let audio = new Audio()
     audio.src = 'immagini/C/soundtrack.mp3'
@@ -1585,21 +1581,21 @@ let board = document.getElementById('board')
 
 //CREO LA GRIGLIA DI GIOCO
 function createGrid(container, lista) {
-        for(let i=0; i<lista.length; i++) {
-            // creo tanti div-celle quanto è lungo il mio array di carte e gli assegno una classe
-            let cella = document.createElement('div')
-            cella.classList.add('div_cell')
-            // creo un elemento img per ogni cella della griglia e le appendo
-            let image = document.createElement("img")
-            cella.appendChild(image)
-            board.appendChild(cella)
+    for (let i = 0; i < lista.length; i++) {
+        // creo tanti div-celle quanto è lungo il mio array di carte e gli assegno una classe
+        let cella = document.createElement('div')
+        cella.classList.add('div_cell')
+        // creo un elemento img per ogni cella della griglia e le appendo
+        let image = document.createElement("img")
+        cella.appendChild(image)
+        board.appendChild(cella)
 
         //EVENTO CLICK SU CELLA:
-            //richiamo la funzione 'cardClick' definita sotto
-            cella.addEventListener('click', function() {
-                cardClick(i, cella)
-            })
-        }
+        //richiamo la funzione 'cardClick' definita sotto
+        cella.addEventListener('click', function () {
+            cardClick(i, cella)
+        })
+    }
 }
 createGrid(board, arrayCards)
 updateView()
@@ -1611,10 +1607,10 @@ function cardClick(i, cella) {
     let card = arrayCards[i]
     // restituisce il numero delle carte aperte "fino a questo momento"
     let oldOpen = getOpenCards()
-  // quando arrivano ad essere 2 si ferma
-  if (oldOpen.length == 2) {
-  return
-  } // se la carta in cui clicco è coperta, si gira e aggiorna la vista  
+    // quando arrivano ad essere 2 si ferma
+    if (oldOpen.length == 2) {
+        return
+    } // se la carta in cui clicco è coperta, si gira e aggiorna la vista  
     if (card.status == 'close') {
         card.status = 'open'
         updateView()
@@ -1626,19 +1622,20 @@ function cardClick(i, cella) {
     //CONFRONTO IMMAGINI:
     if (openCards.length == 2) {
         // controlla che le immagini siano uguali
-        if(openCards[0].cardIMG === openCards[1].cardIMG) {
+        if (openCards[0].cardIMG === openCards[1].cardIMG) {
             //se si, cambiano di status divenendo carte trovate
             openCards[0].status = 'found'
             openCards[1].status = 'found'
-            
+
             //(Controlla il numero di carte trovate)
             chkWin()
         } else { //altrimenti tornano allo status originario dopo 2 secondi, aggiornando anche la vista
-                setTimeout(function(){
-                    openCards[0].status = 'close'
-                    openCards[1].status = 'close'
-                    updateView()}, 2000)
-            }
+            setTimeout(function () {
+                openCards[0].status = 'close'
+                openCards[1].status = 'close'
+                updateView()
+            }, 2000)
+        }
     }
 }
 
@@ -1646,12 +1643,12 @@ function cardClick(i, cella) {
 // CONTROLLO VISTA DEL GIOCO
 function updateView() {
     //scompongo l'array in singole carte
-    for(let i=0; i<arrayCards.length; i++) {
+    for (let i = 0; i < arrayCards.length; i++) {
         let card = arrayCards[i]
         //dichiaro la variabile 'cella' assegnandole stesso nome e valore della funzione 'createGrid'
         let cella = board.children[i]
-    
-    // CONTROLLO STATUS SINGOLE CARTE:
+
+        // CONTROLLO STATUS SINGOLE CARTE:
         //se è 'close', la carta è coperta e le assegno l'immagine del retro
         if (card.status == 'close') {
             cella.children[0].src = 'immagini/C/s.png'
@@ -1667,10 +1664,10 @@ function updateView() {
 function getOpenCards() {
     //Creo array vuoto
     let open = []
-    for(let i=0; i<arrayCards.length; i++) {
+    for (let i = 0; i < arrayCards.length; i++) {
         let card = arrayCards[i]
         // vi inserisco le carte aperte
-        if(card.status=='open') {
+        if (card.status == 'open') {
             open.push(card)
         }
     } // restituisce le carte aperte da gestire nella funzione 'cardClick'
@@ -1680,15 +1677,15 @@ function getOpenCards() {
 
 //MISCHIA LE CARTE (TROVATA ONLINE E RIPROPOSTA IDENTICA)
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
 }
 
 
@@ -1696,20 +1693,20 @@ function shuffle(array) {
 function chkWin() {
     //creo variabile di appoggio
     let cardFound = 0
-    for(let i=0; i<arrayCards.length; i++) {
+    for (let i = 0; i < arrayCards.length; i++) {
         let card = arrayCards[i]
         //inserisco nella variabile ogni carta trovata
-        if(card.status == 'found') {
+        if (card.status == 'found') {
             cardFound++
         }
         //se il numero corrisponde alla lunghezza dell'array:
-        if(cardFound == arrayCards.length) {
+        if (cardFound == arrayCards.length) {
             //rendo invisibile la tavola da gioco
             board.style.display = 'none'
             // SCHERMATA DI VITTORIA!
-            
+
             let youwin = document.getElementById('youwin')
-            let victory = document.createElement ('img')
+            let victory = document.createElement('img')
             youwin.appendChild(victory)
             victory.classList.add('victory')
             youwin.children[0].src = 'immagini/C/victory.gif'
@@ -1726,8 +1723,8 @@ btnRest.classList.add('buttonRefresh')
 btnRest.innerHTML = 'RESTART'
 
 //Il punsante chiude tutte le carte aperte
-btnRest.addEventListener('click', function() {
-    for(let i=0; i<arrayCards.length; i++) {
+btnRest.addEventListener('click', function () {
+    for (let i = 0; i < arrayCards.length; i++) {
         let card = arrayCards[i]
         card.status = 'close'
     }
