@@ -305,6 +305,20 @@ h4 #lucaTop {
     margin-left: 10px;
 }
 
+.margin_right {
+    margin-right: 10px;
+}
+
+.margin_top {
+    margin-top: 90px;
+}
+
+.signature {
+    font-family: 'Allura', cursive;
+    font-weight: bolder;
+    float: right;
+}
+
 
 /*fine foglio Css Sefora*/
 
