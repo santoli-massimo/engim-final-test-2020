@@ -58,22 +58,20 @@ body {
     background-image: url("immagini/15/Santoli.jpeg");
 }
 
-/* INIZIO CSS FRANCESCO*/
 
+/* INIZIO CSS FRANCESCO*/
 
 #Francesco {
     background: darkslategray;
     height: 100vh;
     color: #bbb;
-
 }
 
-
-#Francesco .temp{
+#Francesco .temp {
     display: none;
 }
 
-#Francesco h1{
+#Francesco h1 {
     color: #bbb;
     text-align: center;
 }
@@ -83,7 +81,7 @@ body {
     background-color: antiquewhite;
     height: 500px;
     width: 500px;
-    cursor: url(immagini/francesco/ghost30.png),move;
+    cursor: url(immagini/francesco/ghost30.png), move;
     box-shadow: beige;
 }
 
@@ -95,7 +93,6 @@ body {
     position: relative;
     top: 230px;
     left: 230px;
-
 }
 
 #francescoTryLeftBox {
@@ -103,7 +100,7 @@ body {
     margin: 20px auto;
 }
 
-#francescoTryLeftBox img{
+#francescoTryLeftBox img {
     margin: 0 5px;
 }
 
@@ -120,10 +117,12 @@ body {
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
 }
 
+
 /* FINE CSS FRANCESCO*/
 
 
 /*inizio foglio stile Luca Moro*/
+
 #lucacontainer {
     position: absolute;
     margin-left: 100px;
@@ -145,13 +144,15 @@ body {
     padding: 10px 20px;
 }
 
-#lucatabella th, #lucatabella td {
+#lucatabella th,
+#lucatabella td {
     border-style: solid;
     border-width: 0 1px 1px 0;
     border-color: white;
 }
 
-#lucatabella th:first-child, #lucatabella td:first-child {
+#lucatabella th:first-child,
+#lucatabella td:first-child {
     text-align: left;
 }
 
@@ -177,7 +178,8 @@ body {
     border-radius: 0 0 10px 0;
 }
 
-#lucatabella tr, #lucatabella td:last-child {
+#lucatabella tr,
+#lucatabella td:last-child {
     border-right: none;
 }
 
@@ -226,7 +228,9 @@ body {
     margin-top: 10px;
 }
 
-h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
+h4 #lucaApi,
+h4 #lucaRighe,
+h4 #lucaTop {
     border-radius: 10px;
 }
 
@@ -235,19 +239,31 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
     margin-top: 10px;
 }
 
-#lucaApi, #lucaTop {
+#lucaApi,
+#lucaTop {
     margin-top: 15px;
 }
 
-#lucanome, #lucacognome, #lucaetà, #lucaaggiungi, #lucauser, #lucaid, #lucabody, #lucatitle, #lucaaggiungi2 {
+#lucanome,
+#lucacognome,
+#lucaetà,
+#lucaaggiungi,
+#lucauser,
+#lucaid,
+#lucabody,
+#lucatitle,
+#lucaaggiungi2 {
     border-radius: 10px;
 }
 
-#lucauser, #lucaid {
+#lucauser,
+#lucaid {
     width: 80px;
 }
 
-.lucah1, .lucah5, #labelM {
+.lucah1,
+.lucah5,
+#labelM {
     text-align: center;
 }
 
@@ -274,13 +290,35 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
 
 #Sefora {
     background-image: url("immagini/ImgSef/bg.jpg");
-    background-size: auto;
+    background-size: 90%;
     background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
     background-size: cover;
 }
-#eyeshow{
+
+#eyeshow {
     float: right;
 }
+
+.margin_left {
+    margin-left: 10px;
+}
+
+.margin_right {
+    margin-right: 10px;
+}
+
+.margin_top {
+    margin-top: 90px;
+}
+
+.signature {
+    font-family: 'Allura', cursive;
+    font-weight: bolder;
+    float: right;
+}
+
 
 /*fine foglio Css Sefora*/
 
@@ -445,196 +483,194 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
     display: none;
 }
 
-#Stefania{
+#Stefania {
     background-image: url("immagini/stefania/sfondo.jpg");
-    
     background-size: auto;
     background-repeat: no-repeat;
     background-size: cover;
-    
 }
 
-.titoloSte{
-            font-family: 'Parisienne' ;
-            font-size: 50px;
-            font-weight: normal;
-            color: black;
-            
-        }
+.titoloSte {
+    font-family: 'Parisienne';
+    font-size: 50px;
+    font-weight: normal;
+    color: black;
+}
+
 #calcolatrice_ste {
     width: 325px;
-  height:500px;
-  padding:10px;
-  border-radius:20px;
-  background-color:#ff3399;
-  background-image: url("immagini/stefania/monogram-668685_1920.png");
-  background-position: center;
-  background-size: cover;
-  border-color: black;
-  top:25px;
-  left:32px;
-  font-family: 'Caveat';
-  margin:10px;
-            
-        }
-        .tasto_ste {
-            color:black;
-  background-color:violet;
-  width:130px;
-  height:60px;
-  border-radius:50px;
-  border-color: violet;
-  font-size:40px;
-  margin:5px;
-  text-align:center;
-  line-height:55px;
-  float:left;
-  margin-left:9px;
-  font-family: 'Caveat';
-        }
-        .display_ste {
-            /*background: none;*/
-            color: #000;
-            
-            
-            margin: 4px 2px;
-            width:300px;
-             
-            border-radius:10px ;
-            border-color: b#ff3399;
-  text-align:right;
-  font-size:40px;
-  background-color: pink;
-  height:80px;
-  font-family: 'Caveat';
-         
-        }
-        .uguale_ste {
-            width: 208px;
-            font-family: 'Caveat';
-          
-        }
-        .prima_ste{
-            color:black;
-  background-color:lightpink;
-  width:60px;
-  height:60px;
-  border-radius:50px;
-  border-color: lightpink ;
-  text-align:center;
-  line-height:55px;
-  font-size:40px;
-  float:left;
-  margin:5px;
-  margin-left:9px;
-  font-family: 'Caveat';
-        }
-        .operatore_ste{
-            color:white;
-  background-color:purple;
-  width:60px;
-  height:60px;
-  border-radius:50px;
-  border-color: purple;
-  text-align:center;
-  line-height:55px;
-  font-size:40px;
-  float:left;
-  margin:5px;
-  margin-left:9px;
-  font-family: 'Caveat';
-        }
-
-.secondo_ste{
-    color: black;
-  background-color:violet;
-  width:60px;
-  height:60px;
-  border-radius:50px;
-  border-color: violet;
-  font-size:40px;
-  margin:5px;
-  text-align:center;
-  line-height:55px;
-  float:left;
-  margin-left:9px;
-  font-family: 'Caveat';
+    height: 500px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #ff3399;
+    background-image: url("immagini/stefania/monogram-668685_1920.png");
+    background-position: center;
+    background-size: cover;
+    border-color: black;
+    top: 25px;
+    left: 32px;
+    font-family: 'Caveat';
+    margin: 10px;
 }
-#label_ste{
-    font-family: 'Parisienne' ;
+
+.tasto_ste {
+    color: black;
+    background-color: violet;
+    width: 130px;
+    height: 60px;
+    border-radius: 50px;
+    border-color: violet;
+    font-size: 40px;
+    margin: 5px;
+    text-align: center;
+    line-height: 55px;
+    float: left;
+    margin-left: 9px;
+    font-family: 'Caveat';
+}
+
+.display_ste {
+    /*background: none;*/
+    color: #000;
+    margin: 4px 2px;
+    width: 300px;
+    border-radius: 10px;
+    border-color: b#ff3399;
+    text-align: right;
+    font-size: 40px;
+    background-color: pink;
+    height: 80px;
+    font-family: 'Caveat';
+}
+
+.uguale_ste {
+    width: 208px;
+    font-family: 'Caveat';
+}
+
+.prima_ste {
+    color: black;
+    background-color: lightpink;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border-color: lightpink;
+    text-align: center;
+    line-height: 55px;
+    font-size: 40px;
+    float: left;
+    margin: 5px;
+    margin-left: 9px;
+    font-family: 'Caveat';
+}
+
+.operatore_ste {
+    color: white;
+    background-color: purple;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border-color: purple;
+    text-align: center;
+    line-height: 55px;
+    font-size: 40px;
+    float: left;
+    margin: 5px;
+    margin-left: 9px;
+    font-family: 'Caveat';
+}
+
+.secondo_ste {
+    color: black;
+    background-color: violet;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border-color: violet;
+    font-size: 40px;
+    margin: 5px;
+    text-align: center;
+    line-height: 55px;
+    float: left;
+    margin-left: 9px;
+    font-family: 'Caveat';
+}
+
+#label_ste {
+    font-family: 'Parisienne';
     font-size: 26px;
     color: black;
     font-weight: bold;
 }
-#colore_label_ste{
+
+#colore_label_ste {
     display: none;
 }
-#colore_ste{
+
+#colore_ste {
     width: 70px;
     height: 40px;
 }
 
 
 /* foglio CSS Christian */
-.c_div_normali{
-    margin-left: 30% ;
+
+.c_div_normali {
+    margin-left: 30%;
     margin-bottom: 1%;
-} 
-
-#chris_h1{
-   text-align: center ;
-   margin-right: 10%;
-   color: royalblue;
 }
 
-#c_button_reset{
-   margin-left: 30%;
+#chris_h1 {
+    text-align: center;
+    margin-right: 10%;
+    color: royalblue;
 }
+
+#c_button_reset {
+    margin-left: 30%;
+}
+
+
 /* Fine foglio CSS Christian */
+
 
 /******************STYLE ALESSIO******************/
 
-#headerAlessio{
+#headerAlessio {
     text-align: center;
-
 }
 
-#containerAlessio{
+#containerAlessio {
     background-image: url(legno.jpg);
-    
 }
 
-#labelAlessio{
+#labelAlessio {
     padding-top: 20px;
-    margin-left: 35px;  
-    font-weight: bold; 
-         
+    margin-left: 35px;
+    font-weight: bold;
 }
 
-#filtroAlessio{
+#filtroAlessio {
     margin-left: 25px;
-    
 }
 
-#cardAlessio{
+#cardAlessio {
     float: left;
     text-align: center;
     margin-left: 50px;
-
 }
 
-#btnAlessio{
+#btnAlessio {
     width: 125px;
-    height: 25px;  
-    
+    height: 25px;
 }
 
-#imgAlessio{
+#imgAlessio {
     padding: 25px;
     width: 250px;
     height: 325px;
-    
 }
+
 
 /*********************FINE*********************/
 
@@ -644,35 +680,39 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
 .natascia_body {
     background-color: darkkhaki;
 }
-.natascia_box{
+
+.natascia_box {
     background-color: darkseagreen;
-    background-image: url(immagini/natascia_img/img_tree.png), url(immagini/natascia_img/img_tree.png); 
+    background-image: url(immagini/natascia_img/img_tree.png), url(immagini/natascia_img/img_tree.png);
     background-repeat: no-repeat, no-repeat;
     background-position: top left, bottom right;
-    margin: 0 auto; 
+    margin: 0 auto;
     width: 60%;
     height: 950px;
     border: 6px solid gray;
     text-align: center;
-    }
-.natascia_divfoto{
+}
+
+.natascia_divfoto {
     border: 4px solid gold;
     display: block;
     margin-top: 220px;
     margin-right: 200px;
     margin-bottom: 10px;
     margin-left: 200px;
-}   
-.natascia_foto{
+}
+
+.natascia_foto {
     display: block;
     margin-top: auto;
-    margin-bottom: auto;                
+    margin-bottom: auto;
     margin-left: auto;
-    margin-right: auto;                
-} 
-.natascia_bottone{
+    margin-right: auto;
+}
+
+.natascia_bottone {
     border-style: none;
-    background-color:#E87E04;
+    background-color: #E87E04;
     color: white;
     margin: 2px;
     padding: 5px 8px 5px 8px;
@@ -680,15 +720,16 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
     cursor: pointer;
     border-radius: 5px;
     bottom: 20px;
-                  
 }
+
 .natascia_bottone:hover {
-    background-color:white;
+    background-color: white;
     color: #E87E04;
-    transition:1s all;
+    transition: 1s all;
     border: solid 1px #E87E04;
 }
-.natascia_frase{
+
+.natascia_frase {
     height: 50px;
     width: 450px;
     margin: 20px;
@@ -699,65 +740,66 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
     font-size: 20px;
     font-weight: bold;
 }
-.natascia_h1{
-    color:red;
-    font-size:40px; 
+
+.natascia_h1 {
+    color: red;
+    font-size: 40px;
     font-family: fantasy;
-    text-align:center; 
+    text-align: center;
 }
-.natascia_titolo{
-    color:rgb(14, 46, 105);
-    font-size:40px; 
+
+.natascia_titolo {
+    color: rgb(14, 46, 105);
+    font-size: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align:center; 
+    text-align: center;
     margin: 0;
     transform: translate(-50%, -50%);
-    position: absolute; 
-    top: 40%; 
+    position: absolute;
+    top: 40%;
     left: 50%
-
 }
-.natascia_sfondo_rosa{
-    color:rgb(62, 96, 158);
+
+.natascia_sfondo_rosa {
+    color: rgb(62, 96, 158);
     background-color: pink;
     text-decoration: underline;
     font-style: normal;
 }
-.natascia_konrad{
-    color:rgb(14, 46, 105);
+
+.natascia_konrad {
+    color: rgb(14, 46, 105);
     font-style: normal;
 }
-
 
 
 /* fine foglio di stile Natascia*/
 
 
-
 /* INIZIO ALBERTO CSS */
 
-
-#albyCarousel{
+#albyCarousel {
     max-width: 100%;
     height: 95vh;
     background-color: #000;
 }
 
+
 /* Alby immagini */
 
-#albyMiniature{
-    position: absolute; 
+#albyMiniature {
+    position: absolute;
     top: 130px;
     left: 30px;
     background-color: #000;
 }
 
-#albyMiniature ul li{
+#albyMiniature ul li {
     list-style-type: none;
     text-decoration: none;
 }
 
-.albyPiccole{
+.albyPiccole {
     max-width: 50px;
     max-height: 80px;
     opacity: 0.8;
@@ -765,25 +807,25 @@ h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
     margin: 5px;
 }
 
-#albyImmagini{
-box-sizing: border-box;
-
+#albyImmagini {
+    box-sizing: border-box;
 }
 
-#albyGrandi{
+#albyGrandi {
     max-width: 690px;
     max-height: 395px;
     border: 2px solid white;
     margin: 20px;
-    position:absolute;
+    position: absolute;
     top: 75px;
     left: 150px;
 }
 
+
 /* Alby pulsanti */
 
-#albyPulsanti ul li{
-    position: relative; 
+#albyPulsanti ul li {
+    position: relative;
     top: 450px;
     left: 175px;
     margin: 5px;
@@ -792,112 +834,123 @@ box-sizing: border-box;
     list-style: none;
 }
 
-#albyIndietro{
+#albyIndietro {
     padding-top: 5px;
 }
 
-#albyPausa{
+#albyPausa {
     padding-top: 3px;
 }
 
-#albyAvanti{
+#albyAvanti {
     padding-top: 1px;
 }
 
+
 /* Alby testo */
 
-#albyTesto{
-   color: white;
-   position:absolute;
-   top: 80px;
-   left: 505px;    
+#albyTesto {
+    color: white;
+    position: absolute;
+    top: 80px;
+    left: 505px;
 }
 
-#albyTesto h2{
-    font-size: 75px; 
+#albyTesto h2 {
+    font-size: 75px;
     margin: 0px;
     font-family: sans-serif;
 }
 
-#albyTesto p{
+#albyTesto p {
     font-size: 18px;
     text-align: center;
     padding-top: 0px;
-    font-family: serif ;
+    font-family: serif;
 }
+
 
 /* FINE ALBERTO CSS */
 
+
 /*INIZIO CAROLINA*/
 
-#cont {position: absolute;
-        width: 100%;
-        height: 100%;
-        background: url(immagini/C/sfondo.jpg) no-repeat fixed;
-        background-size: 100% 100%;
-        padding-top: 10px;
-        box-sizing: content-box;
-        }
+#cont {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(immagini/C/sfondo.jpg) no-repeat fixed;
+    background-size: 100% 100%;
+    padding-top: 10px;
+    box-sizing: content-box;
+}
 
-#board{display: grid;
-        grid-template-columns: auto auto auto auto;
-        padding: 8px;
-        margin: auto;
-        width: 500px;
-        height: 500px;
-        border: solid 1px black;
-        background: url(immagini/C/smoke.jpg) no-repeat;
-        box-sizing: content-box;
-    }
+#board {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 8px;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    border: solid 1px black;
+    background: url(immagini/C/smoke.jpg) no-repeat;
+    box-sizing: content-box;
+}
 
-#screen {background: black;
-        position: absolute;
-        margin: auto;
-        width: 670px;
-        height: 590px;
-        padding: 10px;
-        left: 0;
-        right: 0;
-        box-sizing: content-box;
-    }
+#screen {
+    background: black;
+    position: absolute;
+    margin: auto;
+    width: 670px;
+    height: 590px;
+    padding: 10px;
+    left: 0;
+    right: 0;
+    box-sizing: content-box;
+}
 
-.screenIMG {margin: auto;
-            margin-top: 120px;
-            margin-left: 100px;
-            left: 0;
-            right: 0;
-            box-sizing: content-box;
-        }
-                    
-.div_cell {border: solid 2px transparent;
-            text-align: center;
-            width: 120px;
-            height: 120px;
-            margin: auto;
-            box-sizing: content-box;
-        }
+.screenIMG {
+    margin: auto;
+    margin-top: 120px;
+    margin-left: 100px;
+    left: 0;
+    right: 0;
+    box-sizing: content-box;
+}
+
+.div_cell {
+    border: solid 2px transparent;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    box-sizing: content-box;
+}
 
 #down_bar {
-            margin: auto;
-            margin-top: 15px;
-            width: 500px;
-            height: 50px;
-            box-sizing: content-box;
-        }
-
-.buttonRefresh {width: 100px;
-                height: 50px;
-                margin-left: 190px;
-                background: #a30a0a;
-                border-radius: 30px 30px 30px 30px;
-                color: white;
-                box-sizing: content-box;
-            }
-#youwin{position: relative;
+    margin: auto;
+    margin-top: 15px;
+    width: 500px;
+    height: 50px;
     box-sizing: content-box;
-    }
+}
 
-.victory{
+.buttonRefresh {
+    width: 100px;
+    height: 50px;
+    margin-left: 190px;
+    background: #a30a0a;
+    border-radius: 30px 30px 30px 30px;
+    color: white;
+    box-sizing: content-box;
+}
+
+#youwin {
+    position: relative;
+    box-sizing: content-box;
+}
+
+.victory {
     position: absolute;
     width: 600px;
     height: 200px;
@@ -909,6 +962,7 @@ box-sizing: border-box;
 }
 
 /*FINE CAROLINA*/
+
 /*-------------------------- inizio codice Violetta ------------------*/
 .vbh1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
