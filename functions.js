@@ -206,11 +206,13 @@ function francescoNewGame() {
         francescoJustCaught = true;
         tryLeft--;
         document.getElementById("francescoVite").innerHTML = disegnaVite(tryLeft)
-        document.getElementById("francescoTryLeftBox").innerHTML = "Hai perso, esci dal quadrato per resettare";
 
 
         if (tryLeft > 0) {
             setTimeout(function() { francescoJustCaught = false; }, gameLevelsPaces[gameLevelsPaces.length - 1] * 4);
+        }else{
+            document.getElementById("francescoTryLeftBox").innerHTML = "Hai perso, esci dal quadrato per resettare";
+
         }
     }
 
