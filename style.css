@@ -62,7 +62,7 @@ body {
 /* INIZIO CSS FRANCESCO*/
 
 #Francesco {
-    background: darkslategray;
+    background: black;
     height: 100vh;
     color: #bbb;
 }
@@ -77,12 +77,12 @@ body {
 }
 
 #francescoContainer {
-    margin: 10px auto;
+    margin: 0px 10px;
     background-color: antiquewhite;
     height: 500px;
     width: 500px;
     cursor: url(immagini/francesco/ghost30.png), move;
-    box-shadow: beige;
+   /* box-shadow: beige 12px 12px;*/
 }
 
 #francescoEvil {
@@ -100,21 +100,45 @@ body {
     margin: 20px auto;
 }
 
-#francescoTryLeftBox img {
-    margin: 0 5px;
+
+#francescoGameBox{
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    margin: auto;
+
+
+}
+
+
+#francescoVite{
+
+    display: flex;
+    flex-direction: column;
+    width:50px;
+    height: 500px;
+    align-content: flex-start;
+
+}
+
+#francescoVite img {
+    margin: 0px auto 5px;
+background-color: #bbb;
+border-radius: 4px;
+padding: 2px
 }
 
 #francescoLevelUpContainer {
-    width: 500px;
-    height: 20px;
-    margin: 10px auto;
+    width: 50px;
+    height: 500px;
+    margin: 0px 10px;
 }
 
 #francescoLevelUp {
-    width: 100%;
+    width: 20px;
     height: 100%;
-    margin: 0;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    margin: 0 auto;
+    background-image: linear-gradient( violet, indigo, blue, green, yellow, orange, red);
 }
 
 

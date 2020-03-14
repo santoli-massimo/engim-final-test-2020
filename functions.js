@@ -98,8 +98,10 @@ function francescoNewGame() {
     let tryLeft = 5; // numero di "vite" a inizio sfida
     let francescoInterval; // referenza all'animazione
 
-    document.getElementById("francescoTryLeftBox").innerHTML = disegnaVite(tryLeft)
+    document.getElementById("francescoVite").innerHTML = disegnaVite(tryLeft)
     document.getElementById("francescoLevelUp").style.backgroundImage = "none";
+    document.getElementById("francescoTryLeftBox").innerHTML = "Scappa!!! <br>ma non essere codardo: se esci dal quadrato il gioco si resetta";
+
 
 
     function mouseEvilDistance() { // calcola la distanza
@@ -126,7 +128,7 @@ function francescoNewGame() {
         } else {
             levelTimeLeft = levelTime;
             document.getElementById("francescoLevelUp").style.transition = "0ms linear"
-            document.getElementById("francescoLevelUp").style.width = "100%";
+            document.getElementById("francescoLevelUp").style.heigth = "100%";
 
             francescoInterval = setInterval(francescoMuovi, gameLevelsPaces[level]) // Avvio animazione
             document.getElementById("francescoEvil").style.transition = "top " + gameLevelsPaces[level] + "ms linear, left " + gameLevelsPaces[level] + "ms linear";
@@ -168,7 +170,7 @@ function francescoNewGame() {
                 francescoEvilPosition.left += Math.cos(angle) * stride;
                 francescoEvilPosition.update();
                 levelTimeLeft -= gameLevelsPaces[level];
-                document.getElementById("francescoLevelUp").style.width = (levelTimeLeft * 100 / levelTime) + "%";
+                document.getElementById("francescoLevelUp").style.height = (levelTimeLeft * 100 / levelTime) + "%";
                 if (levelTimeLeft <= 0) {
                     francescoNextLevel()
 
@@ -191,8 +193,8 @@ function francescoNewGame() {
         clearInterval(francescoInterval); //stop animazione
         francescoCentraEvil();
         document.getElementById("francescoContainer").removeEventListener("mouseleave", francescoQuit);
-        document.getElementById("francescoLevelUp").style.width = "100%";
-        document.getElementById("francescoLevelUp").style.backgroundImage = "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"
+        document.getElementById("francescoLevelUp").style.height = "100%";
+        document.getElementById("francescoLevelUp").style.backgroundImage = "linear-gradient(violet, indigo, blue, green, yellow, orange, red)"
 
         document.getElementById("francescoTryLeftBox").innerHTML = "Sei uscito, rientra nel quadrato per ricominciare la sfida";
     }
@@ -203,7 +205,9 @@ function francescoNewGame() {
         francescoCentraEvil();
         francescoJustCaught = true;
         tryLeft--;
-        document.getElementById("francescoTryLeftBox").innerHTML = disegnaVite(tryLeft)
+        document.getElementById("francescoVite").innerHTML = disegnaVite(tryLeft)
+        document.getElementById("francescoTryLeftBox").innerHTML = "Hai perso, esci dal quadrato per resettare";
+
 
         if (tryLeft > 0) {
             setTimeout(function() { francescoJustCaught = false; }, gameLevelsPaces[gameLevelsPaces.length - 1] * 4);
