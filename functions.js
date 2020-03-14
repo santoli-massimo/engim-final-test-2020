@@ -1744,3 +1744,128 @@ btnRest.addEventListener('click', function () {
 })
 
 //-------FINE CAROLINA--------//
+//-------------------------- inizio codice Violetta ------------------
+
+var vbListaTotale = [
+    { comando: 'foreach', linguaggio: 'php', descrizione: 'comando php' },
+    { comando: 'new', linguaggio: 'java', descrizione: 'comando java' },
+    { comando: 'console.log', linguaggio: 'javascript', descrizione: 'comando js' },
+    { comando: 'div', linguaggio: 'html', descrizione: 'comando html' },
+    { comando: 'br', linguaggio: 'html', descrizione: 'comando html' },
+    { comando: 'get/post', linguaggio: 'php', descrizione: 'comando php' },
+    { comando: 'getElementById', linguaggio: 'javascript', descrizione: 'comando js' }
+]
+
+createTableFromList('vbcontenitore', vbListaTotale, 'old');
+//-----------
+function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
+
+    //crea la TABELLA <TABLE>
+    var vbContenitore = document.getElementById(vbTabellaHtml);
+    var vbNewTable = document.createElement('table');
+    vbNewTable.setAttribute('class', 'vbtable');
+    vbNewTable.id = vbIdHtml;
+    vbContenitore.append(vbNewTable);
+
+    //crea l'INTESTAZIONE <CAPTION> della tabella 
+    var vbNewCaption = document.createElement('caption');
+    vbNewCaption.innerText = 'TABELLA COMANDI LINGUAGGI WEB';
+    vbNewCaption.setAttribute('class', 'vbtablecaption');
+    vbNewTable.append(vbNewCaption);
+
+    //crea l'INTESTAZIONE <TR/TH> della tabella, leggendo il primo elemento fuori ciclo 
+    var vbNewTr = document.createElement('tr');
+    vbNewTable.append(vbNewTr);
+
+    var vbListaPersone1 = vbListaHtml[0];
+    //prendi tutte le chiavi di indice 0 e fai una TH per ognuna delle chiavi 
+    for (var key in vbListaPersone1) {
+        var vbNewTh = document.createElement('th');
+        vbNewTh.setAttribute('class', 'vbtableth');
+        vbNewTh.innerHTML = key;
+        vbNewTr.append(vbNewTh);
+    }
+
+    if (vbIdHtml == "old"){
+        var vbNewTh = document.createElement('th');
+        vbNewTh.setAttribute('class', 'vbtableth');
+        vbNewTh.innerHTML = "Azione";
+        vbNewTr.append(vbNewTh);
+    }
+ 
+    //crea le RIGHE <TR> della tabella
+    for (var i = 0; i < vbListaHtml.length; i++) {
+        //crea il TR 
+        var vbNewTr = document.createElement('tr');
+        vbNewTable.append(vbNewTr);
+
+        var vbOggPersone = vbListaHtml[i];
+        for (var key in vbOggPersone) {
+            //crea il TD
+            var vbNewTd = document.createElement('td');
+            //riempi il TD                  
+            vbNewTd.innerHTML = vbOggPersone[key];
+            vbNewTd.setAttribute('class', 'vbtabletd');
+            vbNewTr.append(vbNewTd);
+        }
+ 
+        if (vbIdHtml == "old"){
+            var vbNewTd = document.createElement('button');
+            vbNewTd.setAttribute('class', 'vbtablebutton');
+            vbNomeButton = "vbbuttonremove" + i;
+            vbNewTd.setAttribute('id', vbNomeButton);
+
+            vbNewTd.addEventListener("click", function () {
+                var vbStringa =  this.id;
+                vbIndEstratto = vbStringa.substr(14);
+                vbListaHtml.splice(vbIndEstratto,1);
+
+                //ricrea la tabella senza l'elemento cancellato
+                document.getElementById('vbcontenitore').innerHTML = "";
+                createTableFromList('vbcontenitore', vbListaHtml, "old");
+
+                //cancella la tabella con il "filtro" (sempre)
+                document.getElementById('vbcontenitore2').innerHTML = "";
+                document.getElementById('vbtestofiltro').value = "";
+            });
+            vbNewTd.innerText = 'Cancella';
+            vbNewTr.append(vbNewTd);
+        }
+    }
+}
+//----------
+function filtraLista(lista, filtro) {
+    var vbListaNew = [];
+    for (var i = 0; i < lista.length; i++) {
+        var oggettoPers = lista[i]
+        for (var key in oggettoPers) {
+                if (oggettoPers[key] == filtro) {
+                    vbListaNew.push(oggettoPers);
+            }
+        }
+    }
+    return vbListaNew;
+}
+//----------
+var vbTextFiltro = document.getElementById('vbtestofiltro')
+vbTextFiltro.addEventListener('input', function () {
+    vbListaNew2 = filtraLista(vbListaTotale, vbTextFiltro.value);
+//cancella lista filtrata, se gia' visualizzata (cioe' non primo giro) 
+    var vbTableRemove= document.getElementById('new');
+    if (vbTableRemove == null) {
+//      console.log("tab vuota");
+    }
+    else {
+        var vbTableRemovePadre = document.getElementById('vbcontenitore2');
+        var vbTableRemoveFiglio= document.getElementById('new');
+        vbTableRemovePadre.removeChild(vbTableRemoveFiglio);
+    }
+    if (vbListaNew2.length == 0) {
+ //     console.log("NON TROVATO filtro in tabella");
+    }
+    else {
+ //     console.log("TROVATO filtro in tabella");
+        createTableFromList('vbcontenitore2', vbListaNew2, "new");
+    }
+})
+//-------------------------- fine codice Violetta --------------------

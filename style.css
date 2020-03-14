@@ -909,3 +909,79 @@ box-sizing: border-box;
 }
 
 /*FINE CAROLINA*/
+/*-------------------------- inizio codice Violetta ------------------*/
+.vbh1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.vbh2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+.vbtestofiltro{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blue;
+    border-radius: 5px;
+    border-color: blue;
+    border-width: 2px;
+    font-weight: bold;
+}
+.vbcontainer {
+    text-align: center;	
+}
+.vbcontenitore {
+    text-align: center;
+    margin: 0 auto; 
+    margin-left: 400px;
+}
+.vbcontenitore2 {
+    text-align: center;
+    margin: 0 auto; 
+    margin-left: 470px;
+}
+.vbtable{
+    padding: 10px;
+    border-style: solid;
+    border-color:blue;
+    border-width: 5px;
+    border-radius: 15px;
+    border-spacing: 10px;
+    border-collapse: separate;
+}  
+.vbtablecaption{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: blue;
+}
+.vbtableth{
+    background-color:blue;
+    color: white;
+    padding:10px;
+    border-radius: 5px;
+    border-color: white;
+    border-width: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.vbtabletd{
+    color: blue;
+    padding:10px;
+    border-style: solid;
+    border-color:blue;
+    border-radius: 5px;
+    border-width: 1px;
+    border-spacing: 3px;
+    border-collapse: separate;
+}
+.vbtablebutton{
+    background-color:white;
+    color: blue;
+    border-radius: 5px;
+    border-color: blue;
+    border-width: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    padding: 2px 4px 2px 4px; 
+}
+/*-------------------------- fine codice Violetta --------------------*/
