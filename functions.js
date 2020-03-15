@@ -1362,8 +1362,37 @@ function natascia_function() {
     //Creare un div con dentro un immagine. L'immagine cambia ogni 3 secondi
     //+5p ricomincia da capo quando arriva all'ultima immagine
     //+5p Creare un bottone che inverte in qualsiasi momento la direzione.
+
+    var flag_BT_stop = false;
+    var flag_BT_go = false;
+
     var flag_BT_inv = false;
     var ciclocagnolini = 0;
+
+    document.getElementById("natascia_button_stop").addEventListener("click", natascia_ferma);
+    function natascia_ferma(){
+    flag_BT_stop=true;    
+    flag_BT_go=false;
+    //console.log('Premuto tasto Ferma rotazione');
+    window.clearInterval(ciclocagnolini);
+    }
+
+
+document.getElementById("natascia_button_go").addEventListener("click", natascia_vai);
+function natascia_vai(){
+    if (flag_BT_go==true && flag_BT_stop==false){
+        flag_BT_go=true;  
+        flag_BT_stop=false;  
+    
+    }else{ 
+    flag_BT_go=true;  
+    flag_BT_stop=false;  
+    //console.log('Premuto tasto Riprendi rotazione');
+    ciclocagnolini = setInterval(natascia_cambia_immagine,3000); 
+    }   
+}
+
+
 
     document.getElementById("natascia_button_inv").addEventListener("click", natascia_inverti);
 
@@ -1374,10 +1403,10 @@ function natascia_function() {
             flag_BT_inv = true;
         }
         //console.log('Premuto tasto Inverti rotazione');
-        //if (flag_BT_go==false && flag_BT_stop==true){
-        //    //console.log('Premuto tasto Inverti rotazione ma sono in STOP ROTAZIONE di conseguenza lancio natascia vai');
-        //    natascia_vai();
-        //}
+        if (flag_BT_go==false && flag_BT_stop==true){
+            //console.log('Premuto tasto Inverti rotazione ma sono in STOP ROTAZIONE di conseguenza lancio natascia vai');
+            natascia_vai();
+        }
     }
 
     var natascia_index = 1;
