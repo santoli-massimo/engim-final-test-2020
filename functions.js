@@ -1905,3 +1905,97 @@ vbTextFiltro.addEventListener('input', function () {
     }
 })
 //-------------------------- fine codice Violetta --------------------
+
+//-------------------------- inizio codice Consuelo ------------------
+//=========================SCRIPT PRINCIPALE======================
+
+//creo la richiesta
+var consuRequest = new XMLHttpRequest();
+var attoriSelezionati = Array()
+    //configuro la richiesta
+consuRequest.open("GET","http://api.tvmaze.com/shows/82/cast");
+
+//======CODICE ESEGUITO ALLA FINE DEL CARICAMENTO DEI DATI
+consuRequest.addEventListener("loadend", function () {
+// Se la richiesta è andata a buon fine
+    if(consuRequest.status===200){
+        // Converto i dati da JSON a javascript
+        var castMembersCon = JSON.parse(consuRequest.response)
+        
+        // creo le card presenti all inizio
+        consuCrea(castMembersCon)
+        var consu_cerca = document.getElementById('cerca');
+        consu_cerca.addEventListener("input", function(){
+            stringa_consu = consu_cerca.value;
+            var consuCnt = document.getElementById('contenitore');
+            consuCnt.innerHTML = '';
+            var consu_listaFiltrata = consu_filtro(stringa_consu, castMembersCon);
+            consuCrea(consu_listaFiltrata);
+        })
+    }
+    else { // SE la richiesta non va a buon fine
+        document.write('ERRORE', consuRequest.status)
+    }
+})
+//======FINE CODICE ESEGUITO ALLA FINE DEL CARICAMENTO DEI DATI
+
+// Imposto  i prametri della richiests
+consuRequest.open('GET', 'http://api.tvmaze.com/shows/82/cast')
+// Eseguo la richiesta
+consuRequest.send()
+
+//=======VARIABILI===========
+var consuCnt = document.getElementById('contenitore');
+
+
+//=========================FINE SCRIPT PRINCIPALE======================
+
+
+//=========================FUNZIONI======================
+
+//creo gli elementi prendendoli dal mio oggetto e li assegno a un div
+
+function consuCrea(consuDato){
+
+    var consuCnt = document.getElementById('contenitore');
+
+    for(var i=0; i<consuDato.length; i++){            
+        var consuObj = consuDato[i];        
+        var divConsu = document.createElement('div');
+        var imgConsu = document.createElement('img');
+        var nameConsu = document.createElement('h5');
+        divConsu.append(imgConsu)
+        divConsu.append(nameConsu)
+        divConsu.id = consuObj.person.id
+        // Assegno al div la classe di bootstrap
+        divConsu.classList.add('col-md-3')
+        if (attoriSelezionati[consuObj.person.id]==true)
+            divConsu.style="border: 1px solid black"
+        //scrivo la funzione associata al click sul div
+        divConsu.addEventListener("click", function (eventConsu) {
+            this.style="border: 1px solid black"
+            attoriSelezionati[this.id]=true;            
+        })
+
+        // Assegno l'indirizzo dell'immagine 
+        imgConsu.src = consuObj.person.image.medium
+        // Inserisco il nome dell'attore
+        nameConsu.innerHTML = consuObj.person.name
+        // Appendo tutti gli elementi al contenitore
+        consuCnt.append(divConsu)
+    }
+}
+
+
+function consu_filtro(nome, lista) {
+    var nuovaLista = []
+    for (var I = 0; I < lista.length; I++) {
+        var attore = lista[I]
+        if (attore.person.name.toLowerCase().indexOf(nome.toLowerCase()) !== -1 || attoriSelezionati[attore.person.id]==true) {
+            nuovaLista[nuovaLista.length] = attore
+        }
+    }
+    return nuovaLista
+}
+
+//-------------------------- fine codice Consuelo --------------------

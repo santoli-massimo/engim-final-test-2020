@@ -1063,3 +1063,18 @@ h4 #lucaTop {
     padding: 2px 4px 2px 4px; 
 }
 /*-------------------------- fine codice Violetta --------------------*/
+
+/*---------------------------Inizio condice Consuelo------------------------*/
+
+.consuTitle{
+    font-size: 45px;
+    text-decoration:none;
+    text-align: center;
+    word-spacing: 10px; 
+    letter-spacing: 10px;
+    background-color: aliceblue;
+    margin-top: 25px;
+    border: 1px solid black;
+}
+
+/*---------------------------Fine condice Consuelo------------------------*/
