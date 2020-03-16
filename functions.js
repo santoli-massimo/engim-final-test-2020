@@ -1783,18 +1783,20 @@ btnRest.addEventListener('click', function() {
 //-------------------------- inizio codice Violetta ------------------
 
 var vbListaTotale = [
-    { comando: 'foreach', linguaggio: 'php', descrizione: 'comando php' },
-    { comando: 'new', linguaggio: 'java', descrizione: 'comando java' },
-    { comando: 'console.log', linguaggio: 'javascript', descrizione: 'comando js' },
-    { comando: 'div', linguaggio: 'html', descrizione: 'comando html' },
-    { comando: 'br', linguaggio: 'html', descrizione: 'comando html' },
-    { comando: 'get/post', linguaggio: 'php', descrizione: 'comando php' },
-    { comando: 'getElementById', linguaggio: 'javascript', descrizione: 'comando js' }
+    { comando: 'foreach', linguaggio: 'php', descrizione: 'iterazione/ciclo' },
+    { comando: 'new', linguaggio: 'java', descrizione: 'istanzia un oggetto' },
+    { comando: 'splice', linguaggio: 'javascript', descrizione: 'rimuove elementi da array' },
+    { comando: 'div', linguaggio: 'html', descrizione: 'contenitore generico' },
+    { comando: 'br', linguaggio: 'html', descrizione: 'crea un "a capo" nel testo' },
+    { comando: 'get/post', linguaggio: 'php', descrizione: 'metodo di richiesta HTTP' },
+    { comando: 'getElementById', linguaggio: 'javascript', descrizione: 'recupera elemento HTML' }
 ]
 
 createTableFromList('vbcontenitore', vbListaTotale, 'old');
 //-----------
 function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
+    //impostazione campi a 'nascosto'
+    nascondiMessaggi();
 
     //crea la TABELLA <TABLE>
     var vbContenitore = document.getElementById(vbTabellaHtml);
@@ -1802,13 +1804,13 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
     vbNewTable.setAttribute('class', 'vbtable');
     vbNewTable.id = vbIdHtml;
     vbContenitore.append(vbNewTable);
-
+/*
     //crea l'INTESTAZIONE <CAPTION> della tabella 
     var vbNewCaption = document.createElement('caption');
     vbNewCaption.innerText = 'TABELLA COMANDI LINGUAGGI WEB';
     vbNewCaption.setAttribute('class', 'vbtablecaption');
-    vbNewTable.append(vbNewCaption);
-
+    vbNewTable.append(vbNewCaption);     
+*/
     //crea l'INTESTAZIONE <TR/TH> della tabella, leggendo il primo elemento fuori ciclo 
     var vbNewTr = document.createElement('tr');
     vbNewTable.append(vbNewTr);
@@ -1852,17 +1854,26 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
             vbNewTd.setAttribute('id', vbNomeButton);
 
             vbNewTd.addEventListener("click", function () {
+                nascondiMessaggi();
+//cancella dalla array l'elemento selezionato con il bottone                
                 var vbStringa =  this.id;
                 vbIndEstratto = vbStringa.substr(14);
                 vbListaHtml.splice(vbIndEstratto,1);
-
-                //ricrea la tabella senza l'elemento cancellato
+                
+//cancella la tabella generale e la tabella con il "filtro"               
                 document.getElementById('vbcontenitore').innerHTML = "";
-                createTableFromList('vbcontenitore', vbListaHtml, "old");
-
-                //cancella la tabella con il "filtro" (sempre)
                 document.getElementById('vbcontenitore2').innerHTML = "";
                 document.getElementById('vbtestofiltro').value = "";
+                
+                if (vbListaHtml.length == 0) {
+//----              console.log("cancellato ultimo elemento di tabella");
+                    vbtexthidden = document.getElementById('vbmessaggio3');
+                    vbtexthidden.style.display = 'block';
+                }
+                else{
+//ricrea la tabella senza l'elemento cancellato
+                     createTableFromList('vbcontenitore', vbListaHtml, "old");
+                }    
             });
             vbNewTd.innerText = 'Cancella';
             vbNewTr.append(vbNewTd);
@@ -1871,39 +1882,84 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
 }
 //----------
 function filtraLista(lista, filtro) {
+
+    var vbfiltro = filtro; 
     var vbListaNew = [];
-    for (var i = 0; i < lista.length; i++) {
+   
+    for (var i = 0; i < lista.length; i++) {    
         var oggettoPers = lista[i]
         for (var key in oggettoPers) {
-                if (oggettoPers[key] == filtro) {
-                    vbListaNew.push(oggettoPers);
+            if (oggettoPers[key] == vbfiltro) {
+                vbListaNew.push(oggettoPers);
             }
         }
     }
+ 
     return vbListaNew;
 }
+
 //----------
 var vbTextFiltro = document.getElementById('vbtestofiltro')
+
 vbTextFiltro.addEventListener('input', function () {
-    vbListaNew2 = filtraLista(vbListaTotale, vbTextFiltro.value);
-//cancella lista filtrata, se gia' visualizzata (cioe' non primo giro) 
+//impostazione campi a 'nascosto'
+    nascondiMessaggi();
+
     var vbTableRemove= document.getElementById('new');
     if (vbTableRemove == null) {
-//      console.log("tab vuota");
+//----            console.log("tab vuota");
     }
     else {
         var vbTableRemovePadre = document.getElementById('vbcontenitore2');
         var vbTableRemoveFiglio= document.getElementById('new');
         vbTableRemovePadre.removeChild(vbTableRemoveFiglio);
     }
-    if (vbListaNew2.length == 0) {
- //     console.log("NON TROVATO filtro in tabella");
+
+//controllo che il filtro sia pieno 
+    if (vbTextFiltro.value === null || vbTextFiltro.value === ""){
+//----        console.log("filtro vuoto");
     }
-    else {
- //     console.log("TROVATO filtro in tabella");
-        createTableFromList('vbcontenitore2', vbListaNew2, "new");
-    }
+    else{
+//controllo che il filtro contenga solo lettere    
+        var vbpattern = /^[a-z]+$/i;
+        if (!vbpattern.test(vbTextFiltro.value)) {
+            vbtexthidden = document.getElementById('vbmessaggio1');
+            vbtexthidden.style.display = 'block';
+        }
+        else{
+//trasformazione in caratteri minuscoli per fare il confronto  
+            var vbfiltrolow = vbTextFiltro.value.toLowerCase();
+
+            vbListaNew2 = filtraLista(vbListaTotale, vbfiltrolow);
+//cancella lista filtrata, se gia' visualizzata (cioe' non primo giro) 
+            var vbTableRemove= document.getElementById('new');
+            if (vbTableRemove == null) {
+//----            console.log("tab vuota");
+            }
+            else {
+                var vbTableRemovePadre = document.getElementById('vbcontenitore2');
+                var vbTableRemoveFiglio= document.getElementById('new');
+                vbTableRemovePadre.removeChild(vbTableRemoveFiglio);
+            }
+            if (vbListaNew2.length == 0) {
+//----          console.log("NON TROVATO filtro in tabella");
+                vbtexthidden = document.getElementById('vbmessaggio2');
+                vbtexthidden.style.display = 'block';
+            }
+            else {
+//----          console.log("TROVATO filtro in tabella");
+                createTableFromList('vbcontenitore2', vbListaNew2, "new");
+            }
+        }
+    }    
 })
+function nascondiMessaggi(){
+    vbtexthidden = document.getElementById('vbmessaggio1');
+    vbtexthidden.style.display = 'none';
+    vbtexthidden = document.getElementById('vbmessaggio2');
+    vbtexthidden.style.display = 'none';
+}
+
 //-------------------------- fine codice Violetta --------------------
 
 //-------------------------- inizio codice Consuelo ------------------

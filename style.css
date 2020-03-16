@@ -989,18 +989,20 @@ h4 #lucaTop {
 
 /*-------------------------- inizio codice Violetta ------------------*/
 .vbh1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: comic sans ms, Verdana;
+    color: blue;
 }
 .vbh2{
-    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-family: comic sans ms, Verdana;
+    color: blue; 
 }
 .vbtestofiltro{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana;
     color: blue;
     border-radius: 5px;
     border-color: blue;
     border-width: 2px;
-    font-weight: bold;
+ /*   font-weight: bold;*/
 }
 .vbcontainer {
     text-align: center;	
@@ -1025,7 +1027,7 @@ h4 #lucaTop {
     border-collapse: separate;
 }  
 .vbtablecaption{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana;
     font-style: normal;
     font-weight: bold;
     color: blue;
@@ -1037,7 +1039,7 @@ h4 #lucaTop {
     border-radius: 5px;
     border-color: white;
     border-width: 1px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana;
     font-style: normal;
     font-weight: bold;
 }
@@ -1057,10 +1059,24 @@ h4 #lucaTop {
     border-radius: 5px;
     border-color: blue;
     border-width: 2px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana;
     font-style: normal;
     font-weight: bold;
     padding: 2px 4px 2px 4px; 
+}
+.vbmessaggio{
+    display: none;
+    color: fuchsia;
+    font-family: Verdana;
+    font-style: italic;
+    font-weight: bold;
+
+    /*border-radius: 5px;
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
+    font-style: normal;
+    background-color:white;*/
 }
 /*-------------------------- fine codice Violetta --------------------*/
 
