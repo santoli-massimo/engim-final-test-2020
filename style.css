@@ -223,6 +223,9 @@ padding: 2px
     text-shadow: 0 1px 1px #2D2020;
     margin-top: 10px;
     margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 #lucailmioinput {
@@ -242,6 +245,9 @@ padding: 2px
     color: black;
     text-shadow: 0 1px 1px #2D2020;
     margin-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .luca {
@@ -253,6 +259,9 @@ padding: 2px
     text-shadow: 0 1px 1px #2D2020;
     margin-top: 10px;
     margin-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {

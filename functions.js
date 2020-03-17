@@ -390,8 +390,6 @@ lucailmioinput.addEventListener('input', function () {
 
     var lista_filtrata = lucafiltra_lista(lucalista, x)
 
-    //creo la tabella filtrata
-    lucacreateTableFromList('lucacontenitore1', lista_filtrata)
 
     //se l'input è vuoto non creo la tabella filtrata
     if (lucailmioinput.value == "") {
@@ -402,6 +400,27 @@ lucailmioinput.addEventListener('input', function () {
     } else {
         document.getElementById('lucacontenitore1').innerText = '';
         lucacreateTableFromList('lucacontenitore1', lista_filtrata)
+
+        //assegno a table la tabella creata con il filtro 
+        var table = document.getElementById("lucatabella")
+        //assegno a righe i tr della tabella
+        var righe = table.getElementsByTagName("tr");
+
+        //definisco 2 variabili per confrontare tutti i tr
+        var i = 0;
+        var j = 1;
+
+        for (z = 0; z < righe.length; z++) {
+            //finchè non trova due tr uguali continua a ciclare
+            while (righe[i].isEqualNode(righe[j])) {
+                //quando trova 2 tr uguali ne nasconde uno cosi da evitare doppioni nella ricerca
+                righe[j].style.display = 'none'
+
+            }
+            //incremento le variabili
+            i++;
+            j++;
+        }
 
     }
 })
