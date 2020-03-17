@@ -262,14 +262,15 @@ let francescoEvilPosition = {
 //INIZIO FUNZIONI LUCA MORO
 
 //creo una lista di oggetti
-lucalista = [{
+lucalista = [
+    {
         Nome: 'Tizio',
-        Cognome: 'Caio',
+        Cognome: 'Bello',
         Eta: 20
     },
     {
         Nome: 'Antonio',
-        Cognome: 'Cavallo',
+        Cognome: 'Cere',
         Eta: 10
     },
     {
@@ -284,8 +285,23 @@ lucalista = [{
     },
     {
         Nome: 'Tizio',
-        Cognome: 'Caio',
+        Cognome: 'Bello',
         Eta: 20
+    },
+    {
+        Nome: 'Massimo',
+        Cognome: 'Santoli',
+        Eta: 37
+    },
+    {
+        Nome: 'Sara',
+        Cognome: 'La Pietra',
+        Eta: 18
+    },
+    {
+        Nome: 'Giuseppe',
+        Cognome: 'Rossi',
+        Eta: 50
     },
 ]
 
@@ -334,7 +350,7 @@ function lucacreateTableFromList(contenitoreid, lista) {
 
         for (var i = 0; i < elements.length; i++) {
 
-            elements[i].addEventListener("click", function() {
+            elements[i].addEventListener("click", function () {
                 this.style.color = 'blue';
             });
         }
@@ -359,28 +375,37 @@ function lucafiltra_lista(lista, filtro) {
     return risultato
 }
 
-
 //assegno alla variabile lucailmioinput l'elemento input presente nel file index
 var lucailmioinput = document.getElementById('lucailmioinput')
 
 //creo l'evento input per il filtro lista
-lucailmioinput.addEventListener('input', function() {
+lucailmioinput.addEventListener('input', function () {
 
-    document.getElementById('lucacontenitore2').innerHTML = ""
+    //nascondo la tabella iniziale
+    document.getElementById('lucacontenitore1').innerText = '';
+
 
     //assegno ad 'x' ciò che inserisco nel mio input
     var x = lucailmioinput.value
 
     var lista_filtrata = lucafiltra_lista(lucalista, x)
 
+    //creo la tabella filtrata
+    lucacreateTableFromList('lucacontenitore1', lista_filtrata)
+
     //se l'input è vuoto non creo la tabella filtrata
     if (lucailmioinput.value == "") {
-        document.getElementById('lucacontenitore2').innerHTML = ""
+
+        document.getElementById('lucacontenitore1').innerText = '';
+        lucacreateTableFromList('lucacontenitore1', lucalista)
+
     } else {
-        lucacreateTableFromList('lucacontenitore2', lista_filtrata)
+        document.getElementById('lucacontenitore1').innerText = '';
+        lucacreateTableFromList('lucacontenitore1', lista_filtrata)
 
     }
 })
+
 
 //assegno alla variabile lucarecord il pulsante prensente nel file index
 var lucarecord = document.getElementById('lucaaggiungi');
@@ -398,9 +423,12 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     //aggiungo gli elementi inseriti nel form, nella lista iniziale
     lucalista.push(oggetto);
 
-    document.getElementById('lucacontenitore1').innerHTML = ""
-    lucacreateTableFromList('lucacontenitore1', lucalista)
+    document.getElementById('lucacontenitore1').innerText = '';
+    lucacreateTableFromList('lucacontenitore1', lucalista)   
+
 })
+
+
 
 //Assegno alla variabile lucaTop il pulsante 'sposta' presente in index
 var lucaTop = document.getElementById('lucaTop')
@@ -411,7 +439,7 @@ var avviso = document.getElementById('lucaAvviso');
 avviso.style.display = "none";
 
 //creo l'evento per spostare le righe selezionate
-lucaTop.addEventListener('click', function() {
+lucaTop.addEventListener('click', function () {
     var table = document.getElementById("lucatabella");
 
     var elements = document.getElementsByTagName('tr');
@@ -473,7 +501,7 @@ function luca2createTableFromList(lista) {
     var contenitore = document.getElementById("lucacontenitore3")
 
     var nuovatabella = document.createElement('table')
-    nuovatabella.setAttribute('id', 'lucatabella')
+    nuovatabella.setAttribute('id', 'lucatabella2')
     contenitore.append(nuovatabella)
 
     var thead = document.createElement('thead')
@@ -508,7 +536,7 @@ function luca2createTableFromList(lista) {
 // Creo l'oggetto richiesta
 var lucarequest = new XMLHttpRequest()
 
-var lucaonresponse = function() {
+var lucaonresponse = function () {
     var response = lucarequest.response
 
     // Converto i dati da JSON a js
@@ -549,48 +577,8 @@ var lucaonresponse = function() {
 lucarequest.addEventListener('loadend', lucaonresponse)
 
 lucarequest.open('GET', 'https://jsonplaceholder.typicode.com/posts')
-    // Eseguo la richiesta
+// Eseguo la richiesta
 lucarequest.send()
-
-
-//assagno alle varibili gli elementi presenti in index
-var esRighe = document.getElementById('esRighe')
-var botRighe = document.getElementById('lucaRighe')
-var lucaTitoloRighe = document.getElementById('lucaTitoloExtra1')
-var lucaTitoloApi = document.getElementById('lucaTitoloExtra2')
-var esApi = document.getElementById('esApi')
-var botApi = document.getElementById('lucaApi')
-var luca1 = document.getElementById('lucacontenitore1')
-var luca2 = document.getElementById('lucacontenitore2')
-var lucaDivFiltro = document.getElementById('lucaFiltro')
-var lucaRecord = document.getElementById('lucaRecord')
-var lucaScegli = document.getElementById('lucaScegli')
-
-//nascondo gli elementi che non voglio visualizzare al caricamento della pagina
-lucaTitoloRighe.style.display = 'none'
-esRighe.style.display = 'none'
-lucaTitoloApi.style.display = 'none'
-esApi.style.display = 'none'
-
-//creo l'evento per mostrare l'esercizio 'sposta righe'
-botRighe.addEventListener('click', function() {
-    esRighe.style.display = 'block'
-    lucaTitoloRighe.style.display = 'block'
-    botRighe.style.display = 'none'
-})
-
-//creo l'evento per mostrare l'esercizio 'tabella da API'
-botApi.addEventListener('click', function() {
-    esApi.style.display = 'block'
-    lucaTitoloApi.style.display = 'block'
-    lucaTitoloRighe.style.display = 'none'
-    luca1.style.display = 'none'
-    luca2.style.display = 'none'
-    lucaScegli.style.display = 'none'
-    lucaDivFiltro.style.display = 'none'
-    esRighe.style.display = 'none'
-    lucaRecord.style.display = 'none'
-})
 
 
 
