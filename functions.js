@@ -369,9 +369,14 @@ function lucafiltra_lista(lista, filtro) {
         for (var key in oggetto) {
             if (oggetto[key].toString().toLowerCase().indexOf(filtro.toLowerCase()) !== -1) {
                 risultato[risultato.length] = oggetto
+                break;
+
             }
+
         }
+
     }
+
     return risultato
 }
 
@@ -397,32 +402,13 @@ lucailmioinput.addEventListener('input', function () {
         document.getElementById('lucacontenitore1').innerText = '';
         lucacreateTableFromList('lucacontenitore1', lucalista)
 
+
     } else {
         document.getElementById('lucacontenitore1').innerText = '';
         lucacreateTableFromList('lucacontenitore1', lista_filtrata)
 
-        //assegno a table la tabella creata con il filtro 
-        var table = document.getElementById("lucatabella")
-        //assegno a righe i tr della tabella
-        var righe = table.getElementsByTagName("tr");
-
-        //definisco 2 variabili per confrontare tutti i tr
-        var i = 0;
-        var j = 1;
-
-        for (z = 0; z < righe.length; z++) {
-            //finchè non trova due tr uguali continua a ciclare
-            while (righe[i].isEqualNode(righe[j])) {
-                //quando trova 2 tr uguali ne nasconde uno cosi da evitare doppioni nella ricerca
-                righe[j].style.display = 'none'
-
-            }
-            //incremento le variabili
-            i++;
-            j++;
-        }
-
     }
+
 })
 
 
@@ -443,7 +429,7 @@ lucarecord.addEventListener('click', function lucaaggiungi() {
     lucalista.push(oggetto);
 
     document.getElementById('lucacontenitore1').innerText = '';
-    lucacreateTableFromList('lucacontenitore1', lucalista)   
+    lucacreateTableFromList('lucacontenitore1', lucalista)
 
 })
 
@@ -517,10 +503,10 @@ lucaTop.addEventListener('click', function () {
 //funzione crea lista
 function luca2createTableFromList(lista) {
 
-    var contenitore = document.getElementById("lucacontenitore3")
+    var contenitore = document.getElementById("lucacontenitore2")
 
     var nuovatabella = document.createElement('table')
-    nuovatabella.setAttribute('id', 'lucatabella2')
+    nuovatabella.setAttribute('id', 'lucatab2')
     contenitore.append(nuovatabella)
 
     var thead = document.createElement('thead')
@@ -565,10 +551,40 @@ var lucaonresponse = function () {
     if (lucarequest.status === 200) {
         luca2createTableFromList(dati)
     } else {
-        var contenitore = document.getElementById('lucacontenitore3')
+        var contenitore = document.getElementById('lucacontenitore2')
         contenitore.innerText = 'Errore: ' + lucarequest.status
     }
 
+    //assegno alla variabile lucailmioinput2 l'elemento input presente nel file index
+    var lucailmioinput2 = document.getElementById('lucailmioinput2')
+
+    //creo l'evento input per il filtro lista
+    lucailmioinput2.addEventListener('input', function () {
+
+        //nascondo la tabella iniziale
+        document.getElementById('lucacontenitore2').innerText = '';
+
+
+        //assegno ad 'x' ciò che inserisco nel mio input
+        var x = lucailmioinput2.value
+
+        var lista_filtrata = lucafiltra_lista(dati, x)
+
+
+        //se l'input è vuoto non creo la tabella filtrata
+        if (lucailmioinput2.value == "") {
+
+            document.getElementById('lucacontenitore2').innerText = '';
+            lucacreateTableFromList('lucacontenitore2', dati)
+
+
+        } else {
+            document.getElementById('lucacontenitore2').innerText = '';
+            lucacreateTableFromList('lucacontenitore2', lista_filtrata)
+
+        }
+
+    })
 
     //assegno alla variabile lucarecord2 il pulsante prensente nel file index
     var lucarecord2 = document.getElementById('lucaaggiungi2');
@@ -587,7 +603,7 @@ var lucaonresponse = function () {
         //aggiungo gli elementi inseriti nel form
         dati.push(oggetto);
 
-        document.getElementById('lucacontenitore3').innerHTML = ""
+        document.getElementById('lucacontenitore2').innerHTML = ""
         luca2createTableFromList(dati)
     })
 

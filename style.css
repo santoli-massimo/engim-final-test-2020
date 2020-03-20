@@ -152,13 +152,35 @@ padding: 2px
     margin-left: 100px;
 }
 
-#lucatabella, #lucatabella2 {
+#lucatabella, #lucatab2 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 14px;
     border-radius: 10px;
     border-spacing: 0;
     text-align: center;
-    margin-top: 15px;
+    float: left;
+}
+
+#lucatabella {
+    float: left;
+    margin-right: 10px;
+}
+
+#lucaSposta {
+    float: left;
+    margin-top: 20px;
+}
+
+#lucaEs1, #lucaEs2, #lucaEs3 {
+    float: left;
+}
+
+#lucaEs2, #lucaEs3 {
+    margin-top: 20px;
+}
+
+.lucah4, #labelM, #lucah1 {
+    text-align: center;
 }
 
 #lucath {
@@ -168,39 +190,39 @@ padding: 2px
     padding: 10px 20px;
 }
 
-#lucatabella th, #lucatabella td, #lucatabella2 th, #lucatabella2 td {
+#lucatabella th, #lucatabella td, #lucatab2 th, #lucatab2 td {
     border-style: solid;
     border-width: 0 1px 1px 0;
     border-color: white;
 }
 
-#lucatabella th:first-child, #lucatabella td:first-child, #lucatabella2 th:first-child, #lucatabella2 td:first-child {
+#lucatabella th:first-child, #lucatabella td:first-child, #lucatab2 th:first-child, #lucatab2 td:first-child {
     text-align: left;
 }
 
-#lucatabella th:first-child, #lucatabella2 th:first-child {
+#lucatabella th:first-child, #lucatab2 th:first-child {
     border-top-left-radius: 10px;
 }
 
-#lucatabella th:last-child, #lucatabella2 th:last-child {
+#lucatabella th:last-child, #lucatab2 th:last-child {
     border-top-right-radius: 10px;
     border-right: none;
 }
 
-#lucatabella td, #lucatabella2 td {
+#lucatabella td, #lucatab2 td {
     padding: 10px 20px;
     background: #F8E391;
 }
 
-#lucatabella tr:last-child td:first-child, #lucatabella2 tr:last-child td:first-child {
+#lucatabella tr:last-child td:first-child, #lucatab2 tr:last-child td:first-child {
     border-radius: 0 0 0 10px;
 }
 
-#lucatabella tr:last-child td:last-child, #lucatabella2 tr:last-child td:last-child {
+#lucatabella tr:last-child td:last-child, #lucatab2 tr:last-child td:last-child {
     border-radius: 0 0 10px 0;
 }
 
-#lucatabella tr, #lucatabella2 tr, #lucatabella td:last-child, #lucatabella2 td:last-child {
+#lucatabella tr, #lucatab2 tr, #lucatabella td:last-child, #lucatab2 td:last-child {
     border-right: none;
 }
 
@@ -208,14 +230,17 @@ padding: 2px
     cursor: pointer;
 }
 
-#lucacontenitore1 {
-    margin-right: 15px;
+#lucacontenitore1, #lucacontenitore2 {
+    float: left;
     margin-bottom: 5px;
 }
 
-#lucaFiltro {
+#lucacontenitore2 {
+    margin-top: 20px;
+}
+
+.lucaFiltro {
     float: left;
-    position: relative;
     border: 2px solid #BCEBDD;
     border-radius: 17px;
     background: #F8E391;
@@ -223,31 +248,15 @@ padding: 2px
     text-shadow: 0 1px 1px #2D2020;
     margin-top: 10px;
     margin-right: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-#lucailmioinput {
+#lucailmioinput, #lucailmioinput2 {
+    float: left;
     width: 300px;
     border-radius: 10px;
-}
-
-#lucaEsApi {
-    margin-bottom: 20px;
-}
-
-.luca1 {
-    float: left;
-    border: 2px solid #BCEBDD;
-    border-radius: 17px;
-    background: #F8E391;
-    color: black;
-    text-shadow: 0 1px 1px #2D2020;
-    margin-top: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    padding-right: 5px;
 }
 
 .luca {
@@ -258,49 +267,31 @@ padding: 2px
     color: black;
     text-shadow: 0 1px 1px #2D2020;
     margin-top: 10px;
-    margin-bottom: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    padding-right: 5px;
 }
 
-h4 #lucaApi, h4 #lucaRighe, h4 #lucaTop {
-    border-radius: 10px;
+#lucaetà {
+    width: 80px;
 }
 
-#esRighe {
-    float: left;
-}
-
-#lucaTitoloExtra1, #lucaTitoloExtra2, #lucatabella2 {
+#lucatab2 {
     float: left;
     margin-top: 10px;
 }
 
-#lucaTitoloExtra1 {
-    margin-left: 80px;
-}
-
-#lucaTitoloExtra2 {
-    margin-left: 280px;
-}
-
-#lucaApi, #lucaTop {
+#lucaTop {
     margin-top: 15px;
 }
 
-#lucanome, #lucacognome, #lucaetà, #lucaaggiungi, #lucauser, #lucaid, #lucabody, #lucatitle, #lucaaggiungi2 {
+#lucanome, #lucacognome, #lucaetà, #lucaaggiungi, #lucauser, #lucaid, #lucabody, #lucatitle, #lucaaggiungi2, #lucaTop {
     border-radius: 10px;
 }
 
 #lucauser, #lucaid {
     width: 80px;
 }
-
-.lucah1, .lucah5, #labelM {
-    text-align: center;
-}
-
 
 /*fine foglio stile Luca Moro*/
 
