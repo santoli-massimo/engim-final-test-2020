@@ -995,7 +995,7 @@ padding: 2px
 }
 .vbh2{
     font-family: comic sans ms, Verdana;
-    color: blue; 
+    color: blue;
 }
 .vbtestofiltro{
     font-family: Verdana;
@@ -1006,16 +1006,16 @@ padding: 2px
  /*   font-weight: bold;*/
 }
 .vbcontainer {
-    text-align: center;	
+    text-align: center;
 }
 .vbcontenitore {
     text-align: center;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-left: 400px;
 }
 .vbcontenitore2 {
     text-align: center;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-left: 470px;
 }
 .vbtable{
@@ -1026,7 +1026,7 @@ padding: 2px
     border-radius: 15px;
     border-spacing: 10px;
     border-collapse: separate;
-}  
+}
 .vbtablecaption{
     font-family: Verdana;
     font-style: normal;
@@ -1063,7 +1063,7 @@ padding: 2px
     font-family: Verdana;
     font-style: normal;
     font-weight: bold;
-    padding: 2px 4px 2px 4px; 
+    padding: 2px 4px 2px 4px;
 }
 .vbmessaggio{
     display: none;
@@ -1087,7 +1087,7 @@ padding: 2px
     font-size: 45px;
     text-decoration:none;
     text-align: center;
-    word-spacing: 10px; 
+    word-spacing: 10px;
     letter-spacing: 10px;
     background-color: aliceblue;
     margin-top: 25px;
@@ -1095,3 +1095,91 @@ padding: 2px
 }
 
 /*---------------------------Fine condice Consuelo------------------------*/
+/*-------------------------- fine codice cristina --------------------*/
+
+#scatola  {
+  text-align: center;
+  border-radius: 100px;
+  position: relative;
+  margin:0 auto;
+  width: 850px;
+  height: 900px;
+   background: url('immagini/img_cristina/8.jpeg');
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+    /* overflow: scroll; */
+}
+  #scatola:hover {
+  width: 950px;
+   height: 900px;
+  background-image:url("immagini/img_cristina/10.jpg");
+  background-size:cover;
+}
+ #prova input{
+  margin:0;
+  margin-bottom:30px;/*margine sotto*/
+  margin-top:30px;/*margine superiore*/
+  width: 250px; /*lungo*/
+  height: 25px; /*alto*/
+  padding-left:20px;/*spazio a sinistra*/
+  background-color: inherit;/*colore uguale allo sfondo*/
+  color: white;
+  left: 400px;
+}
+#prova button{
+  margin:0;
+  border-radius:80px;
+  width: 100px;
+  height: 50px;
+  background: linear-gradient(#eea5bc,#f5c3d2);
+  left:700px;
+  /* top:205; */
+}
+  #prova {
+    text-align: center;
+  /* position: fixed; */
+  width: 800px;
+  height:400px
+}
+#okInvio:hover {
+  background: linear-gradient(#77BFC7,#b8b8b8);
+}
+#scatola2{
+  /* text-align: center; */
+ overflow-y: scroll;
+ margin-bottom: 10px; /*10px*/
+ margin-top: 10px; /*450px*/
+ width: 800px;
+ height: 400px;
+}
+#scatola2::-webkit-scrollbar {
+    display: none;
+}
+#scatola2{
+    -ms-overflow-style: none;
+}
+#clicco{
+  margin:auto;
+  border-radius: 80%;
+  width: 10%;
+  height: 5%;
+  background: linear-gradient(#77BFC7,#b8b8b8);
+}
+#clicco:hover{
+  transform-style: flat;
+  background: linear-gradient(#b22222,#ff4500)
+}
+#titolo_cri{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: pink;
+}
+#par{
+  color:white;
+  margin-right: 10px:
+  display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 10px;
+}

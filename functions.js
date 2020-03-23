@@ -746,7 +746,7 @@ function hideshow_sef() {
 }
 // fine funzioni sefora
 
-//Funzioni momo 
+//Funzioni momo
 function ValidazioneMailMoo() {
 
     var bott = document.getElementById("bottone")
@@ -799,7 +799,7 @@ function ValidazioneMailMoo() {
 
 
 
-        //Controllo username        
+        //Controllo username
         if (user.value == "mondo") {
             console.log("Controllo username eseguito")
         } else {
@@ -848,7 +848,7 @@ function ValidazioneMailMoo() {
 
 
 
-        //Controllo select 
+        //Controllo select
         if (selezione.value) {
             console.log("Selezione completata")
         } else {
@@ -1222,7 +1222,7 @@ function chris_create_table(chris_int_testo) {
 
 }
 
-//funzione per cliccare ogni singola cella della tabella e poterne modificare lo stile 
+//funzione per cliccare ogni singola cella della tabella e poterne modificare lo stile
 function c_click_td() {
     var chris_contenitore = document.getElementById('chris_contenitore')
     var chris_table = chris_contenitore.getElementsByTagName('table')
@@ -1394,7 +1394,7 @@ function natascia_function() {
 
     document.getElementById("natascia_button_stop").addEventListener("click", natascia_ferma);
     function natascia_ferma(){
-    flag_BT_stop=true;    
+    flag_BT_stop=true;
     flag_BT_go=false;
     //console.log('Premuto tasto Ferma rotazione');
     window.clearInterval(ciclocagnolini);
@@ -1404,15 +1404,15 @@ function natascia_function() {
 document.getElementById("natascia_button_go").addEventListener("click", natascia_vai);
 function natascia_vai(){
     if (flag_BT_go==true && flag_BT_stop==false){
-        flag_BT_go=true;  
-        flag_BT_stop=false;  
-    
-    }else{ 
-    flag_BT_go=true;  
-    flag_BT_stop=false;  
+        flag_BT_go=true;
+        flag_BT_stop=false;
+
+    }else{
+    flag_BT_go=true;
+    flag_BT_stop=false;
     //console.log('Premuto tasto Riprendi rotazione');
-    ciclocagnolini = setInterval(natascia_cambia_immagine,3000); 
-    }   
+    ciclocagnolini = setInterval(natascia_cambia_immagine,3000);
+    }
 }
 
 
@@ -1676,7 +1676,7 @@ function cardClick(i, cella) {
         // quando arrivano ad essere 2 si ferma
     if (oldOpen.length == 2) {
         return
-    } // se la carta in cui clicco è coperta, si gira e aggiorna la vista  
+    } // se la carta in cui clicco è coperta, si gira e aggiorna la vista
     if (card.status == 'close') {
         card.status = 'open'
         updateView()
@@ -1828,18 +1828,18 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
     vbNewTable.id = vbIdHtml;
     vbContenitore.append(vbNewTable);
 /*
-    //crea l'INTESTAZIONE <CAPTION> della tabella 
+    //crea l'INTESTAZIONE <CAPTION> della tabella
     var vbNewCaption = document.createElement('caption');
     vbNewCaption.innerText = 'TABELLA COMANDI LINGUAGGI WEB';
     vbNewCaption.setAttribute('class', 'vbtablecaption');
-    vbNewTable.append(vbNewCaption);     
+    vbNewTable.append(vbNewCaption);
 */
-    //crea l'INTESTAZIONE <TR/TH> della tabella, leggendo il primo elemento fuori ciclo 
+    //crea l'INTESTAZIONE <TR/TH> della tabella, leggendo il primo elemento fuori ciclo
     var vbNewTr = document.createElement('tr');
     vbNewTable.append(vbNewTr);
 
     var vbListaPersone1 = vbListaHtml[0];
-    //prendi tutte le chiavi di indice 0 e fai una TH per ognuna delle chiavi 
+    //prendi tutte le chiavi di indice 0 e fai una TH per ognuna delle chiavi
     for (var key in vbListaPersone1) {
         var vbNewTh = document.createElement('th');
         vbNewTh.setAttribute('class', 'vbtableth');
@@ -1853,10 +1853,10 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
         vbNewTh.innerHTML = "Azione";
         vbNewTr.append(vbNewTh);
     }
- 
+
     //crea le RIGHE <TR> della tabella
     for (var i = 0; i < vbListaHtml.length; i++) {
-        //crea il TR 
+        //crea il TR
         var vbNewTr = document.createElement('tr');
         vbNewTable.append(vbNewTr);
 
@@ -1864,12 +1864,12 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
         for (var key in vbOggPersone) {
             //crea il TD
             var vbNewTd = document.createElement('td');
-            //riempi il TD                  
+            //riempi il TD
             vbNewTd.innerHTML = vbOggPersone[key];
             vbNewTd.setAttribute('class', 'vbtabletd');
             vbNewTr.append(vbNewTd);
         }
- 
+
         if (vbIdHtml == "old"){
             var vbNewTd = document.createElement('button');
             vbNewTd.setAttribute('class', 'vbtablebutton');
@@ -1878,16 +1878,16 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
 
             vbNewTd.addEventListener("click", function () {
                 nascondiMessaggi();
-//cancella dalla array l'elemento selezionato con il bottone                
+//cancella dalla array l'elemento selezionato con il bottone
                 var vbStringa =  this.id;
                 vbIndEstratto = vbStringa.substr(14);
                 vbListaHtml.splice(vbIndEstratto,1);
-                
-//cancella la tabella generale e la tabella con il "filtro"               
+
+//cancella la tabella generale e la tabella con il "filtro"
                 document.getElementById('vbcontenitore').innerHTML = "";
                 document.getElementById('vbcontenitore2').innerHTML = "";
                 document.getElementById('vbtestofiltro').value = "";
-                
+
                 if (vbListaHtml.length == 0) {
 //----              console.log("cancellato ultimo elemento di tabella");
                     vbtexthidden = document.getElementById('vbmessaggio3');
@@ -1896,7 +1896,7 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
                 else{
 //ricrea la tabella senza l'elemento cancellato
                      createTableFromList('vbcontenitore', vbListaHtml, "old");
-                }    
+                }
             });
             vbNewTd.innerText = 'Cancella';
             vbNewTr.append(vbNewTd);
@@ -1906,10 +1906,10 @@ function createTableFromList(vbTabellaHtml, vbListaHtml, vbIdHtml) {
 //----------
 function filtraLista(lista, filtro) {
 
-    var vbfiltro = filtro; 
+    var vbfiltro = filtro;
     var vbListaNew = [];
-   
-    for (var i = 0; i < lista.length; i++) {    
+
+    for (var i = 0; i < lista.length; i++) {
         var oggettoPers = lista[i]
         for (var key in oggettoPers) {
             if (oggettoPers[key] == vbfiltro) {
@@ -1917,7 +1917,7 @@ function filtraLista(lista, filtro) {
             }
         }
     }
- 
+
     return vbListaNew;
 }
 
@@ -1938,23 +1938,23 @@ vbTextFiltro.addEventListener('input', function () {
         vbTableRemovePadre.removeChild(vbTableRemoveFiglio);
     }
 
-//controllo che il filtro sia pieno 
+//controllo che il filtro sia pieno
     if (vbTextFiltro.value === null || vbTextFiltro.value === ""){
 //----        console.log("filtro vuoto");
     }
     else{
-//controllo che il filtro contenga solo lettere    
+//controllo che il filtro contenga solo lettere
         var vbpattern = /^[a-z]+$/i;
         if (!vbpattern.test(vbTextFiltro.value)) {
             vbtexthidden = document.getElementById('vbmessaggio1');
             vbtexthidden.style.display = 'block';
         }
         else{
-//trasformazione in caratteri minuscoli per fare il confronto  
+//trasformazione in caratteri minuscoli per fare il confronto
             var vbfiltrolow = vbTextFiltro.value.toLowerCase();
 
             vbListaNew2 = filtraLista(vbListaTotale, vbfiltrolow);
-//cancella lista filtrata, se gia' visualizzata (cioe' non primo giro) 
+//cancella lista filtrata, se gia' visualizzata (cioe' non primo giro)
             var vbTableRemove= document.getElementById('new');
             if (vbTableRemove == null) {
 //----            console.log("tab vuota");
@@ -1974,7 +1974,7 @@ vbTextFiltro.addEventListener('input', function () {
                 createTableFromList('vbcontenitore2', vbListaNew2, "new");
             }
         }
-    }    
+    }
 })
 function nascondiMessaggi(){
     vbtexthidden = document.getElementById('vbmessaggio1');
@@ -2000,7 +2000,7 @@ consuRequest.addEventListener("loadend", function () {
     if(consuRequest.status===200){
         // Converto i dati da JSON a javascript
         var castMembersCon = JSON.parse(consuRequest.response)
-        
+
         // creo le card presenti all inizio
         consuCrea(castMembersCon)
         var consu_cerca = document.getElementById('cerca');
@@ -2038,8 +2038,8 @@ function consuCrea(consuDato){
 
     var consuCnt = document.getElementById('contenitore');
 
-    for(var i=0; i<consuDato.length; i++){            
-        var consuObj = consuDato[i];        
+    for(var i=0; i<consuDato.length; i++){
+        var consuObj = consuDato[i];
         var divConsu = document.createElement('div');
         var imgConsu = document.createElement('img');
         var nameConsu = document.createElement('h5');
@@ -2053,10 +2053,10 @@ function consuCrea(consuDato){
         //scrivo la funzione associata al click sul div
         divConsu.addEventListener("click", function (eventConsu) {
             this.style="border: 1px solid black"
-            attoriSelezionati[this.id]=true;            
+            attoriSelezionati[this.id]=true;
         })
 
-        // Assegno l'indirizzo dell'immagine 
+        // Assegno l'indirizzo dell'immagine
         imgConsu.src = consuObj.person.image.medium
         // Inserisco il nome dell'attore
         nameConsu.innerHTML = consuObj.person.name
@@ -2078,3 +2078,123 @@ function consu_filtro(nome, lista) {
 }
 
 //-------------------------- fine codice Consuelo --------------------
+
+//------------------inizio cod cristina-------------
+// var majorDiv = document.createElement('div');
+//  majorDiv.id = "scatola";
+//  document.body.appendChild(majorDiv);
+
+//creato div prova in scatola.
+  var upDiv1 = document.getElementById('scatola');
+  var first = document.createElement('div');
+  first.id = "prova";
+  upDiv1.appendChild(first);
+
+//creo div scatola2 in div scatola
+  var second = document.createElement('div');
+  second.id = "scatola2"; //console.log(second)
+  upDiv1.appendChild(second);
+
+//creo h1 in prova
+  var upDiv2 = document.getElementById('prova');
+  var titolo = document.createElement('h1');
+  titolo.id = "titolo_cri";
+  titolo.innerHTML = "GIOCA CON ME!! INDOVINA!!";
+  upDiv2.appendChild(titolo);
+
+//creo input nel prova
+  var inputOne = document.createElement('input');
+  inputOne.id = "input";
+  inputOne.type= "number";
+  inputOne.value = "";
+  upDiv2.appendChild(inputOne);
+
+//creo l'invio in div prova
+  var invioIndovina = document.createElement('button');
+  invioIndovina.id ="okInvio";
+  invioIndovina.innerText='Invia';
+  upDiv2.appendChild(invioIndovina);
+
+  var tipo = random()
+
+function gioca() {
+  var prendi = document.getElementById('input');
+if(prendi.value !== ""){
+    if (prendi.value == tipo) {
+     var paragraph = creare();
+     paragraph.innerHTML = 'Congratulazioni hai indovinato!';
+     bottone2(); //console.log(bottone2);
+    //console.log(restart1);
+     var reinvia = document.getElementById('clicco');
+     reinvia.addEventListener('click',elimina,false);
+    }else if(prendi.value < 0){
+     paragraph = creare()
+     paragraph.innerHTML = 'Spiacenti hai selezionato un numero negativo';
+     document.getElementById('input').value = "";
+    }else if(prendi.value>tipo){
+     paragraph = creare()
+     paragraph.innerHTML = 'Ops!Spiancente il numero che hai selezionato è maggiore';
+     document.getElementById('input').value = "";
+    }else{
+     paragraph = creare()
+     paragraph.innerHTML='Ops!Spiancente il numero che hai selezionato è minore';
+     document.getElementById('input').value = "";
+     }
+  }else{
+    paragraph = creare();
+    paragraph.innerHTML = 'Non hai inserito nessun numero!';
+  }
+}
+
+function random(){
+  var numeroIndovina = Math.round(Math.random() * 100) + 1;
+  return numeroIndovina;
+}
+
+function creare() {
+  var upDiv = document.getElementById('scatola2');
+  var paragraphAll = document.createElement('p');
+  paragraphAll.id = "par";
+  upDiv.appendChild(paragraphAll);
+  return paragraphAll;
+  }
+
+function elimina(){
+  var upDiv = document.getElementById('scatola2');
+  //console.log(upDiv);
+  var elemento1 = document.getElementById('par');//elemento da eliminare
+  console.log(elemento1);
+  //crea classe nel paragrafo e usa il tag classe
+  var el = elemento1.parentNode;
+  console.log(el);
+  var tg = document.getElementById('clicco');
+  upDiv.removeChild(tg);
+  while (el.childNodes.length > 0){
+       el.childNodes[0].remove();
+      }
+  document.getElementById('input').value="";
+  location.reload(true);
+}
+
+function bottone2(){
+  var upDiv = document.getElementById('scatola2');
+  var restart = document.createElement('button');
+  restart.id = "clicco";
+  restart.innerText='restart';
+  upDiv.appendChild(restart);
+}
+
+ function controlla(e){
+   var tasto = e.which;
+  //console.log(tasto);
+   if(tasto == 13){
+  var inizia = gioca();
+    }
+}
+
+var invio = document.getElementById('okInvio');
+invio.addEventListener('click', gioca, false);
+ var tasto = document.getElementById('input');
+ tasto.addEventListener('keypress',controlla,false);
+
+ //--------fine cod cristina------------

@@ -23,16 +23,16 @@ Se per motivi di riservatezza/privacy non volete scrievere il cognome, Scivete a
 ## Penalità
 Saranno penalizzati (ad insindacabile discrezione del docente):
 
-- Gli esami che risultano troppo simili nel codice o nell'aspetto a quelli di un altro allievo. 
+- Gli esami che risultano troppo simili nel codice o nell'aspetto a quelli di un altro allievo.
 Non verra penalizzato per questo motivo il primo che ha pubblicato il codice.
 - Gli esami che risultino copiati anche in minima parte dal web.
 - Comportamenti scorretti come sabotare volutamente il lavoro di un altro studente o prenotare troppi esercizi.
 - Uso improprio di GIT/GITHUB come pubblicare ripetutamente codice difettoso o senza rimuovere i tag di conflitto.
-- Impersonare/Aiutare in qualsiasi modo altri studente come 
+- Impersonare/Aiutare in qualsiasi modo altri studente come
 prenotare esami a nome di altri, pubblicare esami per conto di altri, correggere/migliorare l'esame di altri allievi.
 - Uso di librerie/codice di terzi ad eccezione di: Bootstrap(solo CSS!), jQuery e Fontawesome(Tutto).
 - Utilizzo/Upload/Push di immagini o altri tipi di contentuto con licenza di utilizzo non appropriata ad un progetto opensource/didattico.
-- Qualsiasi comportamento che a giudizio insindacabile del docente sia un tentantivo di aggirare le regole dell esame. 
+- Qualsiasi comportamento che a giudizio insindacabile del docente sia un tentantivo di aggirare le regole dell esame.
 
 
 ## Bonus
@@ -56,7 +56,7 @@ Potranno essere premiati (ad insindacabile discrezione del docente):
 # ESAMI
 
 ### Cambia colore (60p) Stefania Cappellino
-Creare un input tipo color ed un paragrafo. 
+Creare un input tipo color ed un paragrafo.
 Al cambio del valore dell input il paragrafo cambia colore
 
 
@@ -68,7 +68,7 @@ Al cambio del valore dell input il font dell intera applicazione cambia.
 
 
 ### Carousel (60p-75p) natascia
-Creare un div con dentro un immagine. 
+Creare un div con dentro un immagine.
 L'immagine cambia ogni 3 secondi
 
 +5p ricomincia da capo quando arriva all'ultima immagine
@@ -89,14 +89,14 @@ La calcolatrice esegue le operazioni su 2 numeri
 
 +5p La calcolatrice continua a prendere valori e da il risultato solo quando si schiaccia il taso '='
 
-+5p Aggiungere un tasto che se premuto crea un nuovo paragrafo con l'ultimo risultato in modo da salvarlo permanentemente. 
-Si possono salvare fino a 10 risultati, all inserimento dell 11mo risultato il primo si cancella. 
++5p Aggiungere un tasto che se premuto crea un nuovo paragrafo con l'ultimo risultato in modo da salvarlo permanentemente.
+Si possono salvare fino a 10 risultati, all inserimento dell 11mo risultato il primo si cancella.
 Se clicco su un risultato salvato verra usato nella calcalatice come se fosse stato inserito con i tasti.
 
 +5p Aggiungere tasto indietro, che se premuto elimina l'ultima cifra/operazione inserita
 
 
-### Zoom immagine (70p-85p) Cristina
+### Zoom immagine (70p-85p)
 Creare un div con dentro un immagine. Creare i tasti: giu, su, destra, sinistra, zoom+, zoom-
 il tasto zoom ingrandisce l'immagine i tasti direzionali la spostano.
 
@@ -107,10 +107,10 @@ il tasto zoom ingrandisce l'immagine i tasti direzionali la spostano.
 +5p l'immagine non diventa più piccola del div contenitore
 
 
-### Inodvina numero (70-100p)
+### Inodvina numero (70-100p) Cristina 
 Creare un input di tipo numero, un tasto invia, un paragrafo.
 L'applicazione sceglie un numero casuale da 1 a 100 che rimane sconosciuto all'utente.
-Quando l'utente scrive un numero nell input e preme il tasto invia se lo indovina riceve un messaggio di 
+Quando l'utente scrive un numero nell input e preme il tasto invia se lo indovina riceve un messaggio di
 successo se non lo indovina riceve un messaggio che gli comunica se il numero inserito e piu piccolo o
 piu grande di quello da indovinare.
 
@@ -119,7 +119,7 @@ Se il giocatore artificiale indovina per primo l'utente riceve un messaggio di s
 L'avversario artificiale usa la funzione Math.random per provare a indovinare.
 L'utente non vede i numeri che l'avversario artificiale inserisce ma solo quanti tentativi ha fatto.
 
-+10 inserire un input che permette di impostare ogni quanti millisecondi l'avversario artificiale prova a indovinare. 
++10 inserire un input che permette di impostare ogni quanti millisecondi l'avversario artificiale prova a indovinare.
 
 +10 l'avversario artificiale ad ogni turno sa se il numero da indovinare e piu grande o piu piccolo di quello che ha inserito.
 Di conseguenza restringe il campo ogni volta.
@@ -131,21 +131,21 @@ Creare un paragrafo con la scritta 00:00:00
 Alla pressione del tasto start il conometro parte, il valore del paragrafo cambia ogni 1/10 di secondo mostrando il tempo trascorso.
 Il tasto stop blocca il cronometro, il tasto continue lo fa continuare se stoppato, il tasto reset lo riport allo stato iniziale.
 
-+5p aggiungere un tasto che compare solo quando il cronometro è attivo. Se si preme il tasto viene aggiunto un paragrafo 
-con il valore corrente del cronometro. 
++5p aggiungere un tasto che compare solo quando il cronometro è attivo. Se si preme il tasto viene aggiunto un paragrafo
+con il valore corrente del cronometro.
 è possibile aggiungere un numero indefinito di tempi intermedi al cronometro.
 
 
-### Timer (70p) 
+### Timer (70p)
 Simile al cronometro ma parte da un numero inserito in input e si ferma a 0
 
 
 ### Attacco epilettico (75p-85p) Alessandro Laregina
-BASE DA CUI PARTIRE: 'Carousel' + 'bonus ricomincia da capo quando arriva all'ultima immagine'. 
-Modificarlo di modo che le immagini scorrano molto velocemente. 
+BASE DA CUI PARTIRE: 'Carousel' + 'bonus ricomincia da capo quando arriva all'ultima immagine'.
+Modificarlo di modo che le immagini scorrano molto velocemente.
 E che inizalmente sia fermo.
 Inserire un bottone start.
-Alla pressione del bottone start compare sopra al carousel una delle immagini del carousel scelta casualmente. 
+Alla pressione del bottone start compare sopra al carousel una delle immagini del carousel scelta casualmente.
 Il carousel parte ecomicia a cambiare le immagini.
 L'utente deve riuscire a cliccare l'immagine scelta casualmente dall'applicazione.
 Quando l'utente riesce a cliccare l'immagine corretta il carousel ritorna allo stato iniziale.
@@ -182,8 +182,8 @@ Ogni card deve contenere almeno un immagine ed un testo.
 +5p prendere i dati tramite request da una API pubblica a tua scelta
 
 +5p Campo di testo che filtra la lista
- 
- 
+
+
 ### Tabella da lista di oggetti Advanced(80p-90p) Noemi Ena
 BASE DA CUI PARTIRE: 'Tabella da lista di oggetti' + bonus 'Campo di testo che filtra la tabella'.
 Rendere gli elementi selezionabili: cliccando su una riga la riga cambia stile.
@@ -212,7 +212,7 @@ Nel caso i campi siano stati tutti inseriti mostrare un mesaggio di successo alt
 
 +5p creare un tasto reset che cancella tutti i campi del form
 
-+10 creare un campo input di tipo 'password', creare un bottone mostra password: 
++10 creare un campo input di tipo 'password', creare un bottone mostra password:
 al click rende la password nell input leggibile se è offuscata o la offusca se è leggibile.
 
 
@@ -236,7 +236,7 @@ Aggiungere un campo email e eseguire oltre al controllo base controllare anche c
 
 ### Validazione form Con aggiunta indirizzi(90p) MATHEUS
 BASE DA CUI PARTIRE: esercizio 'Validazione form'
-Creare lla interno del form una sezione indirizzi che all'inizio contenga solo un bottone 'aggiungi indirizzo'. 
+Creare lla interno del form una sezione indirizzi che all'inizio contenga solo un bottone 'aggiungi indirizzo'.
 Alla pressione del bottone si crea un nuovo campo di input testuale in cui l'utente dovra inserire il proprio indirizzo.
 Ogni pressione successiva del bottone aggiungera un ulteriore input (solo se l'input indirizzo precendete non risulta vuoto).
 
@@ -284,14 +284,14 @@ Il tasto pausa ferma l'avanzamneto automatico ma non la funzionalità dei botton
 
 ### Prendi il div!(100p)
 Creare un div contenitore che rappresenta l'area di gioco. aggiungere all interno un div quadrato.
-Il div si muove casualmente e velocemente all interno dell'area di gioco. 
+Il div si muove casualmente e velocemente all interno dell'area di gioco.
 L'utente deve riuscire a cliccarlo.
 Tenere traccia dei click corretti e scorretti mostare il rapporto successo/insuccesso in un paragrafo.
 
 
 ### Scappa dal div! (100p) - Francesco Ponzin
 Creare un div contenitore che rappresenta l'area di gioco. aggiungere all interno un div quadrato.
-Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco. 
+Il div si muove inseguendo il puntatore e velocemente all interno dell'area di gioco.
 L'utente deve riuscire a non toccare il div col puntatore.
 Tenere traccia del punteggio
 
@@ -301,6 +301,6 @@ Creare il gioco del memory con almeno 16 carte.
 
 
 # ESAMI PROPOSTI DAGLI STUDENTI
-Scrivete qui sotto gli esami che volte proporre con un titole e delle istruzioni per lo svolgimento 
+Scrivete qui sotto gli esami che volte proporre con un titole e delle istruzioni per lo svolgimento
 se saranno approvati verranno spostati dal docente nella sezione sovrastante.
 Se siete gli autori dell'esame proposto potete prenotarlo in anticipo scriveno di vostro nome di fianco al titolo.
