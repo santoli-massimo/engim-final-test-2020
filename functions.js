@@ -1875,10 +1875,26 @@ function createTableFromList(vbTabellaHtml, vbListaHtml) {
 //cancella dalla array l'elemento selezionato con il bottone                
             var vbStringa =  this.id;
             vbIndEstratto = vbStringa.substr(14);
+            var vbCommandoListaHtml = vbListaHtml[vbIndEstratto];
+//rivedere 24/3 - inizio
+            var vbCommandoListaHtmlx = vbCommandoListaHtml["comando"];
+//rivedere 24/3 - fine        
             vbListaHtml.splice(vbIndEstratto,1);
-                 
+ 
+//rivedere 24/3 - inizio            
+//aggiorna lista totale togliendo l'elemento cancellato a video            
+            for (var ivb3 = 0; ivb3 < vbListaTotale.length; ivb3++) {
+                 var vbVioletta3 = vbListaTotale[ivb3];
+                 for (var keyvb3 in vbVioletta3) {
+                    vbCommandoListaHtmlyyy = vbVioletta3[keyvb3];
+                    if  (vbCommandoListaHtmlyyy == vbCommandoListaHtmlx){
+                        vbListaTotale.splice(ivb3,1);
+                    }
+                }
+            }  
+//rivedere 24/3 - fine                   
+      
             if (vbListaHtml.length == 0) {
-//              console.log("cancellato ultimo elemento di tabella");
                 vbtexthidden = document.getElementById('vbmessaggio3');
                 vbtexthidden.style.display = 'block';
             }
