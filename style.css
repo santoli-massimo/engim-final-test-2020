@@ -754,6 +754,17 @@ padding: 2px
     border: solid 1px #E87E04;
 }
 
+.natascia_divrange{
+    position: absolute;
+    right: 320px;
+    top: 400px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color:rgb(14, 46, 105);
+    border: 3px solid #73AD21;
+}
+
+
 .natascia_frase {
     height: 50px;
     width: 450px;
