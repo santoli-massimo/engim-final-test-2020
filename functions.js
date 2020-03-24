@@ -1391,6 +1391,7 @@ function natascia_function() {
 
     var flag_BT_inv = false;
     var ciclocagnolini = 0;
+    var natascia_velocita = 3000;
 
     document.getElementById("natascia_button_stop").addEventListener("click", natascia_ferma);
     function natascia_ferma(){
@@ -1411,7 +1412,7 @@ function natascia_vai(){
     flag_BT_go=true;
     flag_BT_stop=false;
     //console.log('Premuto tasto Riprendi rotazione');
-    ciclocagnolini = setInterval(natascia_cambia_immagine,3000);
+    ciclocagnolini = setInterval(natascia_cambia_immagine,natascia_velocita);
     }
 }
 
@@ -1430,6 +1431,20 @@ function natascia_vai(){
             //console.log('Premuto tasto Inverti rotazione ma sono in STOP ROTAZIONE di conseguenza lancio natascia vai');
             natascia_vai();
         }
+    }
+
+
+//Impostazione velocita' scorrimento immagini
+    document.getElementById("natascia_velocita").addEventListener("change", natascia_imposta_vel);
+    function natascia_imposta_vel(){
+    var nat_vel = document.getElementById('natascia_velocita');
+    natascia_velocita = (nat_vel.value*1000);
+    //console.log('valore range fin '+natascia_velocita);
+    //Una volta impostati i parametri del setInterval non e' possibile cambiarli,
+    //di conseguenza elimino totalmente il ciclo e lo reimposto con la nuova velocita'
+    //scelta dall'utente
+    window.clearInterval(ciclocagnolini);
+    ciclocagnolini = setInterval(natascia_cambia_immagine,natascia_velocita); 
     }
 
     var natascia_index = 1;
@@ -1459,7 +1474,7 @@ function natascia_vai(){
         }
 
     }
-    var ciclocagnolini = setInterval(natascia_cambia_immagine, 3000);
+    var ciclocagnolini = setInterval(natascia_cambia_immagine, natascia_velocita);
 }
 
 natascia_function();
