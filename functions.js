@@ -2410,3 +2410,109 @@ invio.addEventListener('click', gioca, false);
  tasto.addEventListener('keypress',controlla,false);
 
  //--------fine cod cristina------------
+
+ //----INIZIO SCRIPT NOEMI-----//
+ var noemi_cowRaces = [
+    {
+        Razza: 'Frisona italiana',
+        TipologiaProduzione: 'da latte',
+        EtàMedia: '2 anni',
+    },
+    {
+        Razza: 'Piemontese',
+        TipologiaProduzione: 'da carne',
+        EtàMedia: '6 anni',
+    },
+    {
+        Razza: 'Chianina',
+        tipologiaProduzione: 'da carne',
+        etàMedia: '2 anni',
+    },
+    {
+        Razza: 'Bufala',
+        TipologiaProduzione: 'da latte',
+        EtàMedia: '18 anni',
+    },
+    {
+        Razza: 'Jersey',
+        TipologiaProduzione: 'da latte',
+        EtàMedia: '2 anni',
+    },
+
+]
+
+var noemi_filterTable = document.getElementById('filter')
+
+createTableFromList('noemi_tableContainer', noemi_cowRaces)
+
+noemi_filter.addEventListener('input', function () {
+    var noemi_container = document.getElementById('noemi_tableContainer')
+    noemi_container.innerHTML = ''
+    var noemi_filterText = noemi_filter.value
+    var noemi_newList = noemi_filterList(noemi_cowRaces, noemi_filterText)
+    createTableFromList('noemi_tableContainer', noemi_newList)
+})
+
+function createTableFromList(noemi_tableContainer, noemi_cowRaces){
+
+var noemi_container = document.getElementById('noemi_tableContainer')
+var noemi_cows = document.createElement('table')
+noemi_container.append(noemi_cows)
+
+var noemi_header = document.createElement('thead')
+noemi_cows.append(noemi_header)
+
+
+for (var noemi_obj in noemi_cowRaces[0]) {
+    var noemi_tableHead = document.createElement('th')
+
+    noemi_tableHead.style.border = 'solid'
+    noemi_tableHead.style.height = '20px'
+    noemi_tableHead.innerHTML = noemi_obj
+
+
+    noemi_header.append(noemi_tableHead);
+}
+
+
+for (var noemi_cow in noemi_cowRaces) {
+    var noemi_tableRow = document.createElement('tr')
+    noemi_cows.style.border = 'groove'
+    noemi_cows.style.width = '20%'
+    noemi_cows.style.borderCollapse = 'collapse'
+
+    noemi_cows.append(noemi_tableRow);
+
+
+    for (var noemi_attribute in noemi_cowRaces[noemi_cow]) {
+        var noemi_tableData = document.createElement('td')
+
+        noemi_tableData.style.padding = '5px'
+        noemi_tableData.style.border = 'groove'
+        noemi_tableData.innerHTML = noemi_cowRaces[noemi_cow][noemi_attribute]
+
+
+        noemi_tableRow.append(noemi_tableData);
+
+    }
+}
+
+}
+
+function noemi_filterList(noemi_list, noemi_filter) {
+    var noemi_result = []
+    for (var i = 0; i < noemi_list.length; i++) {
+        var noemi_cow = noemi_list[i]
+
+        for (var noemi_key in noemi_cow) {
+
+            if (noemi_cow[noemi_key].toLowerCase().indexOf(noemi_filter.toLowerCase()) !== -1) {
+                noemi_result[noemi_result.length] = noemi_cow
+                break
+            }
+        }
+    }
+    return noemi_result
+}
+
+//------FINE CODICE NOEMI---//
