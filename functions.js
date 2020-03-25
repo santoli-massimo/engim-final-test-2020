@@ -746,137 +746,331 @@ function hideshow_sef() {
 }
 // fine funzioni sefora
 
-//Funzioni momo
+
+
+
+
+
+///////////////Codice Momo//////////////////
+document.getElementById("bottone").addEventListener('click', ValidazioneMailMoo)
+
+var showHidePass = document.getElementById("showHidePass") // variabile per mostra e nascondi password
+
+//Evento per mostrare e nascondere password tramite un checkbox
+showHidePass.addEventListener('click', function (event) {
+
+    if (showHidePass.checked) {
+        pass.type = 'text'
+        confPass.type = 'text'
+        console.log(pass.type, confPass.type)
+    } else {
+        pass.type = 'password'
+        confPass.type = 'password'
+        console.log(pass.type, confPass.type)
+    }
+})
+
+
 function ValidazioneMailMoo() {
 
-    var bott = document.getElementById("bottone")
-    var user = document.getElementById("username")
+    //Variabili per mostrare errori
+    var sesso = document.getElementById("sesso");//radio
+    var classe = document.getElementById("classe")//checkbox
+    var viaggio = document.getElementById("viaggio")//checkbox
+
+
+    //variabili globasli per funzionamento form
+    var nome = document.getElementById("nome")
+    var cognome = document.getElementById("cognome")
     var pass = document.getElementById("pass")
     var confPass = document.getElementById("confPass")
-    var showHidePass = document.getElementById("showHidePass") // variabile per mostra e nascondi password
     var email = document.getElementById("email")
-
-
-    // var dataNascita = document.getElementById("data")
-    //variabili per i Radio buttons
+    var dataNascita = document.getElementById("data")
     var radio = document.getElementById("radio1")
     var radio2 = document.getElementById("radio2")
-
-
-    //Variabili per il checkbox buttons
+    var radio3 = document.getElementById("radio3")
     var casella = document.getElementById("box1")
     var casella2 = document.getElementById("box2")
     var casella3 = document.getElementById("box3")
-
-
-    //Variabili select
     var selezione = document.getElementById("select")
+    var numDoc = document.getElementById("numeroDocumento")
+    var enteRil = document.getElementById("enteRilascio")
+    var rilascio = document.getElementById("dataRilascio")
+    var scadenza = document.getElementById("dataScadenza")
+    var motivo1 = document.getElementById("motivo1")
+    var motivo2 = document.getElementById("motivo2")
+    var motivo3 = document.getElementById("motivo3")
+    var motivo4 = document.getElementById("motivo4")
+    var dataLimite = "1920-01-01";
+
+
+
+    //variabili per controllo contenuto
+    var contr_email = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/i;
+    var contr_dati = /[a-zA-Z]/
+    var contr_pass = /[a-zA-Z]+[0-9]/
+
+
+    ///CONTROLLI////
+
+
+    //Controllo nome        
+    if (nome.value == "" || !contr_dati.test(nome.value)) {
+        nome.classList.add("is-invalid")
+        nome.classList.remove("is-valid")
+    } else {
+        nome.classList.remove("is-invalid")
+        nome.classList.add("is-valid")
+    }
+    //Fine controllo nome
+
+
+
+    //Controllo cognome       
+    if (cognome.value == "" || !contr_dati.test(cognome.value)) {
+        cognome.classList.add("is-invalid")
+        cognome.classList.remove("is-valid")
+    } else {
+        cognome.classList.remove("is-invalid")
+        cognome.classList.add("is-valid")
+    }
+    //Fine controllo cognome
 
 
 
 
-    //Evento per mostrare e nascondere password tramikte un checkbox
-    showHidePass.addEventListener('click', function(event) {
+    //Controllo password
+    if (pass.value.length >= 8 && pass.value == confPass.value && contr_pass.test(pass.value)) {
+        pass.classList.remove("is-invalid")
+        pass.classList.add("is-valid")
+    } else {
+        pass.classList.add("is-invalid")
+        pass.classList.remove("is-valid")
+    }
+    //Fine controllo password
 
-        if (showHidePass.checked) {
-            pass.type = 'text'
-            confPass.type = 'text'
-            console.log(pass.type, confPass.type)
+
+
+
+    //Controllo email
+    if (contr_email.test(email.value)) {
+        email.classList.remove("is-invalid")
+        email.classList.add("is-valid")
+
+    } else {
+        email.classList.add("is-invalid")
+        email.classList.remove("is-valid")
+    }
+    //Fine controllo email
+
+
+
+    //Conttollo data nascita       
+    var data = new Date()
+    var year = data.getFullYear()
+
+    if (data.getMonth() + 1 < 10) {
+        var month = data.getMonth() + 1;
+        month = "0" + month
+    } else {
+        month = data.getMonth() + 1
+    }
+
+    var day = data.getDate()
+    var dataFinale = year + "-" + month + "-" + day
+
+
+    var data1 = new Date(dataNascita.value)
+    var annoNascita = data1.getFullYear()
+    var meseNascita = data1.getMonth() + 1
+    var giornoNascitaa = data1.getDate()
+
+
+    contr_magg = year - annoNascita
+    contr_magg1 = month - meseNascita
+    contr_magg2 = day - giornoNascitaa
+
+
+    if (dataNascita.value == "" || dataNascita.value < dataLimite || dataNascita.value > dataFinale) {
+        dataNascita.classList.add("is-invalid")
+        dataNascita.classList.remove("is-valid")
+    } else {
+        if (contr_magg >= 18 && contr_magg1 >= 0 && contr_magg2 >= 0) {
+            dataNascita.classList.remove("is-invalid")
+            dataNascita.classList.add("is-valid")
         } else {
-            pass.type = 'password'
-            confPass.type = 'password'
-            console.log(pass.type, confPass.type)
+            dataNascita.classList.remove("is-invalid")
+            dataNascita.classList.add("is-valid")
         }
-    })
+    }
+    //fine controllo data nascita
 
 
 
 
 
 
-    //Evento per controllo form e validazione
-    bott.addEventListener('click', function(event) {
+    //Controllo sesso
+    if (radio.checked || radio2.checked || radio3.checked) {
+        sesso.classList.remove("is-invalid")
+        sesso.classList.add("is-valid")
+    } else {
+        sesso.classList.add("is-invalid")
+        sesso.classList.remove("is-valid")
+    }
+    //Fine controllo sesso
 
 
 
-        //Controllo username
-        if (user.value == "mondo") {
-            console.log("Controllo username eseguito")
+    //Controllo classe
+    if (casella.checked || casella2.checked || casella3.checked) {
+        classe.classList.remove("is-invalid")
+        classe.classList.add("is-valid")
+    } else {
+        classe.classList.add("is-invalid")
+        classe.classList.remove("is-valid")
+    }
+    //Fine controllo classe
+
+
+
+
+    //Controllo checkbox
+    if (motivo1.checked || motivo2.checked || motivo3.checked || motivo4.checked) {
+        viaggio.classList.remove("is-invalid")
+        viaggio.classList.add("is-valid")
+    } else {
+        viaggio.classList.add("is-invalid")
+        viaggio.classList.remove("is-valid")
+    }
+    //Fine controllo checkox
+
+
+
+
+
+
+
+
+    //Controllo select 
+    if (selezione.value >= 1) {
+        selezione.classList.remove("is-invalid")
+        selezione.classList.add("is-valid")
+    } else {
+        selezione.classList.add("is-invalid")
+        selezione.classList.remove("is-valid")
+    }
+    //Fine controllo select
+
+
+
+
+
+
+    //controllo numero documento
+    if (numDoc.value.length == 9 && contr_dati.test(numDoc.value)) {
+        numDoc.classList.remove("is-invalid")
+        numDoc.classList.add("is-valid")
+    } else {
+        numDoc.classList.add("is-invalid")
+        numDoc.classList.remove("is-valid")
+    }
+    //fine controllo nuemro documento
+
+
+
+
+    //controllo ente rilascio
+    if (enteRil.value == "" && !contr_dati.test(enteRil.value)) {
+        enteRil.classList.add("is-invalid")
+        enteRil.classList.remove("is-valid")
+    } else {
+        enteRil.classList.remove("is-invalid")
+        enteRil.classList.add("is-valid")
+    }
+    //fine controllo ente rilascio
+
+
+
+
+
+
+
+    //controllo data validita documento(10 anni)
+    var dataDoc = new Date(rilascio.value)
+    var annoRil = dataDoc.getFullYear()
+    var meseRil = dataDoc.getMonth() + 1
+    var giornoRil = dataDoc.getDate()
+
+
+    var contr_yy = year - annoRil
+
+
+
+    if (rilascio.value == "" || rilascio.value < dataLimite || rilascio.value > dataFinale) {
+        rilascio.classList.add("is-invalid")
+        rilascio.classList.remove("is-valid")
+    } else {
+        if (contr_yy == 10 && meseRil == month && giornoRil == day) {
+            rilascio.classList.remove("is-invalid")
+            rilascio.classList.add("is-valid")
+
+        } else if (contr_yy == 10 && meseRil > month) {
+            rilascio.classList.remove("is-invalid")
+            rilascio.classList.add("is-valid")
+        } else if (contr_yy >= 0 && contr_yy <= 9) {
+            rilascio.classList.remove("is-invalid")
+            rilascio.classList.add("is-valid")
+            console.log("funziona")
         } else {
-            console.log("Controllo non riuscito")
+            rilascio.classList.add("is-invalid")
+            rilascio.classList.remove("is-valid")
         }
-        //Fine controllo username
+
+    }
+    //finr controllo data validità rilascio
 
 
-        //Controllo email
-        if (email.value == "momo@momo.it") {
 
-            console.log("Controllo email completato")
+
+
+    //controllo data validita documento(10 anni) scadenza
+    var dataSca = new Date(scadenza.value)
+    var annoSca = dataSca.getFullYear()
+    var meseSca = dataSca.getMonth() + 1
+    var giornoSca = dataSca.getDate()
+
+    contr_y = annoSca - annoRil
+
+
+
+    if (scadenza.value == "" || scadenza.value < dataLimite) {
+        scadenza.classList.add("is-invalid")
+        scadenza.classList.remove("is-valid")
+    } else {
+        if (contr_y == 10 && meseSca == meseRil && giornoSca == giornoRil) {
+            scadenza.classList.remove("is-invalid")
+            scadenza.classList.add("is-valid")
         } else {
-            console.log("Controllo email fallito")
+            scadenza.classList.add("is-invalid")
+            scadenza.classList.remove("is-valid")
         }
-        //Fine controllo email
-
-
-        //Controllo password
-        if (pass.value.length >= 8 && pass.value == confPass.value) {
-            console.log("password uguali")
-        } else {
-            console.log("Passwword diversi, riprovare")
-        }
-        //Fine controllo password
-
-
-
-        //Controllo radio
-        if (radio.checked || radio2.checked) {
-            console.log("il radio funziona")
-        } else {
-            console.log("Non selezionato")
-        }
-        //Fine controllo radio
-
-
-
-        //Controllo checkbox
-        if (casella.checked || casella2.checked || casella3.checked) {
-            console.log("checkbox funziona kinda")
-        } else {
-            console.log("Selezionare almeno un elemento")
-        }
-        //Fine controllo checkox
-
-
-
-        //Controllo select
-        if (selezione.value) {
-            console.log("Selezione completata")
-        } else {
-            console.log("Selezione non fatta")
-        }
+    }
+    //finr controllo data validità
 
 
 
 
-        //Controllo generale forse finale
-        if (pass.value.length >= 8 && pass.value == confPass.value && selezione.value &&
-            (radio.checked || radio2.checked) && (casella.checked || casella2.checked || casella3.checked) &&
-            user.value == "mondo" && email.value == "momo@momo.it") {
-            alert("Form completato con successo")
-        } else {
+    pass.type = 'password'
+    confPass.type = 'password'
 
-            alert("Errore nel form, riprovare")
-        }
-        //Fine di esso
+}// Fine function
+
+ /////////FINE CODICE MOMO ////////////////
 
 
 
-    })
-
-} // Fine function
-document.getElementById("showHidePass").addEventListener('click', ValidazioneMailMoo)
-document.getElementById("bottone").addEventListener('click', ValidazioneMailMoo)
-    //Fine funzioni momo
+ 
 
 //funzione di ale the best
 //array img

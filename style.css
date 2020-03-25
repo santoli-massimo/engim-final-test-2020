@@ -1187,10 +1187,20 @@ padding: 2px
 }
 #par{
   color:white;
-  margin-right: 10px:
+  margin-right: 10px;
   display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 10px;
 }
+
+
+/*Momo CSS*/
+
+#Momo{
+    background: url("immagini/imgMoo/wallpaper2.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/*Fine CSS Momo*/
